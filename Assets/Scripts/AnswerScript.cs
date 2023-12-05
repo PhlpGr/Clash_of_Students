@@ -6,7 +6,7 @@ public class AnswerScript : MonoBehaviour
 {
     public bool isCorrect = false;
 
-    
+    //comment
     public QuizManager quizManager;
     public void Answer()
     {
