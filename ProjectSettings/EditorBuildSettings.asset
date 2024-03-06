@@ -9,12 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 8acaf96bd7a66f54094b77ca8858881c
   - enabled: 1
-    path: Assets/Scenes/Level 01.unity
+    path: Assets/Scenes/Level/Level 01.unity
     guid: 7f7a9ed07d515af478bdf3f36488332f
   - enabled: 1
-    path: Assets/Scenes/Level 02.unity
+    path: Assets/Scenes/Level/Level 02.unity
     guid: 7ac129dca46bdb3478af2bb1ac691f34
   - enabled: 1
     path: Assets/Scenes/Quiz.unity
     guid: dcc1c8ab07a6dd444a93ed75878a9609
+  - enabled: 1
+    path: Assets/Scenes/Willkommen.unity
+    guid: c2f8c395f47072142a12150cb724c303
+  - enabled: 1
+    path: "Assets/Scenes/Level\xFCbersicht.unity"
+    guid: 545cd220d29f1a14fa50eda74a848309
+  - enabled: 1
+    path: "Assets/Scenes/Hauptmen\xFC.unity"
+    guid: 660bd2c40b385094ebfb34648d859443
   m_configObjects: {}
