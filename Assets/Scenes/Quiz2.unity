@@ -1149,30 +1149,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
-  - Question: Which architectural style is supported by FaaS that reacts to things
-      that happen?
+  - Question: Which Dockerfile Command runs a given command when building the Docker
+      Image?
     Answers:
-    - Amazon Elastic Compute
-    - Event-Driven Cloud
-    - Event-Driven Compute
-    - Event-Driven Laptop
-    CorrectAnswer: 2
-  - Question: Which pricing model of AWS EC2 allows you to bid on spare computing
-      capacity for up to 90% off the on-demand price?
-    Answers:
-    - Spot Instances
-    - Reserved Instances
-    - Dedicated Hosts
-    - Demand Instances
+    - RUN
+    - cmd
+    - '&RUN'
+    - BUILD
     CorrectAnswer: 0
-  - Question: In which pricing model of AWS EC2 do you pay by hour with no long term
-      commitments or upfront payments?
+  - Question: Which Dockerfile Command runs a given Command when running the Docker
+      Image?
     Answers:
-    - Spot Instances
-    - Reserved Instances
-    - Dedicated Hosts
-    - Demand Instances
-    CorrectAnswer: 3
+    - RUN
+    - cmd
+    - '&RUN'
+    - BUILD
+    CorrectAnswer: 1
+  - Question: Which Cloud Service Model is appropriate for deploying software that
+      is picky about the operating system and has several uncommon dependencies to
+      it?
+    Answers:
+    - Software as a Service
+    - Platform as a Service
+    - Infrastructure as a Service
+    - Hardware as a Service
+    CorrectAnswer: 2
   - Question: How many of the three properties of the CAP Theorem can be achieved
       at the same time?
     Answers:
@@ -1196,7 +1197,7 @@ MonoBehaviour:
   - {fileID: 1149230549}
   currentQuestion: 0
   QuestionTxt: {fileID: 1814506192}
-  sceneName: Prototyp_Unterlevel
+  sceneName: Prototyp_Unterlevel2
 --- !u!224 &1570858866
 RectTransform:
   m_ObjectHideFlags: 0

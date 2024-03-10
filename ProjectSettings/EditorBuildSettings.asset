@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototyp_Unterlevel.unity
     guid: 3ca7321f152e55d44acc9955346abb45
+  - enabled: 1
+    path: Assets/Scenes/Prototyp_Unterlevel2.unity
+    guid: fa237efdf2b86734ebb22afa7a1292fe
+  - enabled: 1
+    path: Assets/Scenes/Quiz2.unity
+    guid: 81fcd32822f97b4459e81fcb476bda58
   m_configObjects: {}

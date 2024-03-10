@@ -37,6 +37,7 @@ public class QuizManager : MonoBehaviour
 
     public TextMeshProUGUI QuestionTxt;
     private int answeredQuestionsCount = 0;
+    public string sceneName;
     private void Start()
     {
         generateQuestion();
@@ -46,9 +47,10 @@ public class QuizManager : MonoBehaviour
     {
         QnA.RemoveAt(currentQuestion);
         answeredQuestionsCount++;
-            if (answeredQuestionsCount == 4) // Wenn der Spieler die vierte Frage richtig beantwortet hat
+            if (answeredQuestionsCount == 3) // Wenn der Spieler die vierte Frage richtig beantwortet hat
                 {
                 SceneManager.LoadScene(8);
+                SceneManager.LoadScene(sceneName);
                 }
             else
                 {
