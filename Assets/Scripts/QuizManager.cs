@@ -47,9 +47,8 @@ public class QuizManager : MonoBehaviour
     {
         QnA.RemoveAt(currentQuestion);
         answeredQuestionsCount++;
-            if (answeredQuestionsCount == 3) // Wenn der Spieler die vierte Frage richtig beantwortet hat
+            if (answeredQuestionsCount == 3) // Wenn der Spieler die dritte Frage richtig beantwortet hat
                 {
-                SceneManager.LoadScene(8);
                 SceneManager.LoadScene(sceneName);
                 }
             else
@@ -61,7 +60,7 @@ public class QuizManager : MonoBehaviour
     public void False()
     {
         QnA.RemoveAt(currentQuestion);
-        SceneManager.LoadSceneAsync(7);
+        SceneManager.LoadScene(3);
     }
 
     void SetAnswer() 

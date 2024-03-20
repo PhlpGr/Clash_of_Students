@@ -1174,20 +1174,12 @@ MonoBehaviour:
     - Infrastructure as a Service
     - Hardware as a Service
     CorrectAnswer: 2
-  - Question: How many of the three properties of the CAP Theorem can be achieved
-      at the same time?
-    Answers:
-    - One
-    - Two
-    - Three
-    - Four
-    CorrectAnswer: 1
   - Question: Which properties of the CAP Theorem does the Domain Name System (DNS)
       fulfill?
     Answers:
     - AC
     - AP
-    - AC
+    - CP
     - DC
     CorrectAnswer: 1
   options:

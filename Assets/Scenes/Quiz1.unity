@@ -1181,14 +1181,6 @@ MonoBehaviour:
     - Three
     - Four
     CorrectAnswer: 1
-  - Question: Which properties of the CAP Theorem does the Domain Name System (DNS)
-      fulfill?
-    Answers:
-    - AC
-    - AP
-    - AC
-    - DC
-    CorrectAnswer: 1
   options:
   - {fileID: 2033775986}
   - {fileID: 495556822}
