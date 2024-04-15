@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -34,16 +36,31 @@ public class QuizManager : MonoBehaviour
     public int currentQuestion;
 
     public TextMeshProUGUI QuestionTxt;
-    
+    private int answeredQuestionsCount = 0;
+    public string sceneName;
     private void Start()
     {
         generateQuestion();
     }
-
+    
     public void Correct()
     {
         QnA.RemoveAt(currentQuestion);
-        generateQuestion();
+        answeredQuestionsCount++;
+            if (answeredQuestionsCount == 3) // Wenn der Spieler die dritte Frage richtig beantwortet hat
+                {
+                SceneManager.LoadScene(sceneName);
+                }
+            else
+                {
+                generateQuestion();
+                }
+    }
+
+    public void False()
+    {
+        QnA.RemoveAt(currentQuestion);
+        SceneManager.LoadScene(3);
     }
 
     void SetAnswer() 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnswerScript : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class AnswerScript : MonoBehaviour
         else
         {
             Debug.Log("Falsche Antwort");
-            quizManager.Correct();
+            quizManager.False();
         }
     }
 }

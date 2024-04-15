@@ -10,6 +10,7 @@
     "com.unity.ide.vscode": "1.2.5",
     "com.unity.learn.iet-framework": "3.1.1",
     "com.unity.multiplayer.tools": "1.0.0",
+    "com.unity.nuget.newtonsoft-json": "3.2.1",
     "com.unity.render-pipelines.universal": "12.1.13",
     "com.unity.services.lobby": "1.1.0",
     "com.unity.services.multiplay": "1.0.5",
