@@ -11,6 +11,7 @@ namespace Platformer.Mechanics
     public class GameController : MonoBehaviour
     {
         public static GameController Instance { get; private set; }
+        public PlayerController player; // Referenz auf den PlayerController
 
         //This model field is public and can be therefore be modified in the 
         //inspector.
@@ -34,5 +35,6 @@ namespace Platformer.Mechanics
         {
             if (Instance == this) Simulation.Tick();
         }
+
     }
 }
