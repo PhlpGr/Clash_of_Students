@@ -7,7 +7,7 @@ using UnityEngine;
 using System;
 public class API_CALL : MonoBehaviour
 {
-    public class Fact
+    public class Fact // Hier muss die aufschlüsselung des HTTP Calls hin: https://json2csharp.com/
     {
         public string fact { get; set; }
         public int length { get; set; }
@@ -17,7 +17,7 @@ public class API_CALL : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(GetRequest("https://catfact.ninja/fact"));
+        StartCoroutine(GetRequest("https://catfact.ninja/fact")); // Hier wird die API aufgerifen -> Da muss die Datenbankanbindung hin.
     }
 
     IEnumerator GetRequest(string URL)
@@ -35,7 +35,7 @@ public class API_CALL : MonoBehaviour
                 case UnityWebRequest.Result.Success:
                     Fact fact = JsonConvert.DeserializeObject<Fact>(webRequest.downloadHandler.text);
                     text.text = fact.fact;
-                    print(text.text);
+                    // Hier können die Textstücke aus der Request zugewiesen werden.
                     break;
 
             }
