@@ -5,15 +5,18 @@ using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 public class API_CALL : MonoBehaviour
 {
     public class Fact // Hier muss die aufschlüsselung des HTTP Calls hin: https://json2csharp.com/
     {
-        public string fact { get; set; }
+        public string facts { get; set; }
         public int length { get; set; }
     }
 
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI catfact; // Erstellt Fragefeld in Unity -> Refactor Rename für Umbenennung
+    public TextMeshProUGUI answer; // Erstellt Antwortfeld
+
 
     void Start()
     {
@@ -34,7 +37,8 @@ public class API_CALL : MonoBehaviour
                     break;
                 case UnityWebRequest.Result.Success:
                     Fact fact = JsonConvert.DeserializeObject<Fact>(webRequest.downloadHandler.text);
-                    text.text = fact.fact;
+                    catfact.text = fact.facts; // Bef+llt Fragefeld
+                    answer.text = fact.length.ToString(); // Befüllt Antwortfeld
                     // Hier können die Textstücke aus der Request zugewiesen werden.
                     break;
 
