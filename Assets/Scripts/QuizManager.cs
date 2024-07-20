@@ -82,7 +82,7 @@ public class QuizManager : MonoBehaviour
         if (options[i] != null && options[i].transform.childCount > 0)
         {
             TextMeshProUGUI textComponent = options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
+            
             if (textComponent != null)
             {
                 textComponent.text = QnA[currentQuestion].Answers[i];
