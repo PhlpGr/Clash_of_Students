@@ -1,3 +1,7 @@
+/*
+
+Code nur noch als Backup da.
+
 using System;
 using System.Net.Http;
 using System.Text;
@@ -40,3 +44,5 @@ public class API_CALL1 : MonoBehaviour
 
 
 }
+
+*/
