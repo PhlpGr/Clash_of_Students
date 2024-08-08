@@ -49,7 +49,7 @@ public class QuizManager2 : MonoBehaviour
         answeredQuestionsCount++;
             if (answeredQuestionsCount == 3) // Wenn der Spieler die dritte Frage richtig beantwortet hat
                 {
-                SceneManager.LoadScene(sceneName);
+                SceneManager.LoadScene("Level_1.3");
                 }
             else
                 {
@@ -60,7 +60,7 @@ public class QuizManager2 : MonoBehaviour
     public void False()
     {
         QnA.RemoveAt(currentQuestion);
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("Level_1.2");
     }
 
     void SetAnswer() 

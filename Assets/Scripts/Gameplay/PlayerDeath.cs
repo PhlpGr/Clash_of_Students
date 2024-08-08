@@ -16,21 +16,44 @@ namespace Platformer.Gameplay
 
         public override void Execute()
         {
-            var player = model.player;
-            if (player.health.IsAlive)
-            {
-                player.health.Die();
-                model.virtualCamera.m_Follow = null;
-                model.virtualCamera.m_LookAt = null;
-                // player.collider.enabled = false;
-                player.controlEnabled = false;
+        if (model == null || model.player == null) {
+        Debug.LogError("Model or Player is not properly initialized.");
+        return;
+        }
 
-                if (player.audioSource && player.ouchAudio)
-                    player.audioSource.PlayOneShot(player.ouchAudio);
-                player.animator.SetTrigger("hurt");
-                player.animator.SetBool("dead", true);
-                Simulation.Schedule<PlayerSpawn>(2);
-            }
+        var player = model.player;
+    
+        // Sicherstellen, dass die Health-Komponente vorhanden ist.
+        if (player.health == null) {
+        Debug.LogError("Health component is missing on the player.");
+        return;
+        }
+
+        if (player.health.IsAlive)
+        {
+        player.health.Die();
+
+        // Sicherstellen, dass die Virtual Camera initialisiert ist.
+        if (model.virtualCamera != null) {
+            model.virtualCamera.m_Follow = null;
+            model.virtualCamera.m_LookAt = null;
+        } else {
+            Debug.LogError("Virtual Camera is not set in the model.");
+        }
+
+        player.controlEnabled = false;
+
+        if (player.audioSource != null && player.ouchAudio != null)
+            player.audioSource.PlayOneShot(player.ouchAudio);
+
+        if (player.animator != null) {
+            player.animator.SetTrigger("hurt");
+            player.animator.SetBool("dead", true);
+        } else {
+            Debug.LogError("Animator is missing on the player.");
+        }
+
+        Simulation.Schedule<PlayerSpawn>(2);
         }
     }
-}
+}}

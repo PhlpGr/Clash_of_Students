@@ -11,7 +11,6 @@ namespace Platformer.Mechanics
     public class GameController : MonoBehaviour
     {
         public static GameController Instance { get; private set; }
-        public PlayerController player; // Referenz auf den PlayerController
 
         //This model field is public and can be therefore be modified in the 
         //inspector.
@@ -20,7 +19,36 @@ namespace Platformer.Mechanics
         //shared reference when the scene loads, allowing the model to be
         //conveniently configured inside the inspector.
         public PlatformerModel model = Simulation.GetModel<PlatformerModel>();
+        public PlayerController player; //neu plus awake und setplayer auch           
+        private void Awake()
+        {
+            // Singleton-Muster um sicherzustellen, dass nur eine Instanz von GameController existiert.
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);  // Zerstöre das zusätzliche GameObject, das diesen Script enthält.
+            }
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);  // Optional: Verhindere, dass das Objekt bei Szenenwechsel zerstört wird.
+                if (model == null) {
+                model = new PlatformerModel();
+                }
+            }
+        }
 
+        // Methode zum Setzen des Players, aufrufbar von anderen Skripten.
+        public void SetPlayer(PlayerController newPlayer)
+        {
+            player = newPlayer;
+            model.player = newPlayer;
+            // Hier können weitere Initialisierungen durchgeführt werden, z.B. das Einstellen der Kamera:
+            // if (virtualCamera != null) virtualCamera.Follow = player.transform;
+
+            Debug.Log("Player gesetzt: " + newPlayer.gameObject.name);
+            
+            // Weitere Konfigurationen können hier eingefügt werden, wie z.B. Event-Listener.
+        }
         void OnEnable()
         {
             Instance = this;
@@ -35,6 +63,5 @@ namespace Platformer.Mechanics
         {
             if (Instance == this) Simulation.Tick();
         }
-
     }
 }
