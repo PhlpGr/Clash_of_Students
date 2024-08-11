@@ -23,10 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Men\xFC/Hauptmen\xFC.unity"
     guid: 660bd2c40b385094ebfb34648d859443
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Scenes/Level_1/Level_1.1(f\xFCrAuswahl).unity"
     guid: 2963747c58912a6498229c784fab5b36
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level_1/Level_1 (FigAuswahl).unity
     guid: 4a0ec1a5a2533824681d1294135adb04
   - enabled: 1
@@ -45,14 +45,26 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_2/Level_2.unity
     guid: 49313ea18691946a487e589e39e81b98
   - enabled: 1
+    path: Assets/Scenes/Level_3/Level_3.unity
+    guid: 8c31b3aa9d9114d228ce44aff5228944
+  - enabled: 1
+    path: Assets/Scenes/Level_4/Level_4.unity
+    guid: 4066722aaedf34249ac99277a3cd7ace
+  - enabled: 1
+    path: Assets/Scenes/Level_5/Level_5.unity
+    guid: ea21d8d11abc146dd99122afae0d511c
+  - enabled: 1
+    path: Assets/Scenes/Level_6/Level_6.unity
+    guid: 06e796c8f7f8f4087abe3b62c1579e1b
+  - enabled: 1
+    path: Assets/Scenes/Level_7/Level_7.unity
+    guid: 07cb0a7e5b5494d5caedf2fda3bb5c87
+  - enabled: 1
     path: Assets/Scenes/Quiz/Quiz2.unity
     guid: 81fcd32822f97b4459e81fcb476bda58
   - enabled: 1
     path: Assets/Scenes/Testlevel/Level 02.unity
     guid: 7ac129dca46bdb3478af2bb1ac691f34
-  - enabled: 1
-    path: Assets/Scenes/Level_3/Level_3.unity
-    guid: 8c31b3aa9d9114d228ce44aff5228944
   - enabled: 1
     path: Assets/Scenes/Level_EndScreen/LevelGeschafft_Screen.unity
     guid: c2f8c395f47072142a12150cb724c303
