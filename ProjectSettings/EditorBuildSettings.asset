@@ -12,16 +12,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Testlevel/Level 01.unity
     guid: 7f7a9ed07d515af478bdf3f36488332f
   - enabled: 1
-    path: "Assets/Scenes/Menu\u0308/Willkommen 1.unity"
+    path: "Assets/Scenes/Men\xFC/Willkommen 1.unity"
     guid: 2ee71613b2e527e45a276627f1dcaf0d
   - enabled: 1
     path: Assets/Scenes/Figurauswahl/Figurauswahl.unity
     guid: ad409a9c402b68a46968d0ac67c9c3cf
   - enabled: 1
-    path: "Assets/Scenes/Levelu\u0308bersicht/Level\xFCbersicht.unity"
+    path: "Assets/Scenes/Level\xFCbersicht/Level\xFCbersicht.unity"
     guid: 545cd220d29f1a14fa50eda74a848309
   - enabled: 1
-    path: "Assets/Scenes/Menu\u0308/Hauptmen\xFC.unity"
+    path: "Assets/Scenes/Men\xFC/Hauptmen\xFC.unity"
     guid: 660bd2c40b385094ebfb34648d859443
   - enabled: 1
     path: "Assets/Scenes/Level_1/Level_1.1(f\xFCrAuswahl).unity"
@@ -50,6 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Testlevel/Level 02.unity
     guid: 7ac129dca46bdb3478af2bb1ac691f34
+  - enabled: 1
+    path: Assets/Scenes/Level_3/Level_3.unity
+    guid: 8c31b3aa9d9114d228ce44aff5228944
   - enabled: 1
     path: Assets/Scenes/Level_EndScreen/LevelGeschafft_Screen.unity
     guid: c2f8c395f47072142a12150cb724c303
