@@ -4,7 +4,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Users/betue/OneDrive/Desktop/Master/Projekt1/Prototyp;C:/Users/aicbo/OneDrive/Desktop/Unity Projekte/2D Jump and Run/Builds/webGL_build_v3;C:/Users/aicbo/OneDrive/Desktop/Unity Projekte/2D Jump and Run/Builds/webGL_build_v2;C:/Users/aicbo/OneDrive/Desktop/Unity Projekte/2D Jump and Run/Builds/webGL_build_v1;;;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Users/Magnus.Teschner/Documents/Clash_of_Students/webgl;C:/Users/betue/OneDrive/Desktop/Master/Projekt1/Prototyp;C:/Users/aicbo/OneDrive/Desktop/Unity Projekte/2D Jump and Run/Builds/webGL_build_v3;C:/Users/aicbo/OneDrive/Desktop/Unity Projekte/2D Jump and Run/Builds/webGL_build_v2;C:/Users/aicbo/OneDrive/Desktop/Unity Projekte/2D Jump and Run/Builds/webGL_build_v1;;;;;\"}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
