@@ -137,23 +137,5 @@ namespace Platformer.Mechanics
             InFlight,
             Landed
         }
-
-        void OnTriggerEnter2D(Collider2D other)
-        {
-        if (other.CompareTag("Flame"))
-        {
-        Debug.Log("Spieler hat Flamme berührt - Auslösen des Flame Collision Events.");
-        var flameEvent = Schedule<PlayerFlameCollision>();
-        flameEvent.player = this;
-        }
-        else if (other.CompareTag("Enemy"))
-        {
-        Debug.Log("Kollision mit Enemy erkannt.");
-        var enemyCollision = Schedule<PlayerEnemyCollision>();
-        enemyCollision.player = this;
-        enemyCollision.enemy = other.GetComponent<EnemyController>();
-        }
-}
-
     }
 }

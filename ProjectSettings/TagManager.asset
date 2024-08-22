@@ -6,7 +6,6 @@ TagManager:
   tags:
   - TutorialRequirement
   - Enemy
-  - Flame
   layers:
   - Default
   - TransparentFX
