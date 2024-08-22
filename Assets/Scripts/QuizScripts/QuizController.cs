@@ -14,9 +14,7 @@ public class QuizController : MonoBehaviour
         string lection = "1";
         int position = 1;
 
-        // Startet das Quiz über den API-Service
         apiService.StartQuiz(email, program, course, lection, position);
 
-        // Weitere Logik, falls nötig...
     }
 }
