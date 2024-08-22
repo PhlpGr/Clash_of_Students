@@ -8,16 +8,24 @@ using UnityEngine.UI;
 public class API_CALL_Quiz : MonoBehaviour
 {
     public QuizTimer quizTimer;  // Referenz zum Timer
+    public TextMeshProUGUI frageText;  // UI-Textfeld für die Frage
+    public Button[] answerButtons;     // Array von Buttons für die Antworten
+    public TextMeshProUGUI feedbackText; // Textfeld für Feedback nach der Auswahl
+
+    private string correctAnswer;      // Speichert die richtige Antwort
+    private int attemptCount = 0;      // Zählt die Versuche
+
+    // Füge die Definition der Fact-Klasse hier ein
     public class Fact
     {
         public int id { get; set; }
         public string user { get; set; }
         public string question_type { get; set; }
         public string frage { get; set; }
-        public string answer_a {get; set;}
-        public string answer_b {get; set;}
-        public string answer_c {get; set;}
-        public string answer_d {get; set;}
+        public string answer_a { get; set; }
+        public string answer_b { get; set; }
+        public string answer_c { get; set; }
+        public string answer_d { get; set; }
         public string correct_answer { get; set; }
         public string program { get; set; }
         public string course { get; set; }
@@ -26,17 +34,17 @@ public class API_CALL_Quiz : MonoBehaviour
         public string image_url { get; set; }
     }
 
-    public TextMeshProUGUI frageText;  // UI-Textfeld für die Frage
-    public Button[] answerButtons;     // Array von Buttons für die Antworten
-    public TextMeshProUGUI feedbackText; // Textfeld für Feedback nach der Auswahl
-
-    private string correctAnswer;      // Speichert die richtige Antwort
-    private int attemptCount = 0;      // Zählt die Versuche
-
-    void Start()
+    public void StartQuiz(string apiURL)
     {
-        // API-Call starten
-        StartCoroutine(GetRequest("http://localhost:1999/api/questions/tom@one7.one/Digital%20Business%20Engineering/it/1/1"));
+        if (!string.IsNullOrEmpty(apiURL))
+        {
+            // API-Call starten
+            StartCoroutine(GetRequest(apiURL));
+        }
+        else
+        {
+            Debug.LogError("API URL ist nicht gesetzt!");
+        }
     }
 
     IEnumerator GetRequest(string URL)
@@ -102,7 +110,6 @@ public class API_CALL_Quiz : MonoBehaviour
             feedbackText.color = Color.green;
             Debug.Log("Antwort richtig!");
             // Hier könnte der Übergang zur nächsten Frage erfolgen
-            LoadNextQuestion();
         }
         else
         {
@@ -132,7 +139,7 @@ public class API_CALL_Quiz : MonoBehaviour
             feedbackText.text = "Zweite falsche Antwort! Nächste Frage...";
             feedbackText.color = Color.red;
             Debug.Log("Zweiter Fehlversuch, zur nächsten Frage übergehen.");
-            LoadNextQuestion(); // Hier wird zur nächsten Frage übergegangen
+            // Hier den Übergang zur nächsten Frage implementieren
         }
     }
 
@@ -148,12 +155,5 @@ public class API_CALL_Quiz : MonoBehaviour
             btn.interactable = true;
         }
         feedbackText.text = ""; // Feedback zurücksetzen
-    }
-
-    private void LoadNextQuestion()
-    {
-        // Logik zum Laden der nächsten Frage
-        attemptCount = 0; // Versuchsanzahl zurücksetzen
-        Start(); // Neue Frage laden
     }
 }

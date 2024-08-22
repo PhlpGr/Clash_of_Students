@@ -640,6 +640,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 217034822}
+  - component: {fileID: 217034824}
+  - component: {fileID: 217034823}
   - component: {fileID: 217034821}
   m_Layer: 0
   m_Name: QuizManager
@@ -683,6 +685,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &217034823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217034819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098e381b2bf8a46458da08815dbbe8dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quizScript: {fileID: 217034821}
+--- !u!114 &217034824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217034819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25014e6250e97134eaa905b6ad3df068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apiService: {fileID: 217034823}
 --- !u!1 &256589464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,9 +2053,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e01aaa3d708b24ab54fe5d04a19b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 90
+  totalTime: 10
   timerText: {fileID: 1335080252}
-  quizScript: {fileID: 0}
+  quizScript: {fileID: 217034821}
 --- !u!1 &1255734901
 GameObject:
   m_ObjectHideFlags: 0
