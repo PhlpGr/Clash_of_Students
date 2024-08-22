@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class QuizAPIService : MonoBehaviour
 {
-    private string baseURL = "http://localhost:1999/api/questions";
-
+    public string baseURL = "http://localhost:1999/api/questions";
     public API_CALL_Quiz quizScript; // Referenz zum API_CALL_Quiz-Skript
 
     public void StartQuiz(string email, string program, string course, string lection, int position)
@@ -11,8 +10,8 @@ public class QuizAPIService : MonoBehaviour
         // Generiere die URL dynamisch
         string url = GenerateURL(email, program, course, lection, position);
 
-        // Starte das Quiz, indem die URL und alle notwendigen Parameter an API_CALL_Quiz übergeben werden
-        quizScript.StartQuiz(email, program, course, lection, position);
+        // Starte das Quiz, indem die URL an API_CALL_Quiz übergeben wird
+        quizScript.StartQuiz(url); // Beachte, dass nur die URL übergeben wird
     }
 
     public string GenerateURL(string email, string program, string course, string lection, int position)
