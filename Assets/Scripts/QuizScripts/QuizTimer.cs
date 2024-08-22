@@ -68,4 +68,5 @@ public class QuizTimer : MonoBehaviour
         {
             Debug.LogError("quizScript ist nicht zugewiesen! Bitte überprüfe die Zuweisung im Inspektor.");
         }
-}}
+    }
+}

@@ -15,6 +15,5 @@ public class QuizController : MonoBehaviour
         int position = 1;
 
         apiService.StartQuiz(email, program, course, lection, position);
-
     }
 }
