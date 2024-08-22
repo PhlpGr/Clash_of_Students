@@ -6,14 +6,9 @@ public class QuizAPIService : MonoBehaviour
 
     public API_CALL_Quiz quizScript; // Referenz zum API_CALL_Quiz-Skript
 
-    public void StartQuiz()
+    // Ändere die Methode, damit sie die Parameter akzeptiert
+    public void StartQuiz(string email, string program, string course, string lection, int position)
     {
-        string email = "tom@one7.one";
-        string program = "Digital Business Engineering";
-        string course = "it";
-        string lection = "1";
-        int position = 1;
-
         // Generiere die URL dynamisch
         string url = GenerateURL(email, program, course, lection, position);
 
