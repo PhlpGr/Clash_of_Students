@@ -59,7 +59,13 @@ public class QuizTimer : MonoBehaviour
 
     void TimerEnded()
     {
-        Debug.Log("Zeit ist abgelaufen!");
-        quizScript.HandleIncorrectAnswer();
-    }
-}
+        if (quizScript != null)
+        {
+            Debug.Log("Zeit ist abgelaufen! Verarbeite Timer-Ende.");
+            quizScript.HandleIncorrectAnswer();
+        }
+        else
+        {
+            Debug.LogError("quizScript ist nicht zugewiesen! Bitte überprüfe die Zuweisung im Inspektor.");
+        }
+}}

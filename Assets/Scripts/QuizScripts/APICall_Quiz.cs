@@ -94,8 +94,7 @@ public class API_CALL_Quiz : MonoBehaviour
 
     public void CheckAnswer(string selectedAnswer)
     {
-        // Timer stoppen
-        quizTimer.StopTimer();
+        quizTimer.StopTimer(); // Timer stoppen
 
         if (selectedAnswer == correctAnswer)
         {
@@ -103,6 +102,7 @@ public class API_CALL_Quiz : MonoBehaviour
             feedbackText.color = Color.green;
             Debug.Log("Antwort richtig!");
             // Hier könnte der Übergang zur nächsten Frage erfolgen
+            LoadNextQuestion();
         }
         else
         {
@@ -132,19 +132,28 @@ public class API_CALL_Quiz : MonoBehaviour
             feedbackText.text = "Zweite falsche Antwort! Nächste Frage...";
             feedbackText.color = Color.red;
             Debug.Log("Zweiter Fehlversuch, zur nächsten Frage übergehen.");
-            // Hier den Übergang zur nächsten Frage implementieren
+            LoadNextQuestion(); // Hier wird zur nächsten Frage übergegangen
         }
     }
 
     IEnumerator RetryQuestion()
     {
         yield return new WaitForSeconds(1f); // Optional: kurze Wartezeit, bevor die Frage neu geladen wird
+        quizTimer.ResetTimer(); // Timer zurücksetzen
         quizTimer.StartTimer(); // Timer neu starten
-        // Frage erneut stellen (dies kann durch einfaches Reaktivieren der Buttons und Setzen der Texte geschehen)
+
+        // Reaktivieren der Buttons
         foreach (Button btn in answerButtons)
         {
             btn.interactable = true;
         }
         feedbackText.text = ""; // Feedback zurücksetzen
+    }
+
+    private void LoadNextQuestion()
+    {
+        // Logik zum Laden der nächsten Frage
+        attemptCount = 0; // Versuchsanzahl zurücksetzen
+        Start(); // Neue Frage laden
     }
 }
