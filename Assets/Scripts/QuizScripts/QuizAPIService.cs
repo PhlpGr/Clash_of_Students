@@ -4,6 +4,7 @@ public class QuizAPIService : MonoBehaviour
 {
     public string baseURL = "http://localhost:1999/api/questions";
     public API_CALL_Quiz quizScript; // Referenz zum API_CALL_Quiz-Skript
+    public QuizController quizController; // Referenz zum QuizController
 
     public void StartQuiz(string email, string program, string course, string lection, int position)
     {
@@ -11,7 +12,7 @@ public class QuizAPIService : MonoBehaviour
         string url = GenerateURL(email, program, course, lection, position);
 
         // Starte das Quiz, indem die URL an API_CALL_Quiz übergeben wird
-        quizScript.StartQuiz(url); // Beachte, dass nur die URL übergeben wird
+        quizScript.StartQuiz(url);
     }
 
     public string GenerateURL(string email, string program, string course, string lection, int position)

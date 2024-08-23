@@ -1,27 +1,34 @@
-using Newtonsoft.Json;
-using TMPro;
 using System.Collections;
-using UnityEngine.Networking;
+using System.Collections.Generic; 
 using UnityEngine;
+using UnityEngine.Networking;
+using TMPro;
 using UnityEngine.UI;
-
-
+using Newtonsoft.Json;
 
 public class API_CALL_Quiz : MonoBehaviour
 {
-    public QuizTimer quizTimer;  // Referenz zum Timer
-    public TextMeshProUGUI frageText;  // UI-Textfeld für die Frage
-    public Button[] answerButtons;     // Array von Buttons für die Antworten
-    public TextMeshProUGUI feedbackText; // Textfeld für Feedback nach der Auswahl
+    public QuizTimer quizTimer;
+    public TextMeshProUGUI frageText;
+    public Button[] answerButtons;
+    public TextMeshProUGUI feedbackText;
+    public GameObject loadingPanel;
+    public QuizController quizController; // Referenz zum QuizController
 
-    private string correctAnswer;      // Speichert die richtige Antwort
-    private int attemptCount = 0;      // Zählt die Versuche
+    private string correctAnswer;
+    private int attemptCount = 0;
+    private int correctAnswersCount = 0;
+    private int incorrectAnswersCount = 0;
+    public int CorrectAnswersCount { get { return correctAnswersCount; } }
+    public int IncorrectAnswersCount { get { return incorrectAnswersCount; } }
 
     public void StartQuiz(string apiURL)
     {
+        Debug.Log("StartQuiz aufgerufen mit URL: " + apiURL);
+      
         if (!string.IsNullOrEmpty(apiURL))
         {
-            // API-Call starten
+            ShowLoading(true);
             StartCoroutine(GetRequest(apiURL));
         }
         else
@@ -32,48 +39,28 @@ public class API_CALL_Quiz : MonoBehaviour
 
     IEnumerator GetRequest(string URL)
     {
+        Debug.Log("API-Anfrage gestartet für URL: " + URL);
+        
         using (UnityWebRequest webRequest = UnityWebRequest.Get(URL))
         {
             yield return webRequest.SendWebRequest();
 
+            ShowLoading(false);
+
             if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.DataProcessingError)
             {
-                Debug.LogError($"Fehler: {webRequest.error}");
+                Debug.LogError($"Fehler bei der API-Anfrage: {webRequest.error}");
             }
             else if (webRequest.result == UnityWebRequest.Result.Success)
             {
+                Debug.Log("API-Anfrage erfolgreich, Antwort erhalten.");
+
                 Fact fact = JsonConvert.DeserializeObject<Fact>(webRequest.downloadHandler.text);
 
                 if (fact != null)
                 {
-                    // Frage setzen
-                    frageText.text = fact.frage;
-
-                    // Antworten setzen
-                    string[] answers = { fact.answer_a, fact.answer_b, fact.answer_c, fact.answer_d };
-                    correctAnswer = fact.correct_answer;
-
-                    for (int i = 0; i < answerButtons.Length; i++)
-                    {
-                        if (!string.IsNullOrEmpty(answers[i]))
-                        {
-                            // Antworttext setzen
-                            answerButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = answers[i];
-                            answerButtons[i].gameObject.SetActive(true);
-
-                            // Button-Click-Listener hinzufügen
-                            int index = i;
-                            answerButtons[i].onClick.AddListener(() => CheckAnswer(answers[index]));
-                        }
-                        else
-                        {
-                            // Button deaktivieren, wenn keine Antwort vorhanden ist
-                            answerButtons[i].gameObject.SetActive(false);
-                        }
-                    }
-
-                    // Timer starten
-                    quizTimer.StartTimer();
+                    Debug.Log("Frage erhalten: " + fact.frage);
+                    LoadQuestion(fact);
                 }
                 else
                 {
@@ -83,29 +70,77 @@ public class API_CALL_Quiz : MonoBehaviour
         }
     }
 
+    private void LoadQuestion(Fact fact)
+    {
+        Debug.Log("Frage wird geladen: " + fact.frage);
+
+        frageText.text = fact.frage;
+
+        string[] answers = { fact.answer_a, fact.answer_b, fact.answer_c, fact.answer_d };
+        
+        correctAnswer = fact.correct_answer;
+
+        ActivateButtons(answerButtons);
+        attemptCount = 0;
+
+        for (int i = 0; i < answerButtons.Length; i++)
+        {
+            answerButtons[i].onClick.RemoveAllListeners();
+
+            if (!string.IsNullOrEmpty(answers[i]))
+            {
+                Debug.Log("Antwort " + (i + 1) + ": " + answers[i]);
+                answerButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = answers[i];
+                answerButtons[i].gameObject.SetActive(true);
+
+                int index = i;
+                answerButtons[i].onClick.AddListener(() => CheckAnswer(answers[index]));
+            }
+            else
+            {
+                answerButtons[i].gameObject.SetActive(false);
+            }
+        }
+
+        quizTimer.ResetTimer();
+        quizTimer.StartTimer();
+    }
+
     public void CheckAnswer(string selectedAnswer)
     {
-        quizTimer.StopTimer(); // Timer stoppen
+        quizTimer.StopTimer();
+        Debug.Log("Antwort ausgewählt: " + selectedAnswer);
 
         if (selectedAnswer == correctAnswer)
         {
             feedbackText.text = "Richtig!";
             feedbackText.color = Color.green;
-            Debug.Log("Antwort richtig!");
-            // Hier könnte der Übergang zur nächsten Frage erfolgen
+            Debug.Log("Richtige Antwort ausgewählt!");
+            correctAnswersCount++; 
+            Invoke(nameof(NotifyQuizControllerToLoadNextRound), 1.5f);
         }
         else
         {
+            Debug.Log("Falsche Antwort ausgewählt!");
+            incorrectAnswersCount++;
             HandleIncorrectAnswer();
         }
 
-        // Alle Buttons nach einer Auswahl deaktivieren
         foreach (Button btn in answerButtons)
         {
             btn.interactable = false;
         }
     }
 
+    private void NotifyQuizControllerToLoadNextRound()
+    {
+        if (quizController != null)
+        {
+            Debug.Log("Nächste Runde wird gestartet.");
+            // Hier erhöhen wir die Position und starten das nächste Quiz
+            quizController.LoadNextQuiz();
+        }
+    }
     public void HandleIncorrectAnswer()
     {
         attemptCount++;
@@ -122,21 +157,34 @@ public class API_CALL_Quiz : MonoBehaviour
             feedbackText.text = "Zweite falsche Antwort! Nächste Frage...";
             feedbackText.color = Color.red;
             Debug.Log("Zweiter Fehlversuch, zur nächsten Frage übergehen.");
-            // Hier den Übergang zur nächsten Frage implementieren
+            Invoke(nameof(NotifyQuizControllerToLoadNextRound), 1.5f);
         }
     }
-
     IEnumerator RetryQuestion()
     {
-        yield return new WaitForSeconds(1f); // Optional: kurze Wartezeit, bevor die Frage neu geladen wird
-        quizTimer.ResetTimer(); // Timer zurücksetzen
-        quizTimer.StartTimer(); // Timer neu starten
+        yield return new WaitForSeconds(1f);
+        quizTimer.ResetTimer();
+        quizTimer.StartTimer();
 
-        // Reaktivieren der Buttons
+        ActivateButtons(answerButtons);
+        
+    }
+
+    private void ActivateButtons(Button[] answerButtons){
+        feedbackText.text = "";
         foreach (Button btn in answerButtons)
         {
             btn.interactable = true;
         }
-        feedbackText.text = ""; // Feedback zurücksetzen
+
+
+    }
+
+    private void ShowLoading(bool isLoading)
+    {
+        if (loadingPanel != null)
+        {
+            loadingPanel.SetActive(isLoading);
+        }
     }
 }
