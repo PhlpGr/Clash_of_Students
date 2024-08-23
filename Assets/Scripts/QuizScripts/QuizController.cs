@@ -11,7 +11,7 @@ public class QuizController : MonoBehaviour
     private string course = "it";
     private string lection = "1";
 
-    private int currentPosition = 2; // Startposition für das Quiz
+    private int currentPosition = 1; // Startposition für das Quiz
 
     void Start()
     {
@@ -23,7 +23,6 @@ public class QuizController : MonoBehaviour
     public void StartQuizForEnemy(string email, string program, string course, string lection, int position)
     {
         currentPosition = position;
-        currentQuestionCount = currentQuestionCount; // Setze die Frageanzahl für diesen Gegner zurück
         LoadNextQuestion();
     }
 
