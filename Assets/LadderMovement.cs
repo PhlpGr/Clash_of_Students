@@ -13,12 +13,21 @@ public class LadderMovement : MonoBehaviour
     {
         vertical = Input.GetAxisRaw("Vertical");
 
-        if (isLadder && Mathf.Abs(vertical) > 0f)
+        if (isLadder && !isClimbing && Mathf.Abs(vertical) > 0f)
         {
             isClimbing = true;
         }
-    }
+        
+        
+        if (!isLadder && !isClimbing)
+        {
+            isClimbing = false;
+            rb.gravityScale = 4f;
+        }
 
+        Debug.Log($"Is Ladder: {isLadder}, Is Climbing: {isClimbing}, Vertical Input: {vertical}");
+    
+    }
     private void FixedUpdate()
     {
         if (isClimbing)
@@ -26,11 +35,12 @@ public class LadderMovement : MonoBehaviour
             rb.gravityScale = 0f;
             rb.velocity = new Vector2(rb.velocity.x, vertical * speed);
         }
-        else
+        else if (!isLadder && !isClimbing)
         {
             rb.gravityScale = 4f;
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,14 +48,26 @@ public class LadderMovement : MonoBehaviour
         {
             isLadder = true;
         }
+        else if (collision.CompareTag("LadderTop"))
+        {
+            isClimbing = false;
+            rb.gravityScale = 4f;  // Stelle die Schwerkraft nur wieder her, wenn der Spieler die Leiter wirklich verlässt
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+        }
     }
+    
+    
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Ladder"))
         {
             isLadder = false;
-            isClimbing = false;
+            if (isClimbing)
+            {
+                isClimbing = false;
+                rb.gravityScale = 4f;
+            }
         }
-    }
+    }    
 }
