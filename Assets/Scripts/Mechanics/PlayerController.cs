@@ -44,13 +44,13 @@ namespace Platformer.Mechanics
 
         void Awake()
         {
+
             health = GetComponent<Health>();
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
         }
-
         protected override void Update()
         {
             if (controlEnabled)
