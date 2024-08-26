@@ -95,14 +95,21 @@ public class Timer : MonoBehaviour
         }
     }
 
-    private void PositionTimerText()
-    {
-        // Positioniere das Timer-Text-Element oben in der Mitte des Bildschirms
-        RectTransform rectTransform = timerText.GetComponent<RectTransform>();
-        rectTransform.anchorMin = new Vector2(0.5f, 1.0f); // Setzt den Anker auf die obere Mitte
-        rectTransform.anchorMax = new Vector2(0.5f, 1.0f); // Setzt den Anker auf die obere Mitte
-        rectTransform.pivot = new Vector2(0.5f, 1.0f); // Setzt das Pivot-Punkt auf die obere Mitte
-        rectTransform.anchoredPosition = new Vector2(0, -30); // Setzt den Text leicht unterhalb des oberen Randes
-        rectTransform.sizeDelta = new Vector2(500, 100); // Passt die Breite und Höhe an
-    }
+private void PositionTimerText()
+{
+    RectTransform rectTransform = timerText.GetComponent<RectTransform>();
+    
+    // Ändere die Ankerpunkte, um den Timer in der Mitte des Canvas zu positionieren
+    rectTransform.anchorMin = new Vector2(0.5f, 0.5f); // Ankerpunkt Mitte
+    rectTransform.anchorMax = new Vector2(0.5f, 0.5f); // Ankerpunkt Mitte
+    rectTransform.pivot = new Vector2(0.5f, 0.5f);     // Pivot auch in der Mitte
+    
+    // Diese Werte passen die Position relativ zum Ankerpunkt an
+    rectTransform.anchoredPosition = new Vector2(100, 175); // X-Wert erhöht für weiter rechts, Y-Wert negativ für leichtes Nach-unten-Verschieben
+
+    rectTransform.sizeDelta = new Vector2(200, 50); // Größe anpassen, falls nötig
+}
+
+
+
 }
