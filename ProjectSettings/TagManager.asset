@@ -10,6 +10,7 @@ TagManager:
   - Ladder
   - LadderBottom
   - LadderTop
+  - Blitz
   layers:
   - Default
   - TransparentFX

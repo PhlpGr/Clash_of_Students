@@ -152,6 +152,13 @@ namespace Platformer.Mechanics
         enemyCollision.player = this;
         enemyCollision.enemy = other.GetComponent<EnemyController>();
         }
+         else if (other.CompareTag("Blitz"))
+    {
+        Debug.Log("Kollision mit Blitz erkannt.");
+        var forceFieldCollision = Schedule<PlayerForceFieldCollision>();
+        forceFieldCollision.player = this;
+        forceFieldCollision.forceField = other.GetComponent<ForceFieldController>();
+    }
         }
     }
 }
