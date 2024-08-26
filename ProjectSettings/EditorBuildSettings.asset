@@ -60,6 +60,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_7/Level_7.unity
     guid: 07cb0a7e5b5494d5caedf2fda3bb5c87
   - enabled: 1
+    path: Assets/Scenes/Level_8/Level_8.unity
+    guid: c00eb10c8f14c294fa4ac34a5880dcb5
+  - enabled: 1
     path: Assets/Scenes/Quiz/Quiz2.unity
     guid: 81fcd32822f97b4459e81fcb476bda58
   - enabled: 1
