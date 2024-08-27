@@ -10,7 +10,7 @@ namespace Platformer.Mechanics
         void Start()
         {
             if (path != null)
-                mover = path.CreateMover(1.0f); // Geschwindigkeit kann angepasst werden
+                mover = path.CreateMover(5.0f); // Geschwindigkeit kann angepasst werden
         }
 
         void Update()
