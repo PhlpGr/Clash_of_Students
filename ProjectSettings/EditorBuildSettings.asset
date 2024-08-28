@@ -71,4 +71,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_EndScreen/LevelGeschafft_Screen.unity
     guid: c2f8c395f47072142a12150cb724c303
+  - enabled: 1
+    path: Assets/Scenes/StoryEnde.unity
+    guid: 52bc0ab3ded0c1d4fb15dfeabbac0317
   m_configObjects: {}
