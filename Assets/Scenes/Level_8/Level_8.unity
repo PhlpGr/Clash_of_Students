@@ -4418,8 +4418,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterPrefabs:
-  - {fileID: 5967786114683646108, guid: 8f7011b589b6b1142899d5bb98adf377, type: 3}
-  - {fileID: 1208144871472054, guid: 7d60c822c3f1b408ea7a00ecdb5e047a, type: 3}
+  - {fileID: 1857685793347296203, guid: de580bc03c7f63841bc4b450cc8e660c, type: 3}
+  - {fileID: 382711733396247008, guid: 2e6327ae51ab40d4689b3ff02595be39, type: 3}
+  - {fileID: 7525153816809366057, guid: a9d447e1ad2dd05458ebfcc3e3099938, type: 3}
+  - {fileID: 6592134892635546268, guid: 153a4f470132ee14cb1d2aec027648cb, type: 3}
   virtualCamera: {fileID: 921429058}
 --- !u!4 &446045094
 Transform:
@@ -8625,7 +8627,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0270079, y: 2.4108162, z: -10}
+  m_LocalPosition: {x: -1.15, y: 2.4099998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22839,3 +22841,5 @@ SceneRoots:
   - {fileID: 1513462196}
   - {fileID: 214400865}
   - {fileID: 84527408}
+  - {fileID: 270813653}
+  - {fileID: 1785206626}

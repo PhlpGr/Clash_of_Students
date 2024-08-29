@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Junge_Jump_0
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 76
+        width: 71
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb266d80970ca44e87caf8276201ef4
+      internalID: 470004264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Junge_Jump_1
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 76
+        width: 72
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c130ddc0412ed64886bc2a2aca4bdd2
+      internalID: -1009154038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Junge_Jump_2
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 76
+        width: 72
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f6deb4f99e95f418c2e36bc6ea8001
+      internalID: 458296542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Junge_Jump_3
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 76
+        width: 72
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0019cfc15ca1754a9a8da67fc8e8410
+      internalID: 1582135637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Junge_Jump_4
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 76
+        width: 72
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea872de8b455f404691df1acb346db09
+      internalID: 201873560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Junge_Jump_5
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 76
+        width: 72
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf2a098dcff1a94787294d3149f115d
+      internalID: 1343222057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Junge_Jump_6
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 76
+        width: 72
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c1ddeaddfac42046a5bd1f1b760139f
+      internalID: 767435846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Junge_Jump_7
+      rect:
+        serializedVersion: 2
+        x: 1884
+        y: 76
+        width: 71
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d9efb2c36848f488124e2a982859a0
+      internalID: -216898884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +274,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Junge_Jump_0: 470004264
+      Junge_Jump_1: -1009154038
+      Junge_Jump_2: 458296542
+      Junge_Jump_3: 1582135637
+      Junge_Jump_4: 201873560
+      Junge_Jump_5: 1343222057
+      Junge_Jump_6: 767435846
+      Junge_Jump_7: -216898884
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

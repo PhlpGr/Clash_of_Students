@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 19830961}
   m_Layer: 0
   m_Name: Kasten3
-  m_TagString: Untagged
+  m_TagString: Flame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2551,7 +2551,7 @@ GameObject:
   - component: {fileID: 254454683}
   m_Layer: 0
   m_Name: Kasten1
-  m_TagString: Untagged
+  m_TagString: Flame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3159,7 +3159,7 @@ GameObject:
   - component: {fileID: 293447332}
   m_Layer: 0
   m_Name: Kasten6
-  m_TagString: Untagged
+  m_TagString: Flame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4406,8 +4406,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterPrefabs:
-  - {fileID: 5967786114683646108, guid: 8f7011b589b6b1142899d5bb98adf377, type: 3}
-  - {fileID: 1208144871472054, guid: 7d60c822c3f1b408ea7a00ecdb5e047a, type: 3}
+  - {fileID: 1857685793347296203, guid: de580bc03c7f63841bc4b450cc8e660c, type: 3}
+  - {fileID: 382711733396247008, guid: 2e6327ae51ab40d4689b3ff02595be39, type: 3}
+  - {fileID: 7525153816809366057, guid: a9d447e1ad2dd05458ebfcc3e3099938, type: 3}
+  - {fileID: 6592134892635546268, guid: 153a4f470132ee14cb1d2aec027648cb, type: 3}
   virtualCamera: {fileID: 921429058}
 --- !u!4 &446045094
 Transform:
@@ -9207,7 +9209,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5853767, y: 2.2728505, z: -10}
+  m_LocalPosition: {x: -2.4153697, y: 2.2701297, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12816,7 +12818,7 @@ GameObject:
   - component: {fileID: 1278558590}
   m_Layer: 0
   m_Name: Kasten5
-  m_TagString: Untagged
+  m_TagString: Flame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17553,7 +17555,7 @@ GameObject:
   - component: {fileID: 1712128235}
   m_Layer: 0
   m_Name: Kasten4
-  m_TagString: Untagged
+  m_TagString: Flame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17893,7 +17895,7 @@ GameObject:
   - component: {fileID: 1748798192}
   m_Layer: 0
   m_Name: Kasten7
-  m_TagString: Untagged
+  m_TagString: Flame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18314,7 +18316,7 @@ GameObject:
   - component: {fileID: 1777473862}
   m_Layer: 0
   m_Name: Kasten2
-  m_TagString: Untagged
+  m_TagString: Flame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
