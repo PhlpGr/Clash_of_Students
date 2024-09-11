@@ -153,12 +153,20 @@ namespace Platformer.Mechanics
         enemyCollision.enemy = other.GetComponent<EnemyController>();
         }
          else if (other.CompareTag("Blitz"))
-    {
+        {
         Debug.Log("Kollision mit Blitz erkannt.");
         var forceFieldCollision = Schedule<PlayerForceFieldCollision>();
         forceFieldCollision.player = this;
         forceFieldCollision.forceField = other.GetComponent<ForceFieldController>();
-    }
+        }
+        else if (other.CompareTag("Virus"))  // Make sure the virus tag is assigned
+        {
+         Debug.Log("Kollision mit Virus erkannt.");
+        var virusCollision = Schedule<PlayerVirusCollision>();  // Custom event for virus collision
+        virusCollision.player = this;
+        virusCollision.virus = other.GetComponent<VirusController>();  // VirusController reference
+        }
+
         }
     }
 }
