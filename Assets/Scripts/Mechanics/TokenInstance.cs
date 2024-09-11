@@ -45,7 +45,6 @@ namespace Platformer.Mechanics
             //only exectue OnPlayerEnter if the player collides with this token.
             var player = other.gameObject.GetComponent<PlayerController>();
             if (player != null) OnPlayerEnter(player);
-            score.AddScore();
 
         }
 
@@ -55,6 +54,13 @@ namespace Platformer.Mechanics
             //disable the gameObject and remove it from the controller update list.
             frame = 0;
             sprites = collectedAnimation;
+
+                // Mark the token as collected and animate it.
+            collected = true;
+
+            // Increment the score only when the token is collected.
+            score.AddScore();
+
             if (controller != null)
                 collected = true;
             //send an event into the gameplay system to perform some behaviour.
