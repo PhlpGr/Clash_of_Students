@@ -16,6 +16,7 @@ TagManager:
   - QuestionText
   - FeedbackText
   - Timer
+  - Virus
   layers:
   - Default
   - TransparentFX
