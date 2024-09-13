@@ -205,7 +205,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1016470874}
   m_Direction: 3
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.8046877
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 120788874}
   m_Layer: 5
   m_Name: BG
-  m_TagString: Untagged
+  m_TagString: LoadingPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -604,38 +604,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 217034822}
-  - component: {fileID: 217034824}
-  - component: {fileID: 217034823}
-  - component: {fileID: 217034821}
   m_Layer: 0
   m_Name: QuizManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &217034821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217034819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a529f335d20419b4d96f3b46c25fce34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quizTimer: {fileID: 1165120348}
-  frageText: {fileID: 1751719126}
-  answerButtons:
-  - {fileID: 893023110}
-  - {fileID: 1934166146}
-  - {fileID: 1084525250}
-  - {fileID: 1705733070}
-  feedbackText: {fileID: 505557048}
-  loadingPanel: {fileID: 499616371}
-  quizController: {fileID: 217034824}
+  m_IsActive: 0
 --- !u!4 &217034822
 Transform:
   m_ObjectHideFlags: 0
@@ -651,36 +626,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &217034823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217034819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 098e381b2bf8a46458da08815dbbe8dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseURL: http://localhost:1999/api/questions
-  quizScript: {fileID: 217034821}
-  quizController: {fileID: 217034824}
---- !u!114 &217034824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217034819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25014e6250e97134eaa905b6ad3df068, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  apiService: {fileID: 217034823}
-  currentQuestionCount: 0
-  apiCallQuiz: {fileID: 217034821}
 --- !u!1 &256589464
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +809,7 @@ GameObject:
   - component: {fileID: 505557048}
   m_Layer: 5
   m_Name: ScoreCounter
-  m_TagString: Untagged
+  m_TagString: FeedbackText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1379,7 +1324,7 @@ GameObject:
   - component: {fileID: 893023110}
   m_Layer: 5
   m_Name: Antwort1
-  m_TagString: Untagged
+  m_TagString: QuizButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1690,7 +1635,7 @@ GameObject:
   - component: {fileID: 1084525250}
   m_Layer: 5
   m_Name: Antwort3
-  m_TagString: Untagged
+  m_TagString: QuizButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1946,7 +1891,7 @@ GameObject:
   - component: {fileID: 1165120348}
   m_Layer: 5
   m_Name: Timer
-  m_TagString: Untagged
+  m_TagString: Timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2023,7 +1968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalTime: 10
   timerText: {fileID: 1335080252}
-  quizScript: {fileID: 217034821}
+  gm: {fileID: 0}
 --- !u!1 &1255734901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2718,7 +2663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00010681152}
+  m_AnchoredPosition: {x: 0, y: 0.00009918213}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1397433366
@@ -2897,7 +2842,7 @@ GameObject:
   - component: {fileID: 1705733070}
   m_Layer: 5
   m_Name: Antwort4
-  m_TagString: Untagged
+  m_TagString: QuizButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3017,7 +2962,7 @@ GameObject:
   - component: {fileID: 1751719126}
   m_Layer: 5
   m_Name: Question_Info
-  m_TagString: Untagged
+  m_TagString: QuestionText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3153,7 +3098,7 @@ GameObject:
   - component: {fileID: 1934166146}
   m_Layer: 5
   m_Name: Antwort2
-  m_TagString: Untagged
+  m_TagString: QuizButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

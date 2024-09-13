@@ -8,9 +8,9 @@ public class JWTDisplayManager : MonoBehaviour
     [DllImport("__Internal")]
     private static extern IntPtr GetJWTPayload();
 
-    public TMP_Text userInfoText;  // Reference to the TextMeshPro UI element
-    private string jwtToken;       // Store the full JWT token
-    private JWTData jwtData;       // Store the parsed JWT data
+    public TMP_Text userInfoText; // Reference to the TextMeshPro UI element
+    private string jwtToken; // Store the full JWT token
+    private JWTData jwtData; // Store the parsed JWT data
 
     void Start()
     {
@@ -42,16 +42,16 @@ public class JWTDisplayManager : MonoBehaviour
     }
 
     // Additional methods can use the full JWT token or parsed data as needed
-}
+
 
 
 // mocked Token data transfer
-public getMockData()
-{
-    jwtData2 = new JWTData(
-        "tom@one7.one", "Tom", "Mitrovic",  "tom@one7.one", "Digital Business Engineering", "it"
-    );
-    return jwtData2;
+    public  string email ="tom@one7.one";
+    public string  firstname =  "Tom";
+    public string  lastname = "Mitrovic";
+    public string  professor_email = "tom@one7.one";
+    public string program = "Digital Business Engineering";
+    public string course = "it";
 
 }
 

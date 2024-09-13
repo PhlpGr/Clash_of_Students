@@ -11,6 +11,11 @@ TagManager:
   - LadderBottom
   - LadderTop
   - Blitz
+  - QuizButton
+  - LoadingPanel
+  - QuestionText
+  - FeedbackText
+  - Timer
   layers:
   - Default
   - TransparentFX

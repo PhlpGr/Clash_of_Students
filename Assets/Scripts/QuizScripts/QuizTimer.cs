@@ -1,17 +1,29 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QuizTimer : MonoBehaviour
 {
-    public float totalTime = 30f; // Gesamtzeit in Sekunden
+    public float totalTime = 60f; // Gesamtzeit in Sekunden
     private float remainingTime;
-    public TextMeshProUGUI timerText; // Referenz zum Textfeld
+    private TextMeshProUGUI timerText; // Referenz zum Textfeld
 
     private bool timerIsRunning = false;
-    public API_CALL_Quiz quizScript; // Referenz zum Quiz-Skript
+    public Version2_GameManager gameManager; // Referenz zum GameManager
 
     void Start()
     {
+        // Versuche, die Referenz auf den GameManager zu finden, falls sie nicht gesetzt ist
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<Version2_GameManager>();
+
+            if (gameManager == null)
+            {
+                Debug.LogError("GameManager-Referenz ist nicht zugewiesen! Bitte überprüfe die Zuweisung im Inspektor.");
+            }
+        }
+
         timerIsRunning = false;
     }
 
@@ -54,19 +66,21 @@ public class QuizTimer : MonoBehaviour
     {
         float minutes = Mathf.FloorToInt(time / 60);
         float seconds = Mathf.FloorToInt(time % 60);
+        timerText = GameObject.Find("Timer Text").GetComponent<TextMeshProUGUI>();
+
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     void TimerEnded()
     {
-        if (quizScript != null)
+        if (gameManager != null)
         {
             Debug.Log("Zeit ist abgelaufen! Verarbeite Timer-Ende.");
-            quizScript.HandleIncorrectAnswer();
+            gameManager.HandleTimerEnd(); // Aufruf einer speziellen Methode im GameManager für Timer-Ende
         }
         else
         {
-            Debug.LogError("quizScript ist nicht zugewiesen! Bitte überprüfe die Zuweisung im Inspektor.");
+            Debug.LogError("GameManager-Referenz ist nicht zugewiesen! Bitte überprüfe die Zuweisung im Inspektor.");
         }
     }
 }

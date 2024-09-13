@@ -1,4 +1,6 @@
 // Fact.cs
+using UnityEngine.SceneManagement;
+
 public class Fact
 {
     public int id { get; set; }

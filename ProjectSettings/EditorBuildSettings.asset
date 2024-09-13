@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Testlevel/MainMenu.unity
     guid: 8acaf96bd7a66f54094b77ca8858881c
+  - enabled: 1
+    path: "Assets/Scenes/LevelkopieF\xFCrTom/Level_2/Level_2_Tom.unity"
+    guid: 9f9ea3ba28bfa944589e11afb07e8307
+  - enabled: 1
+    path: Assets/Scenes/Quiz/Quiz.unity
+    guid: b4b8d01a9adb2464081a928f0d8c70cc
   - enabled: 0
     path: Assets/Scenes/Testlevel/Level 01.unity
     guid: 7f7a9ed07d515af478bdf3f36488332f

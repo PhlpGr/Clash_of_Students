@@ -25,7 +25,7 @@ public class LadderMovement : MonoBehaviour
             rb.gravityScale = 4f;
         }
 
-        Debug.Log($"Is Ladder: {isLadder}, Is Climbing: {isClimbing}, Vertical Input: {vertical}");
+       // Debug.Log($"Is Ladder: {isLadder}, Is Climbing: {isClimbing}, Vertical Input: {vertical}");
     
     }
     private void FixedUpdate()
