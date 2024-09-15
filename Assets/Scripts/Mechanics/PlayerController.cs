@@ -166,6 +166,14 @@ namespace Platformer.Mechanics
         virusCollision.player = this;
         virusCollision.virus = other.GetComponent<VirusController>();  // VirusController reference
         }
+        else if (other.CompareTag("Troll"))  // Make sure the troll tag is assigned
+        {
+        Debug.Log("Kollision mit Troll erkannt.");
+        var trollCollision = Schedule<PlayerTrollCollision>();  // Custom event for troll collision
+        trollCollision.player = this;
+        trollCollision.troll = other.GetComponent<TrollController>();  // TrollController reference
+        }
+
 
         }
     }

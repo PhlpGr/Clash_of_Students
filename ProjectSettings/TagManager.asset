@@ -17,6 +17,8 @@ TagManager:
   - FeedbackText
   - Timer
   - Virus
+  - Troll
+  - Ground
   layers:
   - Default
   - TransparentFX
