@@ -37,7 +37,7 @@ public class Timer : MonoBehaviour
         else if (remainingTime <= 0 && isTiming)
         {
             remainingTime = 0; // Stellt sicher, dass der Timer nicht unter 0 geht
-            GameOver(); // Endet das Spiel, wenn die Zeit abgelaufen ist
+            //GameOver(); // Endet das Spiel, wenn die Zeit abgelaufen ist
         }
 
         UpdateTimerDisplay(); // Aktualisiert die Anzeige des Timers

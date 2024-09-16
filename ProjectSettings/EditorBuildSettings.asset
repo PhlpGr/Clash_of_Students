@@ -29,6 +29,54 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Men\xFC/Hauptmen\xFC.unity"
     guid: 660bd2c40b385094ebfb34648d859443
+  - enabled: 1
+    path: Assets/Scenes/Konfigurator_Assets/MilitaryHeroes.unity
+    guid: fd1d8343b1d47244ea92011e3c1bcff7
+  - enabled: 1
+    path: Assets/Scenes/Level_2/Level_2_1.unity
+    guid: 99594d627f71f5147b81a4b86d90bca8
+  - enabled: 1
+    path: Assets/Scenes/Level_2/Level_2_2.unity
+    guid: a0fe273a13380e94a8d11ee2d01d3dac
+  - enabled: 1
+    path: Assets/Scenes/Level_2/Level_2_3.unity
+    guid: e41f73ad790d2ce499887ecfec909336
+  - enabled: 1
+    path: Assets/Scenes/Level_3/Level_3_1.unity
+    guid: 9a58290653d3a4a4d840759b23b73c70
+  - enabled: 1
+    path: Assets/Scenes/Level_3/Level_3_2.unity
+    guid: 5ed4acf2d0b388a478aaf872dae13b13
+  - enabled: 1
+    path: Assets/Scenes/Level_3/Level_3_3.unity
+    guid: ca07ed85501f31046aef64a93f7d82e4
+  - enabled: 1
+    path: Assets/Scenes/Level_4/Level_4_1.unity
+    guid: 05d63e5180e8e124f896089eb5bd8b91
+  - enabled: 1
+    path: Assets/Scenes/Level_4/Level_4_2.unity
+    guid: f33cd8503d6a58745a424f0cbc01e5db
+  - enabled: 1
+    path: Assets/Scenes/Level_4/Level_4_3.unity
+    guid: 7eb1a374f3ad2c24d8ac1e2d3d966927
+  - enabled: 1
+    path: Assets/Scenes/Level_7/Level_7_1.unity
+    guid: d390ad933bcc4ff45bcb31e3207d4f41
+  - enabled: 1
+    path: Assets/Scenes/Level_7/Level_7_2.unity
+    guid: b796990fab4a13146bcb6a32befbcc78
+  - enabled: 1
+    path: Assets/Scenes/Level_7/Level_7_3.unity
+    guid: 2846542b9dac3ef4e9071c728b34b5c8
+  - enabled: 1
+    path: Assets/Scenes/Level_8/Level_8_1.unity
+    guid: 56848250129bb304792247b0f9ea8af9
+  - enabled: 1
+    path: Assets/Scenes/Level_8/Level_8_2.unity
+    guid: 74bbcc4679e80af47be56154896298d7
+  - enabled: 1
+    path: Assets/Scenes/Level_8/Level_8_3.unity
+    guid: 35361d704e2d71e40b67ea5ae967abec
   - enabled: 0
     path: "Assets/Scenes/Level_1/Level_1.1(f\xFCrAuswahl).unity"
     guid: 2963747c58912a6498229c784fab5b36
