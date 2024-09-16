@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class QuizTimer : MonoBehaviour
 {
-    public float totalTime = 60f; // Gesamtzeit in Sekunden
+    private float totalTime = 90f; // Gesamtzeit in Sekunden
     private float remainingTime;
     private TextMeshProUGUI timerText; // Referenz zum Textfeld
 

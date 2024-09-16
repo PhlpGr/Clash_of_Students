@@ -23,6 +23,7 @@ public class Version2_QuizEnemy : MonoBehaviour
             Debug.Log($"mail: {email}");
 
             // Starte das Quiz mit den gegebenen Informationen und Szenennamen
+            Debug.Log($"{quizInfos + mainSceneName}");
             Version2_GameManager.Instance.StartQuiz(quizInfos, mainSceneName);
         }
     }
