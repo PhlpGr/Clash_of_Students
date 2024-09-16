@@ -32,13 +32,28 @@ namespace Platformer.Mechanics
 
         public Score score;
 
-        void Awake()
+       void Start()
         {
             _renderer = GetComponent<SpriteRenderer>();
+
+            // Versuche die Score-Referenz automatisch zu finden
+            score = FindObjectOfType<Score>(); // Sucht nach einem Score-Objekt in der Szene
+            if (score == null)
+            {
+                Debug.LogError("Score reference not found in the scene!");
+            }
+            else
+            {
+                Debug.Log("Score reference found and assigned.");
+            }
+
             if (randomAnimationStartTime)
                 frame = Random.Range(0, sprites.Length);
+
             sprites = idleAnimation;
         }
+
+
 
         void OnTriggerEnter2D(Collider2D other)
         {
@@ -51,22 +66,44 @@ namespace Platformer.Mechanics
         void OnPlayerEnter(PlayerController player)
         {
             if (collected) return;
-            //disable the gameObject and remove it from the controller update list.
+
+            // Token als eingesammelt markieren und Animation ändern
             frame = 0;
             sprites = collectedAnimation;
-
-                // Mark the token as collected and animate it.
             collected = true;
 
-            // Increment the score only when the token is collected.
-            score.AddScore();
+            // Prüfe, ob der Score korrekt gesetzt wurde
+            if (score != null)
+            {
+                score.AddScore(); // Score erhöhen
+                Debug.Log("Score increased to: " + score.globalScore); // Debug-Log hinzufügen
+            }
+            else
+            {
+                Debug.LogError("Score reference is missing in TokenInstance!");
+            }
 
-            if (controller != null)
-                collected = true;
-            //send an event into the gameplay system to perform some behaviour.
+            // Deaktiviere den Renderer, aber lasse den Collider aktiv
+            _renderer.enabled = false;
+
+            // Event für das Einsammeln des Tokens auslösen
             var ev = Schedule<PlayerTokenCollision>();
             ev.token = this;
             ev.player = player;
         }
+
+        public void ResetToken()
+        {
+            collected = false;
+            sprites = idleAnimation;
+            frame = 0;
+
+            // Mache den Renderer wieder sichtbar und aktiviere den Collider
+            _renderer.enabled = true;
+            GetComponent<Collider2D>().enabled = true;
+
+            Debug.Log("Token reset successfully.");
+        }
+
     }
 }

@@ -287,7 +287,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 2000407818}
-  remainingTime: 60
+  initialTime: 100
+  startSceneName: Level_3
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  warningColor: {r: 1, g: 0, b: 0, a: 1}
+  gameOverColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &14922059
 GameObject:
   m_ObjectHideFlags: 0
@@ -11304,7 +11308,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1155713, y: 2.023398, z: -10}
+  m_LocalPosition: {x: -2.8, y: 1.9999998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

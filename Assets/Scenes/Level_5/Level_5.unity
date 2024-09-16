@@ -11211,7 +11211,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 78964950}
-  remainingTime: 100
+  initialTime: 80
+  startSceneName: Level_5
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  warningColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1178226503
 GameObject:
   m_ObjectHideFlags: 0

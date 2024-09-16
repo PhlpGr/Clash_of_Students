@@ -176,5 +176,16 @@ namespace Platformer.Mechanics
 
 
         }
+
+        public void DisableControl()
+        {
+            controlEnabled = false;
+            velocity = Vector2.zero;  // Stoppe jegliche Bewegung
+        }
+
+            public void EnableControl()
+        {
+            controlEnabled = true;
+        }
     }
 }
