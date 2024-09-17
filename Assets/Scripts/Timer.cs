@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText; // Referenz auf das UI-Text-Element, um den Timer anzuzeigen
     [SerializeField] float initialTime = 120f; // Startzeit, die manuell eingegeben wird
+    [SerializeField] Transform startPoint; // Referenz auf den Startpunkt
     private float remainingTime;
     private bool isTiming = true; // Timer läuft standardmäßig
     private static Timer instance;
@@ -50,11 +51,10 @@ public class Timer : MonoBehaviour
     private void GameOver()
     {
         isTiming = false; // Stoppt den Timer
-        // Die Spielmechanik wird zurückgesetzt, nachdem die Zeit abgelaufen ist
         Time.timeScale = 1f; // Stelle sicher, dass das Spiel weiterläuft
 
         // Respawne den Spieler am Startpunkt
-        Vector2 startPosition = new Vector2(0, 0); // Beispielkoordinaten für den Startpunkt
+        Vector2 startPosition = startPoint.position; // Verwende die Position des Startpunkts
         PlayerController player = FindObjectOfType<PlayerController>();
         if (player != null)
         {
@@ -64,7 +64,7 @@ public class Timer : MonoBehaviour
         // Timer zurücksetzen
         ResetTimer();
 
-        // Score zurücksetzen
+        // Score zurücksetzen (falls es ein Score-System gibt)
         Score score = FindObjectOfType<Score>();
         if (score != null)
         {
@@ -86,7 +86,7 @@ public class Timer : MonoBehaviour
         // Setzt den Text auf "Zeit abgelaufen!" in weiß
         timerText.text = "Zeit abgelaufen!";
         timerText.color = Color.white;
-        timerText.enableWordWrapping = false; // Deaktiviere den Zeilenumbruch, um sicherzustellen, dass der Text in einer Zeile bleibt
+        timerText.enableWordWrapping = false; // Deaktiviere den Zeilenumbruch
 
         // Warte eine halbe Sekunde (0.5f Sekunden)
         yield return new WaitForSeconds(0.5f);

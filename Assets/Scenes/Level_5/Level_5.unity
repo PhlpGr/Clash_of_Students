@@ -11212,9 +11212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 78964950}
   initialTime: 80
-  startSceneName: Level_5
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  warningColor: {r: 1, g: 0, b: 0, a: 1}
+  startPoint: {fileID: 2002917930}
 --- !u!1 &1178226503
 GameObject:
   m_ObjectHideFlags: 0
@@ -19235,6 +19233,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2002917929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2002917930}
+  m_Layer: 0
+  m_Name: LevelStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2002917930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002917929}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.98, y: 0.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2006126987
 GameObject:
   m_ObjectHideFlags: 0
@@ -20482,3 +20511,4 @@ SceneRoots:
   - {fileID: 958076270}
   - {fileID: 172625911}
   - {fileID: 1074862765}
+  - {fileID: 2002917930}

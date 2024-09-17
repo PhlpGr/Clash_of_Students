@@ -3780,7 +3780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e01aaa3d708b24ab54fe5d04a19b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 5
   gameManager: {fileID: 282241033}
 --- !u!4 &357967096
 Transform:
@@ -8711,7 +8710,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8782554, y: 2.3033783, z: -10}
+  m_LocalPosition: {x: -1.4161978, y: 2.302906, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9897,9 +9896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 163021444}
   initialTime: 80
-  startSceneName: Level_2
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  warningColor: {r: 1, g: 0, b: 0, a: 1}
+  startPoint: {fileID: 1775500682}
 --- !u!1001 &950648879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16766,6 +16763,37 @@ PolygonCollider2D:
       - {x: 0.42499965, y: 0.4262499}
       - {x: 0.42499998, y: 0.47}
   m_UseDelaunayMesh: 0
+--- !u!1 &1775500681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1775500682}
+  m_Layer: 0
+  m_Name: LevelStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1775500682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775500681}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.98, y: 0.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1783485997
 GameObject:
   m_ObjectHideFlags: 0
@@ -18568,3 +18596,4 @@ SceneRoots:
   - {fileID: 1243046468}
   - {fileID: 1392602769}
   - {fileID: 282241034}
+  - {fileID: 1775500682}
