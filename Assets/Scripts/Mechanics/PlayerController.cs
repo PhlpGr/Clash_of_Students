@@ -187,5 +187,12 @@ namespace Platformer.Mechanics
         {
             controlEnabled = true;
         }
+
+        public void RespawnAtStart(Vector2 startPosition)
+        {
+            transform.position = startPosition; // Setzt den Spieler an die Startposition
+            velocity = Vector2.zero; // Setzt die Bewegung zurück
+            EnableControl(); // Aktiviert die Kontrolle wieder, falls sie deaktiviert wurde
+        }
     }
 }

@@ -3637,7 +3637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e01aaa3d708b24ab54fe5d04a19b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 5
   gameManager: {fileID: 1596902266}
 --- !u!4 &305512582
 Transform:
@@ -22848,9 +22847,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1944574352}
   initialTime: 10
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  warningColor: {r: 1, g: 0, b: 0, a: 1}
-  gameOverColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1797780913
 MonoBehaviour:
   m_ObjectHideFlags: 0

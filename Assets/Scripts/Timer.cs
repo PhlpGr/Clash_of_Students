@@ -1,23 +1,15 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 using System.Collections;
+using Platformer.Mechanics;  // Wichtig für Coroutine
 
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText; // Referenz auf das UI-Text-Element, um den Timer anzuzeigen
-    [SerializeField] float initialTime; // Manuell einstellbare Startzeit in Sekunden
-    [SerializeField] string startSceneName; // Name der Startszene, der im Editor festgelegt wird
-    [SerializeField] Color defaultColor = Color.white; // Standardfarbe des Timer-Textes
-    [SerializeField] Color warningColor = Color.red; // Farbe für die letzten 10 Sekunden
-    [SerializeField] Color gameOverColor = Color.white; // Farbe für den "Zeit abgelaufen"-Text
-
-    private float remainingTime; // Aktuell verbleibende Zeit
+    [SerializeField] float initialTime = 120f; // Startzeit, die manuell eingegeben wird
+    private float remainingTime;
     private bool isTiming = true; // Timer läuft standardmäßig
     private static Timer instance;
-
-    // Referenz auf das PatrolPath-Objekt
-    public GameObject patrolPathObject;
 
     void Awake()
     {
@@ -30,18 +22,13 @@ public class Timer : MonoBehaviour
         {
             Destroy(gameObject); // Zerstört das neue Objekt, um sicherzustellen, dass nur ein Timer existiert
         }
-
-        if (patrolPathObject != null)
-        {
-            DontDestroyOnLoad(patrolPathObject); // Verhindert, dass PatrolPath beim Szenenwechsel zerstört wird
-        }
     }
 
     void Start()
     {
-        ResetTimer(); // Setzt den Timer bei Spielstart zurück
+        remainingTime = initialTime; // Timer auf die initiale Zeit setzen
         PositionTimerText(); // Positioniere den Timer oben in der Mitte
-        InitializePatrolPath(); // Initialisiere das PatrolPath
+        UpdateTimerDisplay(); // Aktualisiere den Timer direkt beim Start
     }
 
     void Update()
@@ -53,58 +40,59 @@ public class Timer : MonoBehaviour
         else if (remainingTime <= 0 && isTiming)
         {
             remainingTime = 0; // Stellt sicher, dass der Timer nicht unter 0 geht
-            //GameOver(); // Endet das Spiel, wenn die Zeit abgelaufen ist
+            StartCoroutine(ShowTimeUpMessage()); // Coroutine starten, um den "Zeit abgelaufen!" Text anzuzeigen
+            GameOver(); // Endet das Spiel, wenn die Zeit abgelaufen ist
         }
 
         UpdateTimerDisplay(); // Aktualisiert die Anzeige des Timers
     }
 
-    private IEnumerator GameOver()
+    private void GameOver()
     {
         isTiming = false; // Stoppt den Timer
+        // Die Spielmechanik wird zurückgesetzt, nachdem die Zeit abgelaufen ist
+        Time.timeScale = 1f; // Stelle sicher, dass das Spiel weiterläuft
 
-        // Setze den Text auf "Zeit abgelaufen!" und wechsle die Farbe auf Weiß
+        // Respawne den Spieler am Startpunkt
+        Vector2 startPosition = new Vector2(0, 0); // Beispielkoordinaten für den Startpunkt
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player != null)
+        {
+            player.RespawnAtStart(startPosition);
+        }
+
+        // Timer zurücksetzen
+        ResetTimer();
+
+        // Score zurücksetzen
+        Score score = FindObjectOfType<Score>();
+        if (score != null)
+        {
+            score.ResetScore();
+        }
+
+        Debug.Log("Game Over - Spieler wird zurückgesetzt.");
+    }
+
+    private void ResetTimer()
+    {
+        remainingTime = initialTime; // Setzt die Zeit auf die manuell eingestellte Zeit zurück
+        isTiming = true; // Startet den Timer neu
+        UpdateTimerDisplay(); // Aktualisiert die Anzeige direkt nach dem Reset
+    }
+
+    private IEnumerator ShowTimeUpMessage()
+    {
+        // Setzt den Text auf "Zeit abgelaufen!" in weiß
         timerText.text = "Zeit abgelaufen!";
-        timerText.color = gameOverColor;
+        timerText.color = Color.white;
+        timerText.enableWordWrapping = false; // Deaktiviere den Zeilenumbruch, um sicherzustellen, dass der Text in einer Zeile bleibt
 
-        Debug.Log("Game Over! Restarting...");
+        // Warte eine halbe Sekunde (0.5f Sekunden)
+        yield return new WaitForSeconds(0.5f);
 
-        // Warte 2 Sekunden, bevor das Spiel zurückgesetzt wird
-        yield return new WaitForSeconds(2f);
-
-        // Lade die Startszene neu
-        if (!string.IsNullOrEmpty(startSceneName))
-        {
-            SceneManager.LoadScene(startSceneName); // Lädt die Szene mit dem angegebenen Namen
-            StartCoroutine(InitializeAfterSceneLoad());
-        }
-        else
-        {
-            Debug.LogError("Startszene wurde nicht festgelegt.");
-        }
-    }
-
-    private IEnumerator InitializeAfterSceneLoad()
-    {
-        yield return new WaitForSeconds(0.1f); // Warte kurz, bis die Szene vollständig geladen ist
-        InitializePatrolPath(); // Stelle sicher, dass das PatrolPath neu referenziert wird
-    }
-
-    private void InitializePatrolPath()
-    {
-        if (patrolPathObject == null)
-        {
-            patrolPathObject = GameObject.Find("PatrolPath"); // Suche das Objekt, falls es noch nicht referenziert wurde
-        }
-
-        if (patrolPathObject != null)
-        {
-            DontDestroyOnLoad(patrolPathObject); // Stelle sicher, dass das Objekt nicht zerstört wird
-        }
-        else
-        {
-            Debug.LogWarning("PatrolPath-Objekt konnte nicht gefunden werden!");
-        }
+        // Nach der Wartezeit wird die Farbe auf Rot geändert
+        timerText.color = Color.red;
     }
 
     private void UpdateTimerDisplay()
@@ -114,21 +102,19 @@ public class Timer : MonoBehaviour
             int minutes = Mathf.FloorToInt(remainingTime / 60); // Berechnet die Minuten
             int seconds = Mathf.FloorToInt(remainingTime % 60); // Berechnet die Sekunden
 
-            // Wenn weniger als 10 Sekunden verbleiben, wird die Textfarbe rot
-            if (remainingTime <= 10f)
+            // Zeige die verbleibende Zeit im MM:SS-Format an
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+            // Setze die Farbe auf Rot, wenn weniger als 10 Sekunden übrig sind
+            if (remainingTime < 10f)
             {
-                timerText.color = warningColor;
+                timerText.color = Color.red;
             }
-
-            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds); // Aktualisiert den Text im MM:SS-Format
+            else
+            {
+                timerText.color = Color.white;
+            }
         }
-    }
-
-    private void ResetTimer()
-    {
-        remainingTime = initialTime; // Setzt die Zeit auf den Anfangswert zurück
-        isTiming = true; // Timer läuft standardmäßig weiter
-        timerText.color = defaultColor;
     }
 
     private void PositionTimerText()
