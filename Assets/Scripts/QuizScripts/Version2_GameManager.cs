@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine.UI;
 using Newtonsoft.Json;
 using UnityEngine.SceneManagement;
+using QuizScripts;
+using System.Threading.Tasks;
 
 public class Version2_GameManager : MonoBehaviour
 {
@@ -194,7 +196,7 @@ public class Version2_GameManager : MonoBehaviour
         answerButton4.interactable = true;
     }
     
-    private void LoadNextQuestion()
+    private async Task LoadNextQuestion()
     {
         if (currentQuestionCount < maxQuestionsPerEnemy)
         {
@@ -207,7 +209,7 @@ public class Version2_GameManager : MonoBehaviour
         }
         else
         {
-            EndQuiz();
+            await EndQuiz();
         }
     }
 
@@ -270,14 +272,14 @@ public class Version2_GameManager : MonoBehaviour
         feedbackText.text = ""; 
     }
 
-    public void EndQuiz()
+    public async Task EndQuiz()
     {
         Debug.Log($"Korrekte Antworten: {correctAnswersCount}");
         Debug.Log($"Falsche Antworten: {incorrectAnswersCount}");
         scoreCounter.CountScore(incorrectAnswersCount, correctAnswersCount);
         Debug.Log("Das Quiz ist beendet.");
         
-        if (quizInfos.CurrentPosition = 9)
+        if (quizInfos.CurrentPosition == 9)
         {
             await scoreCounter.PostScoreAsync(JWTDManager.professor_email, quizInfos.Program, quizInfos.Course, quizInfos.Lection, scoreCounter.lection_score, quizInfos.Mail);
         }
