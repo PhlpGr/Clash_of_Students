@@ -46,10 +46,10 @@ public class JWTDisplayManager : MonoBehaviour
 
 
 // mocked Token data transfer
-    public  string email ="tom@one7.one";
-    public string  firstname =  "Tom";
-    public string  lastname = "Mitrovic";
-    public string  professor_email = "tom@one7.one";
+    public string email ="tom@one7.one";
+    public string firstname =  "Tom";
+    public string lastname = "Mitrovic";
+    public string professor_email = "tom@one7.one";
     public string program = "Digital Business Engineering";
     public string course = "it";
 

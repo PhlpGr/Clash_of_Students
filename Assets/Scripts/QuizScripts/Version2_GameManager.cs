@@ -12,10 +12,10 @@ public class Version2_GameManager : MonoBehaviour
     public QuizTimer quizTimer;
     private Infos quizInfos;
     private string mainSceneName;
-    private const string quizSceneName = "Quiz"; // Konstanten für die Szenennamen
+    private const string quizSceneName = "Quiz"; 
     private const int maxQuestionsPerEnemy = 2;
 
-    private int attemptCount = 0; // Zähler für die Anzahl der Fehlversuche
+    private int attemptCount = 0; 
     private int currentQuestionCount = 0;
     private int correctAnswersCount = 0;
     private int incorrectAnswersCount = 0;
@@ -27,8 +27,8 @@ public class Version2_GameManager : MonoBehaviour
     private Button answerButton2;
     private Button answerButton3;
     private Button answerButton4;
-
-
+    ScoreCounter scoreCounter = new ScoreCounter();
+    public static JWTDisplayManager JWTDManager;
     private void Awake()
     {
         if (Instance == null)
@@ -47,7 +47,6 @@ public class Version2_GameManager : MonoBehaviour
         this.quizInfos = quizInfos;
         this.mainSceneName = mainSceneName;
 
-        // Generiere die URL einmal hier
         url = GenerateURL(quizInfos.Mail, quizInfos.Program, quizInfos.Course, quizInfos.Lection, quizInfos.CurrentPosition);
         Debug.Log("Generierte URL: " + url);
 
@@ -61,22 +60,19 @@ public class Version2_GameManager : MonoBehaviour
         {
             SceneManager.sceneLoaded -= OnQuizSceneLoaded;
 
-            // Buttons dynamisch zuweisen
             AssignButtonsDynamically();
 
-            StartCoroutine(LoadQuestion(url)); // Verwende die zuvor generierte URL
+            StartCoroutine(LoadQuestion(url)); 
         }
     }
 
     private void AssignButtonsDynamically()
     {
-        // Finde die Buttons anhand ihrer Namen in der Szene
         answerButton1 = GameObject.Find("Antwort1").GetComponent<Button>();
         answerButton2 = GameObject.Find("Antwort2").GetComponent<Button>();
         answerButton3 = GameObject.Find("Antwort3").GetComponent<Button>();
         answerButton4 = GameObject.Find("Antwort4").GetComponent<Button>();
 
-        // Überprüfe, ob die Buttons gefunden wurden
         if (answerButton1 == null || answerButton2 == null || answerButton3 == null || answerButton4 == null)
         {
             Debug.LogError("Mindestens ein Button konnte in der Szene nicht gefunden werden. Bitte überprüfe die Namen der Buttons in der Szene.");
@@ -115,14 +111,12 @@ public class Version2_GameManager : MonoBehaviour
         feedbackText = GameObject.Find("ScoreCounter").GetComponent<TextMeshProUGUI>();
 
         frageText.text = fact.frage;
-
-        // Setze die Antworttexte und aktiviere die Buttons
+        
         SetupButton(answerButton1, fact.answer_a, fact.correct_answer);
         SetupButton(answerButton2, fact.answer_b, fact.correct_answer);
         SetupButton(answerButton3, fact.answer_c, fact.correct_answer);
         SetupButton(answerButton4, fact.answer_d, fact.correct_answer);
 
-        // Starte den Timer für die Frage
         quizTimer.ResetTimer();
         quizTimer.StartTimer();
     }
@@ -135,7 +129,7 @@ public class Version2_GameManager : MonoBehaviour
             return;
         }
 
-        button.onClick.RemoveAllListeners(); // Entferne vorherige Listener
+        button.onClick.RemoveAllListeners(); 
 
         if (!string.IsNullOrEmpty(answerText))
         {
@@ -148,23 +142,22 @@ public class Version2_GameManager : MonoBehaviour
 
             buttonText.text = answerText;
             button.gameObject.SetActive(true);
-            button.interactable = true; // Mache den Button klickbar
+            button.interactable = true; // Mach Button klickbar
 
-            // Listener hinzufügen, um die Antwort zu prüfen
+            // Listener um die Antwort zu prüfen
             button.onClick.AddListener(() => CheckAnswer(answerText, correctAnswer));
         }
         else
         {
-            button.gameObject.SetActive(false); // Deaktiviere den Button, wenn keine Antwort vorhanden ist
+            button.gameObject.SetActive(false); // Deaktiviert den Button, wenn keine Antwort vorhanden ist
         }
     }
 
     public void CheckAnswer(string selectedAnswer, string correctAnswer)
     {
-        quizTimer.StopTimer(); // Stoppe den Timer
+        quizTimer.StopTimer(); // Stoppt den Timer
         Debug.Log("Antwort ausgewählt: " + selectedAnswer);
     
-        // Deaktiviere alle Buttons nach der Auswahl einer Antwort
         DisableAllButtons();
     
         if (selectedAnswer == correctAnswer)
@@ -172,15 +165,15 @@ public class Version2_GameManager : MonoBehaviour
             feedbackText.text = "Richtig!";
             feedbackText.color = Color.green;
             Debug.Log("Richtige Antwort ausgewählt!");
-            correctAnswersCount++; // Erhöhe den Zähler für richtige Antworten
+            correctAnswersCount++; 
             StartCoroutine(HideFeedbackText());
-            Invoke(nameof(LoadNextQuestion), 1.5f); // Lade die nächste Frage nach 1,5 Sekunden
+            Invoke(nameof(LoadNextQuestion), 1.5f); 
         }
         else
         {
             Debug.Log("Falsche Antwort ausgewählt!");
-            incorrectAnswersCount++; // Erhöhe den Zähler für falsche Antworten
-            HandleIncorrectAnswer(); // Behandle den falschen Antwortfall
+            incorrectAnswersCount++; 
+            HandleIncorrectAnswer(); 
         }
     }
 
@@ -210,7 +203,7 @@ public class Version2_GameManager : MonoBehaviour
             quizInfos.CurrentPosition++; // Erhöhe die CurrentPosition um 1 für die nächste Frage
             url = GenerateURL(quizInfos.Mail, quizInfos.Program, quizInfos.Course, quizInfos.Lection, quizInfos.CurrentPosition);
             Debug.Log("Neue generierte URL für nächste Frage: " + url);
-            StartCoroutine(LoadQuestion(url)); // Verwende die aktualisierte URL
+            StartCoroutine(LoadQuestion(url)); 
         }
         else
         {
@@ -224,8 +217,8 @@ public class Version2_GameManager : MonoBehaviour
         feedbackText.text = "Zeit abgelaufen!";
         feedbackText.color = Color.red;
         StartCoroutine(HideFeedbackText());
-        incorrectAnswersCount++; // Erhöhe den Zähler für falsche Antworten
-        HandleIncorrectAnswer(); // Behandle den Fall einer falschen Antwort
+        incorrectAnswersCount++;
+        HandleIncorrectAnswer();
     }
 
     
@@ -236,7 +229,6 @@ public class Version2_GameManager : MonoBehaviour
     
         if (attemptCount == 1)
         {
-            // Erster Fehlversuch
             feedbackText.text = "Falsch! Versuch es nochmal.";
             feedbackText.color = Color.red;
             StartCoroutine(HideFeedbackText());
@@ -248,7 +240,7 @@ public class Version2_GameManager : MonoBehaviour
             feedbackText.text = "Zweite falsche Antwort! Nächste Frage...";
             feedbackText.color = Color.red;
             StartCoroutine(HideFeedbackText());
-            Invoke(nameof(LoadNextQuestion), 1.5f); // Lade die nächste Frage nach 1,5 Sekunden
+            Invoke(nameof(LoadNextQuestion), 1.5f); 
             attemptCount = 0; // Setze den Fehlversuchszähler zurück
         }
     }
@@ -261,8 +253,6 @@ public class Version2_GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         quizTimer.ResetTimer();
         quizTimer.StartTimer();
-
-        // Mache die Buttons wieder klickbar für den erneuten Versuch
         EnableAllButtons();
     }
 
@@ -277,15 +267,21 @@ public class Version2_GameManager : MonoBehaviour
     private IEnumerator HideFeedbackText()
     {
         yield return new WaitForSeconds(1.5f);
-        feedbackText.text = ""; // Setzt den Feedback-Text zurück
+        feedbackText.text = ""; 
     }
 
     public void EndQuiz()
     {
         Debug.Log($"Korrekte Antworten: {correctAnswersCount}");
         Debug.Log($"Falsche Antworten: {incorrectAnswersCount}");
+        scoreCounter.CountScore(incorrectAnswersCount, correctAnswersCount);
         Debug.Log("Das Quiz ist beendet.");
-        SceneManager.LoadScene(mainSceneName); // Zurück zur Hauptspielszene
+        
+        if (quizInfos.CurrentPosition = 9)
+        {
+            await scoreCounter.PostScoreAsync(JWTDManager.professor_email, quizInfos.Program, quizInfos.Course, quizInfos.Lection, scoreCounter.lection_score, quizInfos.Mail);
+        }
+        SceneManager.LoadScene(mainSceneName); 
     }
 
 

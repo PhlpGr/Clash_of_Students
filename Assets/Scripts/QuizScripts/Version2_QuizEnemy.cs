@@ -3,7 +3,8 @@ using UnityEngine;
 public class Version2_QuizEnemy : MonoBehaviour
 {
     public static JWTDisplayManager JWTDManager; // Manager zur Verwaltung der JWT-Daten
-    private string email = "tom@one7.one";//JWTDManager.professor_email;
+    private string email = "tom@one7.one";//JWTDManager.email;
+    private string professor_email = "tom@one7.one";//JWTDManager.professor_email;
     private string program = "Digital Business Engineering"; //JWTDManager.program;
     private string course = "it"; //JWTDManager.course;
     public string lection = "1";
