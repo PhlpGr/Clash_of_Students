@@ -4669,7 +4669,6 @@ GameObject:
   m_Component:
   - component: {fileID: 711800710}
   - component: {fileID: 711800709}
-  - component: {fileID: 711800711}
   m_Layer: 0
   m_Name: portallvl6
   m_TagString: Untagged
@@ -4744,21 +4743,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &711800711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711800708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 470663bef2a4403d87d93241430a709d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lection: 1
-  position: 1
-  mainSceneName: Level_6_1
 --- !u!1 &720749697
 GameObject:
   m_ObjectHideFlags: 0
@@ -5400,7 +5384,6 @@ GameObject:
   m_Component:
   - component: {fileID: 864661097}
   - component: {fileID: 864661096}
-  - component: {fileID: 864661098}
   m_Layer: 0
   m_Name: portallvl6 (1)
   m_TagString: Untagged
@@ -5475,21 +5458,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &864661098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 864661095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 470663bef2a4403d87d93241430a709d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lection: 1
-  position: 1
-  mainSceneName: Level_6_1
 --- !u!1 &865784911
 GameObject:
   m_ObjectHideFlags: 0
@@ -6858,6 +6826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1009243997}
   - component: {fileID: 1009243996}
+  - component: {fileID: 1009243998}
   m_Layer: 0
   m_Name: portallvl6 (2)
   m_TagString: Untagged
@@ -6932,6 +6901,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1009243998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009243995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470663bef2a4403d87d93241430a709d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lection: 1
+  position: 6
+  mainSceneName: Level_6_3
 --- !u!1 &1016675098
 GameObject:
   m_ObjectHideFlags: 0
