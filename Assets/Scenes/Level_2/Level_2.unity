@@ -8710,7 +8710,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4161978, y: 2.302906, z: -10}
+  m_LocalPosition: {x: -1.014823, y: 2.302906, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9896,7 +9896,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 163021444}
   initialTime: 80
-  startPoint: {fileID: 1775500682}
+  startSceneName: Level_2
+  respawnDelay: 2
 --- !u!1001 &950648879
 PrefabInstance:
   m_ObjectHideFlags: 0

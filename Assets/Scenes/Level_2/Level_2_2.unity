@@ -5159,7 +5159,7 @@ Transform:
   m_GameObject: {fileID: 482711330}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.77, y: 0.95, z: 0}
+  m_LocalPosition: {x: 52.233, y: 0.898, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8603,7 +8603,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8782554, y: 2.3033783, z: -10}
+  m_LocalPosition: {x: -1.014823, y: 2.302906, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9783,7 +9783,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 163021444}
-  remainingTime: 60
+  initialTime: 120
+  startSceneName: Level_2
+  respawnDelay: 2
 --- !u!1001 &950648879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11887,7 +11889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lection: 1
-  position: 6
+  position: 7
   mainSceneName: Level_2_3
 --- !u!1 &1259325667
 GameObject:
@@ -14729,7 +14731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e01aaa3d708b24ab54fe5d04a19b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 5
   gameManager: {fileID: 273683417}
 --- !u!4 &1564564967
 Transform:

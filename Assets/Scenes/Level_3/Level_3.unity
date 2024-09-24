@@ -288,7 +288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 2000407818}
   initialTime: 100
-  startPoint: {fileID: 448485707}
+  startSceneName: Level_3
+  respawnDelay: 2
 --- !u!1 &14922059
 GameObject:
   m_ObjectHideFlags: 0

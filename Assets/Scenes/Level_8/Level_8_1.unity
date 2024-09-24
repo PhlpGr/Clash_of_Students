@@ -4677,7 +4677,7 @@ Transform:
   m_GameObject: {fileID: 482711330}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.77, y: 0.95, z: 0}
+  m_LocalPosition: {x: 12.868, y: 2.629, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8627,7 +8627,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.15, y: 2.4099998, z: -10}
+  m_LocalPosition: {x: -0.7725729, y: 2.412507, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15768,7 +15768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470663bef2a4403d87d93241430a709d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lection: 1
+  lection: 8
   position: 4
   mainSceneName: Level_8_2
 --- !u!1 &1541652715
@@ -19779,7 +19779,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1504007386}
-  remainingTime: 90
+  initialTime: 120
+  startSceneName: Level_8
+  respawnDelay: 2
 --- !u!1 &1891867594
 GameObject:
   m_ObjectHideFlags: 0

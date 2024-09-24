@@ -7,6 +7,8 @@ using Newtonsoft.Json;
 using UnityEngine.SceneManagement;
 using QuizScripts;
 using System.Threading.Tasks;
+using Platformer.Gameplay;  // Für das PlayerSpawn-Event
+using Platformer.Core;   
 
 public class Version2_GameManager : MonoBehaviour
 {
@@ -283,10 +285,26 @@ public class Version2_GameManager : MonoBehaviour
         {
             await scoreCounter.PostScoreAsync(JWTDManager.professor_email, quizInfos.Program, quizInfos.Course, quizInfos.Lection, scoreCounter.lection_score, quizInfos.Mail);
         }
+
+        
         SceneManager.LoadScene(mainSceneName); 
+
+          // Füge einen Listener hinzu, um den PlayerSpawn nach dem Laden der Szene zu planen
+        SceneManager.sceneLoaded += OnNewSceneLoaded;
     }
 
+    private void OnNewSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Überprüfe, ob die geladene Szene die Hauptszene ist
+        if (scene.name == mainSceneName)
+        {
+            // Entferne den Event-Listener, um Doppel-Aufrufe zu vermeiden
+            SceneManager.sceneLoaded -= OnNewSceneLoaded;
 
+            // Plane den PlayerSpawn, um den Spieler an den definierten Spawnpunkt zu teleportieren
+            Simulation.Schedule<PlayerSpawn>();
+        }
+    }
 
     
 }    

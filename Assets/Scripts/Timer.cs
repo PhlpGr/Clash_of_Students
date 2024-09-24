@@ -1,14 +1,19 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using Platformer.Mechanics;  // Wichtig für Coroutine
+using UnityEngine.SceneManagement;
+using Platformer.Mechanics;
+using Platformer.Gameplay;
+using Platformer.Core;
+using Platformer.Model;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText; // Referenz auf das UI-Text-Element, um den Timer anzuzeigen
     [SerializeField] float initialTime = 120f; // Startzeit, die manuell eingegeben wird
-    [SerializeField] Transform startPoint; // Referenz auf den Startpunkt
-    private float remainingTime;
+    [SerializeField] string startSceneName; // Name der Startszene, um sie beim Ablauf des Timers zu laden
+    [SerializeField] float respawnDelay = 2f; // Verzögerung vor dem Respawn
+    private float remainingTime; // Verbleibende Zeit
     private bool isTiming = true; // Timer läuft standardmäßig
     private static Timer instance;
 
@@ -41,37 +46,55 @@ public class Timer : MonoBehaviour
         else if (remainingTime <= 0 && isTiming)
         {
             remainingTime = 0; // Stellt sicher, dass der Timer nicht unter 0 geht
-            StartCoroutine(ShowTimeUpMessage()); // Coroutine starten, um den "Zeit abgelaufen!" Text anzuzeigen
-            GameOver(); // Endet das Spiel, wenn die Zeit abgelaufen ist
+            StartCoroutine(HandleTimeUp()); // Zeit abgelaufen und Spielprozess verwalten
         }
 
         UpdateTimerDisplay(); // Aktualisiert die Anzeige des Timers
     }
 
-    private void GameOver()
+    private IEnumerator HandleTimeUp()
     {
-        isTiming = false; // Stoppt den Timer
-        Time.timeScale = 1f; // Stelle sicher, dass das Spiel weiterläuft
+        isTiming = false; // Timer anhalten
 
-        // Respawne den Spieler am Startpunkt
-        Vector2 startPosition = startPoint.position; // Verwende die Position des Startpunkts
+        // Steuerung des Spielers deaktivieren
         PlayerController player = FindObjectOfType<PlayerController>();
         if (player != null)
         {
-            player.RespawnAtStart(startPosition);
+            player.controlEnabled = false; // Deaktiviere die Steuerung des Spielers
+        }
+
+        // Zeige "Zeit abgelaufen!" in Weiß
+        timerText.text = "Zeit abgelaufen!";
+        timerText.color = Color.white;
+        timerText.enableWordWrapping = false; // Deaktiviere den Zeilenumbruch
+
+        // Warte für die Dauer der Verzögerung (z.B. 2 Sekunden)
+        yield return new WaitForSeconds(respawnDelay);
+
+        // Respawn den Spieler über die PlayerSpawn-Logik
+        Simulation.Schedule<PlayerSpawn>();
+
+        // Spielersteuerung wieder aktivieren
+        if (player != null)
+        {
+            player.controlEnabled = true; // Steuerung wieder aktivieren
         }
 
         // Timer zurücksetzen
         ResetTimer();
 
-        // Score zurücksetzen (falls es ein Score-System gibt)
-        Score score = FindObjectOfType<Score>();
-        if (score != null)
-        {
-            score.ResetScore();
-        }
+        // Score zurücksetzen
+        ResetScore();
 
-        Debug.Log("Game Over - Spieler wird zurückgesetzt.");
+        // Wenn ein Szenenname angegeben wurde, wechsle zu dieser Szene
+        if (!string.IsNullOrEmpty(startSceneName))
+        {
+            SceneManager.LoadScene(startSceneName);
+        }
+        else
+        {
+            Debug.LogWarning("Kein Szenenname angegeben! Bitte setze den Startszene-Namen im Inspector.");
+        }
     }
 
     private void ResetTimer()
@@ -81,18 +104,18 @@ public class Timer : MonoBehaviour
         UpdateTimerDisplay(); // Aktualisiert die Anzeige direkt nach dem Reset
     }
 
-    private IEnumerator ShowTimeUpMessage()
+    private void ResetScore()
     {
-        // Setzt den Text auf "Zeit abgelaufen!" in weiß
-        timerText.text = "Zeit abgelaufen!";
-        timerText.color = Color.white;
-        timerText.enableWordWrapping = false; // Deaktiviere den Zeilenumbruch
-
-        // Warte eine halbe Sekunde (0.5f Sekunden)
-        yield return new WaitForSeconds(0.5f);
-
-        // Nach der Wartezeit wird die Farbe auf Rot geändert
-        timerText.color = Color.red;
+        // Suche nach der Score-Komponente und rufe deren ResetScore() auf
+        Score score = FindObjectOfType<Score>();
+        if (score != null)
+        {
+            score.ResetScore(); // Setze den Score zurück
+        }
+        else
+        {
+            Debug.LogWarning("Score-Komponente konnte nicht gefunden werden!");
+        }
     }
 
     private void UpdateTimerDisplay()

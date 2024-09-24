@@ -6387,7 +6387,7 @@ Transform:
   m_GameObject: {fileID: 482711330}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.77, y: 0.95, z: 0}
+  m_LocalPosition: {x: 51.09, y: -2.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20746,8 +20746,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470663bef2a4403d87d93241430a709d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lection: 1
-  position: 6
+  lection: 4
+  position: 7
   mainSceneName: Level_4_3
 --- !u!1 &1700591262
 GameObject:
@@ -22801,7 +22801,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1944574352}
-  remainingTime: 120
+  initialTime: 120
+  startSceneName: Level_4
+  respawnDelay: 2
 --- !u!114 &1797780913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26736,7 +26738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e01aaa3d708b24ab54fe5d04a19b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 5
   gameManager: {fileID: 699701157}
 --- !u!4 &2135060250
 Transform:
