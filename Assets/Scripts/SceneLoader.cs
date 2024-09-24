@@ -10,6 +10,17 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadMyScene(string sceneName)
     {
+        // Überprüfe, ob der GameManager existiert, und setze den currentQuestionCount zurück
+        if (Version2_GameManager.Instance != null)
+        {
+            Version2_GameManager.Instance.ResetQuestionCount();
+        }
+        else
+        {
+            Debug.LogWarning("Version2_GameManager Instance ist null!");
+        }
+
+        // Lade die Szene
         SceneManager.LoadScene(sceneName);
     }
 
@@ -21,6 +32,4 @@ public class SceneLoader : MonoBehaviour
             LoadMyScene(sceneName);
         }
     }
-
-
 }

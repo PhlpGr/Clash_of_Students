@@ -13,8 +13,9 @@ using Platformer.Core;
 public class Version2_GameManager : MonoBehaviour
 {
     public static Version2_GameManager Instance;
+    public ScoreCounter scoreCounter;
     public QuizTimer quizTimer;
-    private Infos quizInfos;
+    public Infos quizInfos;
     private string mainSceneName;
     private const string quizSceneName = "Quiz"; 
     private const int maxQuestionsPerEnemy = 2;
@@ -31,19 +32,26 @@ public class Version2_GameManager : MonoBehaviour
     private Button answerButton2;
     private Button answerButton3;
     private Button answerButton4;
-    ScoreCounter scoreCounter = new ScoreCounter();
     public static JWTDisplayManager JWTDManager;
+    
+    public Infos GetQuizInfos()
+    {
+        return quizInfos;
+    }
+    
     private void Awake()
     {
         if (Instance == null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            Instance = this; // Singleton-Instanz setzen
+            DontDestroyOnLoad(gameObject); // Sicherstellen, dass GameManager nicht zerstört wird
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // Sicherstellen, dass nur eine Instanz existiert
         }
+
+        scoreCounter = new ScoreCounter(); // Initialisiere den ScoreCounter nur einmal
     }
 
     public void StartQuiz(Infos quizInfos, string mainSceneName)
@@ -197,7 +205,7 @@ public class Version2_GameManager : MonoBehaviour
         answerButton3.interactable = true;
         answerButton4.interactable = true;
     }
-    
+    /*
     private async Task LoadNextQuestion()
     {
         if (currentQuestionCount < maxQuestionsPerEnemy)
@@ -214,6 +222,58 @@ public class Version2_GameManager : MonoBehaviour
             await EndQuiz();
         }
     }
+    */
+    private void LoadNextQuestion()
+    {
+        if (currentQuestionCount < maxQuestionsPerEnemy)
+        {
+            currentQuestionCount++;
+            attemptCount = 0;
+            quizInfos.CurrentPosition++; // Erhöhe die CurrentPosition um 1 für die nächste Frage
+            url = GenerateURL(quizInfos.Mail, quizInfos.Program, quizInfos.Course, quizInfos.Lection, quizInfos.CurrentPosition);
+            Debug.Log("Neue generierte URL für nächste Frage: " + url);
+            StartCoroutine(LoadQuizQuestion(url)); // Angepasster Aufruf der umbenannten Methode
+        }
+        else
+        {
+            EndQuiz(); // Quiz ist zu Ende, wir rufen jetzt EndQuiz auf
+        }
+    }
+
+    public void ResetQuestionCount()
+    {
+        currentQuestionCount = 0;
+        Debug.Log("currentQuestionCount wurde auf 0 gesetzt.");
+    }
+
+    
+    private IEnumerator LoadQuizQuestion(string url)
+    {
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
+        {
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.DataProcessingError)
+            {
+                Debug.LogError($"Fehler bei der API-Anfrage: {webRequest.error}");
+                yield break;
+            }
+
+            Debug.Log("API-Antwort erhalten: " + webRequest.downloadHandler.text);
+            Fact fact = JsonConvert.DeserializeObject<Fact>(webRequest.downloadHandler.text);
+
+            if (fact != null)
+            {
+                DisplayQuestion(fact);
+            }
+            else
+            {
+                Debug.LogError("Die API-Antwort konnte nicht deserialisiert werden.");
+            }
+        }
+    }
+
+
 
     public void HandleTimerEnd()
     {
@@ -273,7 +333,20 @@ public class Version2_GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         feedbackText.text = ""; 
     }
+    public void EndQuiz()
+    {
+        Debug.Log($"Korrekte Antworten: {correctAnswersCount}");
+        Debug.Log($"Falsche Antworten: {incorrectAnswersCount}");
+        scoreCounter.CountScore(incorrectAnswersCount, correctAnswersCount);
+        Debug.Log("Das Quiz ist beendet.");
+    
+        // Lade die Hauptszene nach Abschluss des Quiz
+        SceneManager.LoadScene(mainSceneName); 
 
+        // Füge einen Listener hinzu, um den PlayerSpawn nach dem Laden der Szene zu planen
+        SceneManager.sceneLoaded += OnNewSceneLoaded;
+    }
+    /*
     public async Task EndQuiz()
     {
         Debug.Log($"Korrekte Antworten: {correctAnswersCount}");
@@ -281,7 +354,7 @@ public class Version2_GameManager : MonoBehaviour
         scoreCounter.CountScore(incorrectAnswersCount, correctAnswersCount);
         Debug.Log("Das Quiz ist beendet.");
         
-        if (quizInfos.CurrentPosition == 9)
+        if (quizInfos.CurrentPosition == 11)
         {
             await scoreCounter.PostScoreAsync(JWTDManager.professor_email, quizInfos.Program, quizInfos.Course, quizInfos.Lection, scoreCounter.lection_score, quizInfos.Mail);
         }
@@ -292,7 +365,7 @@ public class Version2_GameManager : MonoBehaviour
           // Füge einen Listener hinzu, um den PlayerSpawn nach dem Laden der Szene zu planen
         SceneManager.sceneLoaded += OnNewSceneLoaded;
     }
-
+*/
     private void OnNewSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Überprüfe, ob die geladene Szene die Hauptszene ist

@@ -4,9 +4,9 @@ public class Version2_QuizEnemy : MonoBehaviour
 {
     public static JWTDisplayManager JWTDManager; // Manager zur Verwaltung der JWT-Daten
     //private string email = "tom@one7.one";//JWTDManager.email;
-    private string professor_email = "vesile.antika@student.reutlingen-university.de";//JWTDManager.professor_email;
+    private string professor_email = "tom@one7.one";//JWTDManager.professor_email;
     private string program = "Digital Business Engineering"; //JWTDManager.program;
-    private string course = "IT"; //JWTDManager.course;
+    private string course = "It"; //JWTDManager.course;
     public string lection = "1";
     public int position = 1;
 

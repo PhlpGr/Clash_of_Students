@@ -11,7 +11,22 @@ public class JWTDisplayManager : MonoBehaviour
     public TMP_Text userInfoText; // Reference to the TextMeshPro UI element
     private string jwtToken; // Store the full JWT token
     private JWTData jwtData; // Store the parsed JWT data
+    
+    
+    public static JWTDisplayManager Instance;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         if (Application.platform == RuntimePlatform.WebGLPlayer)
