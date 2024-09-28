@@ -5578,7 +5578,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6768718, y: 1.2418668, z: -10}
+  m_LocalPosition: {x: -1.3418431, y: 1.2437947, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11089,6 +11089,8 @@ MonoBehaviour:
   initialTime: 120
   startSceneName: Level_6
   respawnDelay: 2
+  remainingTime: 0
+  isTiming: 1
 --- !u!1001 &1539087034
 PrefabInstance:
   m_ObjectHideFlags: 0

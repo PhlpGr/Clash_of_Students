@@ -7543,6 +7543,8 @@ MonoBehaviour:
   initialTime: 120
   startSceneName: Level_7
   respawnDelay: 2
+  remainingTime: 0
+  isTiming: 1
 --- !u!1 &749269457
 GameObject:
   m_ObjectHideFlags: 0
@@ -9273,7 +9275,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4960668, y: 2.2707825, z: -10}
+  m_LocalPosition: {x: -1.4460342, y: 2.2704597, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19592,7 +19594,8 @@ GameObject:
   - component: {fileID: 1834166117}
   - component: {fileID: 1834166116}
   - component: {fileID: 1834166115}
-  - component: {fileID: 1834166114}
+  - component: {fileID: 1834166119}
+  - component: {fileID: 1834166118}
   m_Layer: 0
   m_Name: LevelEnd
   m_TagString: Untagged
@@ -19600,20 +19603,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1834166114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834166113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagToCheck: Player
-  sceneName: Level 02
 --- !u!61 &1834166115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19727,6 +19716,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1834166118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834166113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1cb50be665e314ea813dde707e25de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: "Level\xFCbersicht"
+  timeReductionSpeed: 10
+  scoreIncrementDelay: 0.05
+--- !u!114 &1834166119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834166113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b775e2589517595409b57de31a0be071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1849612398
 GameObject:
   m_ObjectHideFlags: 0

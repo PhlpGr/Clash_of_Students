@@ -8648,7 +8648,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.720646, y: 2.2876534, z: -10}
+  m_LocalPosition: {x: 19.720646, y: 2.287812, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9831,6 +9831,8 @@ MonoBehaviour:
   initialTime: 120
   startSceneName: Level_2
   respawnDelay: 2
+  remainingTime: 0
+  isTiming: 1
 --- !u!1001 &950648879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10543,7 +10545,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -11244,7 +11246,7 @@ GameObject:
   - component: {fileID: 1119343999}
   - component: {fileID: 1119343998}
   - component: {fileID: 1119344001}
-  - component: {fileID: 1119343997}
+  - component: {fileID: 1119344002}
   m_Layer: 0
   m_Name: LevelEnd
   m_TagString: Untagged
@@ -11252,20 +11254,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1119343997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119343996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagToCheck: Player
-  sceneName: Level_2
 --- !u!61 &1119343998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11391,6 +11379,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b775e2589517595409b57de31a0be071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1119344002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119343996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1cb50be665e314ea813dde707e25de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: "Level\xFCbersicht"
+  timeReductionSpeed: 10
+  scoreIncrementDelay: 0.05
 --- !u!1 &1140727642 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5383745495318301638, guid: 4433234558afd42f4868b4d2fee8b1ba,

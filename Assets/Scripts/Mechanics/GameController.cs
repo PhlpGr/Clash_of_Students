@@ -63,5 +63,20 @@ namespace Platformer.Mechanics
         {
             if (Instance == this) Simulation.Tick();
         }
+        
+        // Neue Methode zum Starten eines neuen Levels
+        public void StartNewLevel()
+        {
+            Timer timer = FindObjectOfType<Timer>(); // Suche nach der Timer-Instanz in der Szene
+            if (timer != null)
+            {
+                timer.SetInitialTime(timer.initialTime); // Setze die initialTime des neuen Levels
+                Debug.Log("Neues Level gestartet. Timer wurde zurückgesetzt und gestartet.");
+            }
+            else
+            {
+                Debug.LogError("Timer konnte nicht gefunden werden!");
+            }
+        }
     }
 }

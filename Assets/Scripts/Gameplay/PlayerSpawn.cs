@@ -58,7 +58,8 @@ namespace Platformer.Gameplay
             }
             else
             {
-                Debug.LogError("Virtual camera is not assigned.");
+               /* Debug.LogError("Virtual camera is not assigned."); 
+               */
             }
 
             // Simulation.Schedule<EnablePlayerInput>(2f); // Eingabeplaner, optional nach Verzögerung aktivieren

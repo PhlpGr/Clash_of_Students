@@ -28,9 +28,9 @@ public class Score : MonoBehaviour
 
     }
 
-    public void AddScore()
+    public void AddScore(int amount)
     {
-        globalScore += ScorePerItem;
+        globalScore += amount;
         scoreText.text = globalScore.ToString();
     }
 

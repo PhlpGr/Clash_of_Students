@@ -2883,7 +2883,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 160.44858, y: 84.66631, z: -12.457739}
+  m_LocalPosition: {x: 160.2501, y: 84.66631, z: -12.457739}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4831,7 +4831,7 @@ MonoBehaviour:
     virtualCamera: {fileID: 921429058}
     player: {fileID: 0}
     spawnPoint: {fileID: 482711331}
-    jumpModifier: 1.5
+    jumpModifier: 0.9
     jumpDeceleration: 0.5
   player: {fileID: 0}
 --- !u!4 &1589363880
@@ -4893,7 +4893,7 @@ MonoBehaviour:
     virtualCamera: {fileID: 921429058}
     player: {fileID: 0}
     spawnPoint: {fileID: 482711331}
-    jumpModifier: 1.5
+    jumpModifier: 0.9
     jumpDeceleration: 0.5
   player: {fileID: 0}
 --- !u!1 &1609130148
@@ -6179,7 +6179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e01aaa3d708b24ab54fe5d04a19b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 5
   gameManager: {fileID: 1814084985}
 --- !u!4 &2134331895
 Transform:

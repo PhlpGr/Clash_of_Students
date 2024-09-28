@@ -75,7 +75,7 @@ namespace Platformer.Mechanics
             // Prüfe, ob der Score korrekt gesetzt wurde
             if (score != null)
             {
-                score.AddScore(); // Score erhöhen
+                score.AddScore(1); // Score erhöhen
                 Debug.Log("Score increased to: " + score.globalScore); // Debug-Log hinzufügen
             }
             else

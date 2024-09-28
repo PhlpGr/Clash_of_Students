@@ -6,6 +6,7 @@ public class LevelEndManager : MonoBehaviour
 {
     private ScoreCounter scoreCounter; // Referenz auf den zentralen ScoreCounter
     private Infos quizInfos; // Informationen zum aktuellen Quiz
+    private Score score; // Reference to the Score component
 
     private void Start()
     {
@@ -26,9 +27,17 @@ public class LevelEndManager : MonoBehaviour
             Debug.LogError("JWTDisplayManager konnte nicht gefunden werden.");
             return;
         }
+
+        // **Initialisierung von `score`**
+        score = FindObjectOfType<Score>();
+        if (score == null)
+        {
+            Debug.LogError("Score-Komponente konnte nicht gefunden werden.");
+        }
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+/*    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -46,18 +55,39 @@ public class LevelEndManager : MonoBehaviour
         }
     }
 
+*/
+
+    // **Newly added method to post the score and reset**
+    public void PostScoreAndReset()
+    {
+        // Start the coroutine to post the score
+        StartCoroutine(PostFinalScore());
+    }
+
+    // Modified `PostFinalScore` coroutine to reset the score after posting
     private IEnumerator PostFinalScore()
     {
-        // Warten auf den PostScoreAsync-Aufruf
+        // Post the score asynchronously
         yield return scoreCounter.PostScoreAsync(
-            JWTDisplayManager.Instance.professor_email, // E-Mail des Professors
-            JWTDisplayManager.Instance.program,         // Programm aus dem JWT
-            JWTDisplayManager.Instance.course,          // Kurs aus dem JWT
-            quizInfos.Lection, 
-            scoreCounter.lection_score, 
-            quizInfos.Mail // Nutzer-Mail
+            JWTDisplayManager.Instance.professor_email,
+            JWTDisplayManager.Instance.program,
+            JWTDisplayManager.Instance.course,
+            quizInfos.Lection,
+            scoreCounter.lection_score,
+            quizInfos.Mail
         );
 
-        Debug.Log("Score erfolgreich gepostet.");
+        Debug.Log("Score successfully posted.");
+
+        // Reset the score after posting
+        if (score != null)
+        {
+            score.ResetScore();
+            Debug.Log("Score has been reset.");
+        }
+        else
+        {
+            Debug.LogError("Score component not found. Unable to reset score.");
+        }
     }
 }

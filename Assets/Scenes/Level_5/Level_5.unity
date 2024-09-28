@@ -11214,6 +11214,8 @@ MonoBehaviour:
   initialTime: 80
   startSceneName: Level_5
   respawnDelay: 2
+  remainingTime: 0
+  isTiming: 1
 --- !u!1 &1178226503
 GameObject:
   m_ObjectHideFlags: 0

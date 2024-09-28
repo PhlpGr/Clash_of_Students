@@ -258,6 +258,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userInfoText: {fileID: 1370334377}
+  email: tom@one7.one
+  firstname: Tom
+  lastname: Mitrovic
+  professor_email: tom@one7.one
+  program: Digital Business Engineering
+  course: it
 --- !u!4 &847000336
 Transform:
   m_ObjectHideFlags: 0
@@ -300,12 +306,17 @@ PrefabInstance:
     - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseMyGame
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CloseGame, Assembly-CSharp
+      value: SceneLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3195153516390729450, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
@@ -740,7 +751,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8940909677427721346, guid: 756706165bd8e45d9a4b08c58fec77ee,
+        type: 3}
     - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Platformer.Mechanics;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -22,12 +21,19 @@ public class SceneLoader : MonoBehaviour
 
         // Lade die Szene
         SceneManager.LoadScene(sceneName);
+
+        // Suche nach der Timer-Instanz und setze die initialTime aus dem neuen Level
+        Timer timer = FindObjectOfType<Timer>();
+        if (timer != null)
+        {
+            timer.SetInitialTime(timer.initialTime); // Setze die initialTime für das neue Level
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // is it the player
-        if(collision.CompareTag(tagToCheck))
+        if (collision.CompareTag(tagToCheck))
         {
             LoadMyScene(sceneName);
         }

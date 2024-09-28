@@ -290,6 +290,8 @@ MonoBehaviour:
   initialTime: 100
   startSceneName: Level_3
   respawnDelay: 2
+  remainingTime: 0
+  isTiming: 1
 --- !u!1 &14922059
 GameObject:
   m_ObjectHideFlags: 0

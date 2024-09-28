@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using UnityEngine.SceneManagement;
 using Platformer.Mechanics;
 using Platformer.Gameplay;
 using Platformer.Core;
@@ -9,127 +8,172 @@ using Platformer.Model;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI timerText; // Referenz auf das UI-Text-Element, um den Timer anzuzeigen
-    [SerializeField] float initialTime = 120f; // Startzeit, die manuell eingegeben wird
-    [SerializeField] string startSceneName; // Name der Startszene, um sie beim Ablauf des Timers zu laden
-    [SerializeField] float respawnDelay = 2f; // Verzögerung vor dem Respawn
-    private float remainingTime; // Verbleibende Zeit
-    private bool isTiming = true; // Timer läuft standardmäßig
+    [SerializeField] TextMeshProUGUI timerText; // Reference to the UI text element for displaying the timer
+    [SerializeField] public float initialTime = 120f; // Start time set for each level in the Inspector
+    [SerializeField] string startSceneName; // Name of the start scene to load
+    [SerializeField] float respawnDelay = 2f; // Delay before respawn
+    public float remainingTime; // Public for other scripts to access
+    public bool isTiming = false; // Timer does not run by default
     private static Timer instance;
+    private bool levelEnded = false; // Flag to check if the player has completed the level
+    private bool isLevelEndCountdown = false; // Flag to indicate if it is a level end countdown
+    private Version2_GameManager gameManager;
 
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Verhindert, dass dieses Objekt beim Szenenwechsel zerstört wird
+            DontDestroyOnLoad(gameObject); // Prevent this object from being destroyed on scene change
         }
         else
         {
-            Destroy(gameObject); // Zerstört das neue Objekt, um sicherzustellen, dass nur ein Timer existiert
+            Destroy(gameObject); // Destroy any new duplicate Timer objects
         }
     }
 
     void Start()
     {
-        remainingTime = initialTime; // Timer auf die initiale Zeit setzen
-        PositionTimerText(); // Positioniere den Timer oben in der Mitte
-        UpdateTimerDisplay(); // Aktualisiere den Timer direkt beim Start
+        remainingTime = initialTime; // Use the initialTime set in the Inspector
+        PositionTimerText(); // Position the timer on the screen
+        UpdateTimerDisplay(); // Update the timer display immediately
+
+        // Find and store reference to Version2_GameManager
+        gameManager = Version2_GameManager.Instance;
     }
 
     void Update()
     {
         if (isTiming && remainingTime > 0)
         {
-            remainingTime -= Time.deltaTime; // Reduziert die verbleibende Zeit
+            remainingTime -= Time.deltaTime; // Decrease the remaining time
         }
         else if (remainingTime <= 0 && isTiming)
         {
-            remainingTime = 0; // Stellt sicher, dass der Timer nicht unter 0 geht
-            StartCoroutine(HandleTimeUp()); // Zeit abgelaufen und Spielprozess verwalten
+            remainingTime = 0; // Ensure the timer doesn't go below 0
+            StartCoroutine(HandleTimeUp()); // Handle what happens when the timer runs out
         }
 
-        UpdateTimerDisplay(); // Aktualisiert die Anzeige des Timers
+        UpdateTimerDisplay(); // Update the timer display
+    }
+
+    // This method sets the initial time for a new level
+    public void SetInitialTime(float time)
+    {
+        initialTime = time; // Update initialTime for the new level
+        remainingTime = initialTime; // Reset remaining time
+        isTiming = true; // Start the timer
+        UpdateTimerDisplay();
+        Debug.Log("New level started. Timer set to: " + initialTime);
+    }
+
+    // Called when the player reaches the LevelEnd
+    public void LevelEndReached()
+    {
+        levelEnded = true;
+        isLevelEndCountdown = true; // Set the flag to true to indicate a level end countdown
+        ResetTimer(); // Reset the timer and stop it
+        ResetScore(); // Reset the score
     }
 
     private IEnumerator HandleTimeUp()
     {
-        isTiming = false; // Timer anhalten
+        if (levelEnded)
+        {
+            yield break; // Exit if the level has ended
+        }
 
-        // Steuerung des Spielers deaktivieren
+        isTiming = false; // Stop the timer
+
+        // Call ResetQuestionCount() on the GameManager
+        if (gameManager != null)
+        {
+            gameManager.ResetQuestionCount();
+        }
+
+        // Disable player control
         PlayerController player = FindObjectOfType<PlayerController>();
         if (player != null)
         {
-            player.controlEnabled = false; // Deaktiviere die Steuerung des Spielers
+            player.controlEnabled = false; // Disable player control
         }
 
-        // Zeige "Zeit abgelaufen!" in Weiß
+        // Display "Zeit abgelaufen!"
         timerText.text = "Zeit abgelaufen!";
         timerText.color = Color.white;
-        timerText.enableWordWrapping = false; // Deaktiviere den Zeilenumbruch
+        timerText.enableWordWrapping = false; // Disable word wrapping
 
-        // Warte für die Dauer der Verzögerung (z.B. 2 Sekunden)
+        // Wait for the respawn delay
         yield return new WaitForSeconds(respawnDelay);
 
-        // Respawn den Spieler über die PlayerSpawn-Logik
-        Simulation.Schedule<PlayerSpawn>();
+        // Load the specified start scene
+        UnityEngine.SceneManagement.SceneManager.LoadScene(startSceneName);
 
-        // Spielersteuerung wieder aktivieren
-        if (player != null)
+        // Wait for the scene to load
+        yield return new WaitForSeconds(0.1f);
+
+        // Find the spawn point in the start scene using a tag (e.g., "Respawn")
+        GameObject spawnPoint = GameObject.FindGameObjectWithTag("Respawn");
+        if (spawnPoint != null && player != null)
         {
-            player.controlEnabled = true; // Steuerung wieder aktivieren
+            // Set the spawn point in the model
+            PlatformerModel model = Simulation.GetModel<PlatformerModel>();
+            model.spawnPoint = spawnPoint.transform;
+
+            // Use PlayerSpawn to move the player
+            Simulation.Schedule<PlayerSpawn>();
         }
 
-        // Timer zurücksetzen
+        // Reset the timer
         ResetTimer();
 
-        // Score zurücksetzen
-        ResetScore();
+        // Start the timer again
+        StartTimer();
 
-        // Wenn ein Szenenname angegeben wurde, wechsle zu dieser Szene
-        if (!string.IsNullOrEmpty(startSceneName))
-        {
-            SceneManager.LoadScene(startSceneName);
-        }
-        else
-        {
-            Debug.LogWarning("Kein Szenenname angegeben! Bitte setze den Startszene-Namen im Inspector.");
-        }
+        // Reset the score
+        ResetScore();
+    }
+    public void ResetTimer()
+    {
+        remainingTime = initialTime; // Set the timer back to the initial time
+        UpdateTimerDisplay(); // Update the timer display to show the reset time
+        isTiming = false; // Do not start the timer automatically
+        Debug.Log("Timer has been reset.");
     }
 
-    private void ResetTimer()
+    private void StartTimer()
     {
-        remainingTime = initialTime; // Setzt die Zeit auf die manuell eingestellte Zeit zurück
-        isTiming = true; // Startet den Timer neu
-        UpdateTimerDisplay(); // Aktualisiert die Anzeige direkt nach dem Reset
+        isTiming = true; // Start the timer
+        Debug.Log("Timer has started.");
     }
 
     private void ResetScore()
     {
-        // Suche nach der Score-Komponente und rufe deren ResetScore() auf
+        // Find the Score component and call its ResetScore() method
         Score score = FindObjectOfType<Score>();
         if (score != null)
         {
-            score.ResetScore(); // Setze den Score zurück
+            score.ResetScore(); // Reset the score
+            Debug.Log("Score has been reset.");
         }
         else
         {
-            Debug.LogWarning("Score-Komponente konnte nicht gefunden werden!");
+            Debug.LogWarning("Score component not found!");
         }
     }
 
-    private void UpdateTimerDisplay()
+    public void UpdateTimerDisplay()
     {
         if (remainingTime > 0)
         {
-            int minutes = Mathf.FloorToInt(remainingTime / 60); // Berechnet die Minuten
-            int seconds = Mathf.FloorToInt(remainingTime % 60); // Berechnet die Sekunden
+            int minutes = Mathf.FloorToInt(remainingTime / 60);
+            int seconds = Mathf.FloorToInt(remainingTime % 60);
 
-            // Zeige die verbleibende Zeit im MM:SS-Format an
+            // Display the remaining time in MM:SS format
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
-            // Setze die Farbe auf Rot, wenn weniger als 10 Sekunden übrig sind
-            if (remainingTime < 10f)
+            // Change to red if less than 10 seconds and it's not during level end countdown
+            if (remainingTime < 10f && !isLevelEndCountdown)
             {
                 timerText.color = Color.red;
             }
@@ -138,20 +182,24 @@ public class Timer : MonoBehaviour
                 timerText.color = Color.white;
             }
         }
+        else
+        {
+            timerText.text = "00:00";
+        }
     }
 
     private void PositionTimerText()
     {
         RectTransform rectTransform = timerText.GetComponent<RectTransform>();
 
-        // Ändere die Ankerpunkte, um den Timer in der Mitte des Canvas zu positionieren
-        rectTransform.anchorMin = new Vector2(0.5f, 0.5f); // Ankerpunkt Mitte
-        rectTransform.anchorMax = new Vector2(0.5f, 0.5f); // Ankerpunkt Mitte
-        rectTransform.pivot = new Vector2(0.5f, 0.5f);     // Pivot auch in der Mitte
+        // Adjust the anchor points to position the timer at the center of the canvas
+        rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+        rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+        rectTransform.pivot = new Vector2(0.5f, 0.5f);
 
-        // Diese Werte passen die Position relativ zum Ankerpunkt an
-        rectTransform.anchoredPosition = new Vector2(100, 175); // X-Wert erhöht für weiter rechts, Y-Wert negativ für leichtes Nach-unten-Verschieben
+        // Set the position relative to the anchor point
+        rectTransform.anchoredPosition = new Vector2(100, 175);
 
-        rectTransform.sizeDelta = new Vector2(200, 50); // Größe anpassen, falls nötig
+        rectTransform.sizeDelta = new Vector2(200, 50); // Adjust size if necessary
     }
 }

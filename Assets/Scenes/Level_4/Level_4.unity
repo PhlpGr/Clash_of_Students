@@ -22880,6 +22880,8 @@ MonoBehaviour:
   initialTime: 120
   startSceneName: Level_4
   respawnDelay: 2
+  remainingTime: 0
+  isTiming: 1
 --- !u!114 &1797780913
 MonoBehaviour:
   m_ObjectHideFlags: 0
