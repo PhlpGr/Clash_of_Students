@@ -33,31 +33,31 @@ EditorBuildSettings:
     path: Assets/Scenes/Konfigurator_Assets/MilitaryHeroes.unity
     guid: fd1d8343b1d47244ea92011e3c1bcff7
   - enabled: 1
-    path: Assets/Scenes/Level_2/Level_2_1.unity
+    path: Assets/Scenes/Level_3/Level_3_1.unity
     guid: 99594d627f71f5147b81a4b86d90bca8
   - enabled: 1
-    path: Assets/Scenes/Level_2/Level_2_2.unity
+    path: Assets/Scenes/Level_3/Level_3_2.unity
     guid: a0fe273a13380e94a8d11ee2d01d3dac
   - enabled: 1
-    path: Assets/Scenes/Level_2/Level_2_3.unity
+    path: Assets/Scenes/Level_3/Level_3_3.unity
     guid: e41f73ad790d2ce499887ecfec909336
   - enabled: 1
-    path: Assets/Scenes/Level_3/Level_3_1.unity
+    path: Assets/Scenes/Level_5/Level_5_1.unity
     guid: 9a58290653d3a4a4d840759b23b73c70
   - enabled: 1
-    path: Assets/Scenes/Level_3/Level_3_2.unity
+    path: Assets/Scenes/Level_5/Level_5_2.unity
     guid: 5ed4acf2d0b388a478aaf872dae13b13
   - enabled: 1
-    path: Assets/Scenes/Level_3/Level_3_3.unity
+    path: Assets/Scenes/Level_5/Level_5_3.unity
     guid: ca07ed85501f31046aef64a93f7d82e4
   - enabled: 1
-    path: Assets/Scenes/Level_4/Level_4_1.unity
+    path: Assets/Scenes/Level_6/Level_6_1.unity
     guid: 05d63e5180e8e124f896089eb5bd8b91
   - enabled: 1
-    path: Assets/Scenes/Level_4/Level_4_2.unity
+    path: Assets/Scenes/Level_6/Level_6_2.unity
     guid: f33cd8503d6a58745a424f0cbc01e5db
   - enabled: 1
-    path: Assets/Scenes/Level_4/Level_4_3.unity
+    path: Assets/Scenes/Level_6/Level_6_3.unity
     guid: 7eb1a374f3ad2c24d8ac1e2d3d966927
   - enabled: 1
     path: Assets/Scenes/Level_7/Level_7_1.unity
@@ -96,19 +96,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_1/Level_1.3.unity
     guid: fa237efdf2b86734ebb22afa7a1292fe
   - enabled: 1
-    path: Assets/Scenes/Level_2/Level_2.unity
+    path: Assets/Scenes/Level_3/Level_3.unity
     guid: 49313ea18691946a487e589e39e81b98
   - enabled: 1
-    path: Assets/Scenes/Level_3/Level_3.unity
+    path: Assets/Scenes/Level_5/Level_5.unity
     guid: 8c31b3aa9d9114d228ce44aff5228944
   - enabled: 1
-    path: Assets/Scenes/Level_4/Level_4.unity
+    path: Assets/Scenes/Level_6/Level_6.unity
     guid: 4066722aaedf34249ac99277a3cd7ace
   - enabled: 1
-    path: Assets/Scenes/Level_5/Level_5.unity
+    path: Assets/Scenes/Level_4/Level_4.unity
     guid: ea21d8d11abc146dd99122afae0d511c
   - enabled: 1
-    path: Assets/Scenes/Level_6/Level_6.unity
+    path: Assets/Scenes/Level_2/Level_2.unity
     guid: 06e796c8f7f8f4087abe3b62c1579e1b
   - enabled: 1
     path: Assets/Scenes/Level_7/Level_7.unity

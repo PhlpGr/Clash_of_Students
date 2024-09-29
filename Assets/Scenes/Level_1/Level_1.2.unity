@@ -1811,7 +1811,7 @@ Transform:
   m_GameObject: {fileID: 482711330}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.77, y: 0.95, z: 0}
+  m_LocalPosition: {x: 24.52, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3311,8 +3311,8 @@ GameObject:
   m_Component:
   - component: {fileID: 757396583}
   - component: {fileID: 757396582}
-  - component: {fileID: 757396581}
   - component: {fileID: 757396580}
+  - component: {fileID: 757396584}
   m_Layer: 0
   m_Name: Mr.Alien (1)
   m_TagString: Untagged
@@ -3365,20 +3365,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.63}
   m_EdgeRadius: 0
---- !u!114 &757396581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757396579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagToCheck: Player
-  sceneName: Quiz2
 --- !u!212 &757396582
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3446,6 +3432,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &757396584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757396579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470663bef2a4403d87d93241430a709d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lection: 1
+  position: 4
+  mainSceneName: Level_1.3
 --- !u!1001 &763594522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5515,6 +5516,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1142044693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1142044695}
+  - component: {fileID: 1142044694}
+  m_Layer: 0
+  m_Name: CharacterManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1142044694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142044693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d130f3b7ef52e34498910e8cbe7b1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterPrefabs:
+  - {fileID: 1857685793347296203, guid: de580bc03c7f63841bc4b450cc8e660c, type: 3}
+  - {fileID: 382711733396247008, guid: 2e6327ae51ab40d4689b3ff02595be39, type: 3}
+  - {fileID: 7525153816809366057, guid: a9d447e1ad2dd05458ebfcc3e3099938, type: 3}
+  - {fileID: 6592134892635546268, guid: 153a4f470132ee14cb1d2aec027648cb, type: 3}
+  virtualCamera: {fileID: 921429058}
+--- !u!4 &1142044695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142044693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.444166, y: 0.9708929, z: -0.132658}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1234423145
 GameObject:
   m_ObjectHideFlags: 0
@@ -8463,7 +8514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e01aaa3d708b24ab54fe5d04a19b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 5
   gameManager: {fileID: 1809884889}
 --- !u!4 &2051245157
 Transform:
@@ -9193,3 +9243,4 @@ SceneRoots:
   - {fileID: 327839552}
   - {fileID: 757396583}
   - {fileID: 1809884890}
+  - {fileID: 1142044695}
