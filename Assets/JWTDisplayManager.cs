@@ -12,7 +12,6 @@ public class JWTDisplayManager : MonoBehaviour
     private string jwtToken; // Store the full JWT token
     private JWTData jwtData; // Store the parsed JWT data
     
-    
     public static JWTDisplayManager Instance;
 
     private void Awake()
@@ -27,6 +26,7 @@ public class JWTDisplayManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
     void Start()
     {
         if (Application.platform == RuntimePlatform.WebGLPlayer)
@@ -42,7 +42,6 @@ public class JWTDisplayManager : MonoBehaviour
                 jwtData = JsonUtility.FromJson<JWTData>(jwtToken);
 
                 // Display the user's name in the TextMeshPro UI element
-                //userInfoText.text = $"Welcome {jwtData.firstname} {jwtData.lastname}!";
                 userInfoText.text = $"Welcome {jwtData.professor_email}!";
             }
             else
@@ -56,18 +55,11 @@ public class JWTDisplayManager : MonoBehaviour
         }
     }
 
-    // Additional methods can use the full JWT token or parsed data as needed
-
-
-
-// mocked Token data transfer
-    public string email ="tom@one7.one";
-    public string firstname =  "Tom";
-    public string lastname = "Mitrovic";
-    public string professor_email = "tom@one7.one";
-    public string program = "Digital Business Engineering";
-    public string course = "it";
-
+    // Getter method to access JWTData safely
+    public JWTData GetJWTData()
+    {
+        return jwtData;
+    }
 }
 
 [Serializable]
@@ -79,5 +71,4 @@ public class JWTData
     public string professor_email;
     public string program;
     public string course;
-    // Add more fields as per your JWT payload structure
 }

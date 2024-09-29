@@ -34,28 +34,7 @@ public class LevelEndManager : MonoBehaviour
         {
             Debug.LogError("Score-Komponente konnte nicht gefunden werden.");
         }
-
     }
-
-/*    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            // Spieler hat das Level-Ende erreicht, jetzt Score posten
-            Debug.Log("Level beendet, Score wird gepostet...");
-            //Debug.Log($"{JWTDisplayManager.Instance.professor_email}");
-            //Debug.Log($"{JWTDisplayManager.Instance.program}");
-            //Debug.Log($"{JWTDisplayManager.Instance.course}");
-            Debug.Log($"{quizInfos.Lection}");
-            Debug.Log($"{scoreCounter.lection_score}");
-            Debug.Log($"{quizInfos.Mail}");
-            
-            // PostScoreAsync-Methode aufrufen, um den Score zu senden
-            StartCoroutine(PostFinalScore());
-        }
-    }
-
-*/
 
     // **Newly added method to post the score and reset**
     public void PostScoreAndReset()
@@ -67,11 +46,20 @@ public class LevelEndManager : MonoBehaviour
     // Modified `PostFinalScore` coroutine to reset the score after posting
     private IEnumerator PostFinalScore()
     {
+        // Abrufen der JWT-Daten über den JWTDisplayManager
+        JWTData jwtData = JWTDisplayManager.Instance.GetJWTData();
+
+        if (jwtData == null)
+        {
+            Debug.LogError("JWT-Daten konnten nicht abgerufen werden.");
+            yield break;
+        }
+
         // Post the score asynchronously
         yield return scoreCounter.PostScoreAsync(
-            JWTDisplayManager.Instance.professor_email,
-            JWTDisplayManager.Instance.program,
-            JWTDisplayManager.Instance.course,
+            jwtData.professor_email,
+            jwtData.program,
+            jwtData.course,
             quizInfos.Lection,
             scoreCounter.lection_score,
             quizInfos.Mail
