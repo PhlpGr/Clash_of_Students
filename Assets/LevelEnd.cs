@@ -9,7 +9,6 @@ public class LevelEnd : MonoBehaviour
     private Score score; // Reference to the Score script
     private LevelEndManager levelEndManager; // Reference to the LevelEndManager script
     public string nextSceneName; // Name of the next scene to load
-    public float timeReductionSpeed = 5f; // Speed for counting down the timer quickly
     public float scoreIncrementDelay = 0.05f; // Delay between each score increment
 
     void Start()
@@ -62,29 +61,13 @@ public class LevelEnd : MonoBehaviour
             levelEndManager.PostScoreAndReset(); // This should happen after the score increment
         }
 
-        // Count down the timer quickly to zero
-        while (timer.remainingTime > 0)
-        {
-            float timeToReduce = Mathf.Min(timeReductionSpeed * Time.deltaTime, timer.remainingTime);
-            timer.remainingTime -= timeToReduce;
-            timer.UpdateTimerDisplay(); // Update the display in real-time
-            yield return null;
-        }
-
-        // Ensure the timer displays 0
-        timer.remainingTime = 0;
-        timer.UpdateTimerDisplay();
-
-        // Wait for a brief moment to ensure the player sees the countdown reaching 0
-        yield return new WaitForSeconds(1f);
-
         // Reset the timer after handling the level end
         if (timer != null)
         {
             timer.ResetTimer();
         }
 
-        // **Reset the score before loading the next scene**
+        // Reset the score before loading the next scene
         if (score != null)
         {
             score.ResetScore();
