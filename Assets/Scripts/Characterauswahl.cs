@@ -7,7 +7,7 @@ public class Characterauswahl : MonoBehaviour
     public void OnCharacterSelected(int index)
     {
         PlayerSelection.SelectedCharacterIndex = index;
-        SceneManager.LoadScene("Hauptmenü");
+        SceneManager.LoadScene("Levelübersicht");
     }
 }
       
@@ -25,6 +25,6 @@ public class Characterauswahl : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("Hauptmenü");
+        SceneManager.LoadScene("Levelübersicht");
     }
 }*/
