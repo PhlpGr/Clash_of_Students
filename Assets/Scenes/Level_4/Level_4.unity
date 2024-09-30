@@ -11261,7 +11261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 78964950}
-  initialTime: 80
+  initialTime: 120
   startSceneName: Level_4
   respawnDelay: 2
   remainingTime: 0
