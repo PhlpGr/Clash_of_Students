@@ -9271,12 +9271,12 @@ PrefabInstance:
     - target: {fileID: 1658460978237467174, guid: f158aa2be3df6489185ef721f6fd79c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.928198
+      value: -9.82
       objectReference: {fileID: 0}
     - target: {fileID: 1658460978237467174, guid: f158aa2be3df6489185ef721f6fd79c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3261998
+      value: -3.28
       objectReference: {fileID: 0}
     - target: {fileID: 1658460978237467174, guid: f158aa2be3df6489185ef721f6fd79c1,
         type: 3}
@@ -10856,8 +10856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b023ebe508a49c880fc00552f0dfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {x: 4, y: 0}
-  endPosition: {x: 6, y: 0}
+  startPosition: {x: 4, y: -1}
+  endPosition: {x: 6, y: -1}
 --- !u!4 &855191457
 Transform:
   m_ObjectHideFlags: 0
@@ -12277,7 +12277,7 @@ PrefabInstance:
     - target: {fileID: 1658460978237467174, guid: f158aa2be3df6489185ef721f6fd79c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.4578
+      value: 31.6
       objectReference: {fileID: 0}
     - target: {fileID: 1658460978237467174, guid: f158aa2be3df6489185ef721f6fd79c1,
         type: 3}
@@ -14022,12 +14022,12 @@ PrefabInstance:
     - target: {fileID: 625720040109187709, guid: 0d42069b2705c894c9652a0a11c94b30,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.1478
+      value: 37.99
       objectReference: {fileID: 0}
     - target: {fileID: 625720040109187709, guid: 0d42069b2705c894c9652a0a11c94b30,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3821998
+      value: -0.44
       objectReference: {fileID: 0}
     - target: {fileID: 625720040109187709, guid: 0d42069b2705c894c9652a0a11c94b30,
         type: 3}
@@ -23097,7 +23097,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851256646}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: d6e74bb2148fdeb4ea40ec1927d0659b, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: d1ca869e62d21b848a523972ed40ca8c, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 865784913}
@@ -24160,8 +24160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b023ebe508a49c880fc00552f0dfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {x: 15, y: 0}
-  endPosition: {x: 17, y: 0}
+  startPosition: {x: 13, y: -2}
+  endPosition: {x: 14, y: -2}
 --- !u!4 &1951648548
 Transform:
   m_ObjectHideFlags: 0
