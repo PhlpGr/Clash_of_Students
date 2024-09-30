@@ -258,12 +258,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userInfoText: {fileID: 1370334377}
-  email: tom@one7.one
-  firstname: Tom
-  lastname: Mitrovic
-  professor_email: tom@one7.one
-  program: Digital Business Engineering
-  course: it
 --- !u!4 &847000336
 Transform:
   m_ObjectHideFlags: 0
