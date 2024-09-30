@@ -2674,7 +2674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lection: 8
-  position: 8
+  position: 7
   mainSceneName: Level_8_3
 --- !u!61 &271779119
 BoxCollider2D:
@@ -8497,7 +8497,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.15, y: 2.4099998, z: -10}
+  m_LocalPosition: {x: 2.6338358, y: 2.435141, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
