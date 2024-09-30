@@ -9979,7 +9979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 163021444}
-  initialTime: 30
+  initialTime: 120
   startSceneName: Level_3
   respawnDelay: 2
   remainingTime: 0

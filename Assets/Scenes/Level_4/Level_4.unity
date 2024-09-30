@@ -8004,7 +8004,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6430137, y: 2.0088928, z: -10}
+  m_LocalPosition: {x: -2.8, y: 1.9999998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11257,7 +11257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 78964950}
-  initialTime: 80
+  initialTime: 120
   startSceneName: Level_4
   respawnDelay: 2
   remainingTime: 0
