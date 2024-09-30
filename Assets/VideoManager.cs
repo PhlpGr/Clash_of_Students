@@ -12,17 +12,27 @@ public class VideoManager : MonoBehaviour
 
     void Start()
     {
-        // Startet das Video automatisch und wartet auf das Ende
-        videoPlayer.loopPointReached += OnVideoEnd;  // Eventlistener für das Ende des Videos
+        // Debug Nachricht: Video startet
+        Debug.Log("Video started!");
+
+        // Sicherstellen, dass das Video nicht in einer Schleife abgespielt wird
+        videoPlayer.isLooping = false; // Zusätzliche Sicherheit
+
+        // Eventlistener hinzufügen: Was passiert, wenn das Video zu Ende ist
+        videoPlayer.loopPointReached += OnVideoEnd;
     }
 
     // Diese Methode wird aufgerufen, wenn das Video zu Ende ist
     void OnVideoEnd(VideoPlayer vp)
     {
+        // Debug Nachricht: Video zu Ende
+        Debug.Log("Video finished, loading next level...");
+
         // Lade die nächste Szene, deren Name im Inspector angegeben ist
         SceneManager.LoadScene(nextLevelName);
     }
 
+    /*
     void Update()
     {
         // Optional: Ermögliche das Überspringen des Videos per Tastendruck (z.B. Leertaste)
@@ -32,4 +42,5 @@ public class VideoManager : MonoBehaviour
             SceneManager.LoadScene(nextLevelName);
         }
     }
+    */
 }
