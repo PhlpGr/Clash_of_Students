@@ -5578,7 +5578,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3418431, y: 1.2437947, z: -10}
+  m_LocalPosition: {x: 0.79230785, y: 1.2376056, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6651,6 +6651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: Player
   sceneName: Level 02
+  score: {fileID: 0}
 --- !u!61 &965470529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11087,7 +11088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 468768782}
   initialTime: 120
-  startSceneName: Level_6
+  startSceneName: Level_2
   respawnDelay: 2
   remainingTime: 0
   isTiming: 1
@@ -11764,6 +11765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: 
   sceneName: "Level\xFCbersicht"
+  score: {fileID: 0}
 --- !u!1 &1601089728
 GameObject:
   m_ObjectHideFlags: 0
@@ -14008,6 +14010,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: "Level\xFCbersicht"
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1589363881}
+        m_TargetAssemblyTypeName: Score, Assembly-CSharp
+        m_MethodName: ResetScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1984283477}
+        m_TargetAssemblyTypeName: Version2_GameManager, Assembly-CSharp
+        m_MethodName: ResetQuestionCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1926762203
