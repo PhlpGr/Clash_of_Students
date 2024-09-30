@@ -6,33 +6,51 @@ public class SceneLoader : MonoBehaviour
 {
     public string tagToCheck;
     public string sceneName;
+    public Score score; // Reference to the Score script
+    private Version2_GameManager gameManager; // Reference to the GameManager
+
+    void Start()
+    {
+        // Find the GameManager instance at the start
+        gameManager = Version2_GameManager.Instance;
+    }
 
     public void LoadMyScene(string sceneName)
     {
-        // Überprüfe, ob der GameManager existiert, und setze den currentQuestionCount zurück
-        if (Version2_GameManager.Instance != null)
+        // Reset globalScore if score reference is set
+        if (score != null)
         {
-            Version2_GameManager.Instance.ResetQuestionCount();
+            score.ResetScore();
         }
         else
         {
-            Debug.LogWarning("Version2_GameManager Instance ist null!");
+            Debug.LogWarning("Score reference is not set in the SceneLoader!");
         }
 
-        // Lade die Szene
+        // Call ResetQuestionCount() on the GameManager
+        if (gameManager != null)
+        {
+            gameManager.ResetQuestionCount();
+        }
+        else
+        {
+            Debug.LogWarning("GameManager instance is null!");
+        }
+
+        // Load the scene
         SceneManager.LoadScene(sceneName);
 
-        // Suche nach der Timer-Instanz und setze die initialTime aus dem neuen Level
+        // Find the Timer instance and set the initialTime for the new level
         Timer timer = FindObjectOfType<Timer>();
         if (timer != null)
         {
-            timer.SetInitialTime(timer.initialTime); // Setze die initialTime für das neue Level
+            timer.SetInitialTime(timer.initialTime); // Set initialTime for the new level
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // is it the player
+        // Is it the player?
         if (collision.CompareTag(tagToCheck))
         {
             LoadMyScene(sceneName);
