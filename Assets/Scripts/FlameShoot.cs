@@ -24,7 +24,7 @@ public class FlameShoot : MonoBehaviour
         GameObject fire = Instantiate(firePrefab, transform.position, Quaternion.identity);
         // Setze die Geschwindigkeit der Flamme
         fire.GetComponent<Rigidbody2D>().velocity = new Vector2(flameSpeed, 0); 
-        Destroy(fire, 3.0f);
+        Destroy(fire, 1.5f);
     }
 }
 

@@ -80,6 +80,18 @@ EditorBuildSettings:
   - enabled: 0
     path: "Assets/Scenes/Level_1/Level_1.1(f\xFCrAuswahl).unity"
     guid: 2963747c58912a6498229c784fab5b36
+  - enabled: 1
+    path: Assets/Scenes/VideoScenes/Video1.unity
+    guid: 50f0d85a9a5959e4f85c1e4af49bc80a
+  - enabled: 1
+    path: Assets/Scenes/VideoScenes/Video2.unity
+    guid: f2d47f0939d7dc846813378123062790
+  - enabled: 1
+    path: Assets/Scenes/VideoScenes/Video3.unity
+    guid: 32ebb74d58b7eff44b7179938b926aa8
+  - enabled: 1
+    path: Assets/Scenes/VideoScenes/VideoIntro.unity
+    guid: 6f7c0eed1b4891342b10c6e0cc209942
   - enabled: 0
     path: Assets/Scenes/Level_1/Level_1 (FigAuswahl).unity
     guid: 4a0ec1a5a2533824681d1294135adb04
