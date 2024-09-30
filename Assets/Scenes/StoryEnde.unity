@@ -271,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck: 
   sceneName: 
+  score: {fileID: 0}
 --- !u!4 &889684902
 Transform:
   m_ObjectHideFlags: 0
@@ -1029,7 +1030,7 @@ PrefabInstance:
     - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: "Hauptmen\xFC"
+      value: "Level\xFCbersicht"
       objectReference: {fileID: 0}
     - target: {fileID: 3195153516390729450, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
