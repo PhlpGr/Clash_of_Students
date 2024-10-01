@@ -12,6 +12,7 @@ public class Version2_QuizEnemy : MonoBehaviour
 
     private void Start()
     {
+        /*
         // Überprüfe, ob JWTDisplayManager existiert
         if (JWTDisplayManager.Instance == null)
         {
@@ -21,6 +22,16 @@ public class Version2_QuizEnemy : MonoBehaviour
 
         // Hole die JWT-Daten vom JWTDisplayManager
         jwtData = JWTDisplayManager.Instance.GetJWTData();
+        */
+        jwtData = new JWTData
+        {
+            email = "1",
+            firstname = "John",
+            lastname = "Doe",
+            professor_email = "professor@example.com",
+            program = "DBE",
+            course = "1"
+        };
 
         if (jwtData == null)
         {
