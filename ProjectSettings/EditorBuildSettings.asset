@@ -98,16 +98,16 @@ EditorBuildSettings:
   - enabled: 0
     path: "Assets/Scenes/Level_1/Level_1.1(f\xFCrAuswahl).unity"
     guid: 2963747c58912a6498229c784fab5b36
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/VideoScenes/Video1.unity
     guid: 50f0d85a9a5959e4f85c1e4af49bc80a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/VideoScenes/Video2.unity
     guid: f2d47f0939d7dc846813378123062790
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/VideoScenes/Video3.unity
     guid: 32ebb74d58b7eff44b7179938b926aa8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/VideoScenes/VideoIntro.unity
     guid: 6f7c0eed1b4891342b10c6e0cc209942
   - enabled: 0
@@ -116,6 +116,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_1/Level_1.2.unity
     guid: 3ca7321f152e55d44acc9955346abb45
+  - enabled: 1
+    path: Assets/Scenes/Level_1/Level_1.4.unity
+    guid: 92fbd6a40c5a00c42a3172e171d8b2b5
   - enabled: 1
     path: Assets/Scenes/Quiz/Quiz1.unity
     guid: dcc1c8ab07a6dd444a93ed75878a9609
@@ -127,10 +130,10 @@ EditorBuildSettings:
     guid: fa237efdf2b86734ebb22afa7a1292fe
   - enabled: 1
     path: Assets/Scenes/Level_3/Level_3.unity
-    guid: 49313ea18691946a487e589e39e81b98
+    guid: 8c31b3aa9d9114d228ce44aff5228944
   - enabled: 1
     path: Assets/Scenes/Level_3/Level_3.unity
-    guid: 49313ea18691946a487e589e39e81b98
+    guid: 8c31b3aa9d9114d228ce44aff5228944
   - enabled: 1
     path: Assets/Scenes/Level_6/Level_6.unity
     guid: 4066722aaedf34249ac99277a3cd7ace

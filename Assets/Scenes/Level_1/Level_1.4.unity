@@ -4873,7 +4873,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: "Level\xFCbersicht"
-  timeReductionSpeed: 10
   scoreIncrementDelay: 0.05
 --- !u!114 &816277628
 MonoBehaviour:
@@ -5375,7 +5374,6 @@ GameObject:
   m_Component:
   - component: {fileID: 909703408}
   - component: {fileID: 909703407}
-  - component: {fileID: 909703410}
   - component: {fileID: 909703409}
   m_Layer: 0
   m_Name: hhz2
@@ -5496,21 +5494,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.22, y: 7.02}
   m_EdgeRadius: 0
---- !u!114 &909703410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909703406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagToCheck: Player
-  sceneName: LevelGeschafft_Screen
-  score: {fileID: 0}
 --- !u!1001 &916041425
 PrefabInstance:
   m_ObjectHideFlags: 0
