@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Testlevel/MainMenu.unity
     guid: 8acaf96bd7a66f54094b77ca8858881c
   - enabled: 1
-    path: "Assets/Scenes/LevelkopieFu\u0308rTom/Level_2/Level_2_Tom.unity"
+    path: "Assets/Scenes/LevelkopieF\xFCrTom/Level_2/Level_2_Tom.unity"
     guid: 9f9ea3ba28bfa944589e11afb07e8307
   - enabled: 1
     path: Assets/Scenes/Quiz/Quiz.unity
@@ -18,16 +18,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Testlevel/Level 01.unity
     guid: 7f7a9ed07d515af478bdf3f36488332f
   - enabled: 1
-    path: "Assets/Scenes/Menu\u0308/Willkommen 1.unity"
+    path: "Assets/Scenes/Men\xFC/Willkommen 1.unity"
     guid: 2ee71613b2e527e45a276627f1dcaf0d
   - enabled: 1
     path: Assets/Scenes/Figurauswahl/Figurauswahl.unity
     guid: ad409a9c402b68a46968d0ac67c9c3cf
   - enabled: 1
-    path: "Assets/Scenes/Levelu\u0308bersicht/Level\xFCbersicht.unity"
+    path: "Assets/Scenes/Level\xFCbersicht/Level\xFCbersicht.unity"
     guid: 545cd220d29f1a14fa50eda74a848309
   - enabled: 1
-    path: "Assets/Scenes/Menu\u0308/Hauptmen\xFC.unity"
+    path: "Assets/Scenes/Men\xFC/Hauptmen\xFC.unity"
     guid: 660bd2c40b385094ebfb34648d859443
   - enabled: 1
     path: Assets/Scenes/Konfigurator_Assets/MilitaryHeroes.unity
@@ -135,8 +135,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Testlevel/Level 02.unity
     guid: 7ac129dca46bdb3478af2bb1ac691f34
   - enabled: 1
+    path: Assets/Scenes/Level_2/Level_2_1.unity
+    guid: 438c7cb38ca49c040aa3fdc02f1a974e
+  - enabled: 1
     path: Assets/Scenes/Level_EndScreen/LevelGeschafft_Screen.unity
     guid: c2f8c395f47072142a12150cb724c303
+  - enabled: 1
+    path: Assets/Scenes/Level_2/Level_2_2.unity
+    guid: 6bf25233c1494c348be8be91ba0253f0
+  - enabled: 1
+    path: Assets/Scenes/Level_2/Level_2_3.unity
+    guid: 5b1bb1c612f1d8241b7b041b64b76fdb
   - enabled: 1
     path: Assets/Scenes/StoryEnde.unity
     guid: 52bc0ab3ded0c1d4fb15dfeabbac0317

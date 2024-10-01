@@ -7,6 +7,7 @@ public class LevelEndManager : MonoBehaviour
     private ScoreCounter scoreCounter; // Referenz auf den zentralen ScoreCounter
     private Infos quizInfos; // Informationen zum aktuellen Quiz
     private Score score; // Reference to the Score component
+    public static JWTDisplayManager JWTDManager;
 
     private void Start()
     {
@@ -46,8 +47,18 @@ public class LevelEndManager : MonoBehaviour
     // Modified `PostFinalScore` coroutine to reset the score after posting
     private IEnumerator PostFinalScore()
     {
+        Debug.Log("Starting PostFinalScore Coroutine...");
         // Abrufen der JWT-Daten über den JWTDisplayManager
-        JWTData jwtData = JWTDisplayManager.Instance.GetJWTData();
+        //JWTData jwtData = JWTDisplayManager.Instance.GetJWTData();
+        JWTData jwtData = new JWTData
+        {
+            email = "1",
+            firstname = "John",
+            lastname = "Doe",
+            professor_email = "professor@example.com",
+            program = "DBE",
+            course = "1"
+        };
 
         if (jwtData == null)
         {
@@ -64,7 +75,12 @@ public class LevelEndManager : MonoBehaviour
             scoreCounter.lection_score,
             quizInfos.Mail
         );
-
+        Debug.Log(jwtData.professor_email +
+            jwtData.program +
+            jwtData.course +
+            quizInfos.Lection +
+            scoreCounter.lection_score +
+            quizInfos.Mail);
         Debug.Log("Score successfully posted.");
 
         // Reset the score after posting
