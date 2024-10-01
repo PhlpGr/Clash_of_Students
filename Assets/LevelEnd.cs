@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Platformer.Mechanics;
+using TMPro;
 
 public class LevelEnd : MonoBehaviour
 {
@@ -14,9 +15,33 @@ public class LevelEnd : MonoBehaviour
     void Start()
     {
         // Find the Timer, Score, and LevelEndManager components in the scene
+        UpdateReferences();
+
+        // Register the OnSceneLoaded method to handle scene changes
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Update references when a new scene is loaded
+        UpdateReferences();
+    }
+
+    private void UpdateReferences()
+    {
         timer = FindObjectOfType<Timer>();
         score = FindObjectOfType<Score>();
         levelEndManager = FindObjectOfType<LevelEndManager>();
+
+        if (score == null)
+        {
+            Debug.LogError("Score script not found in the new scene!");
+        }
+
+        if (timer == null)
+        {
+            Debug.LogError("Timer script not found in the new scene!");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -61,10 +86,10 @@ public class LevelEnd : MonoBehaviour
             levelEndManager.PostScoreAndReset(); // This should happen after the score increment
         }
 
-        // Destroy the timer after the score processing
+        // Reset the timer after handling the level end
         if (timer != null)
         {
-            timer.DestroyTimer();
+            timer.ResetTimer();
         }
 
         // Reset the score before loading the next scene
@@ -81,14 +106,22 @@ public class LevelEnd : MonoBehaviour
         }
     }
 
-
     // Coroutine to gradually increase the score
     private IEnumerator GraduallyIncreaseScore(int remainingSeconds)
     {
         for (int i = 0; i < remainingSeconds; i++)
         {
-            score.AddScore(1); // Increment score by 1
-            yield return new WaitForSeconds(scoreIncrementDelay); // Delay to show the increment visually
+            if (score != null)
+            {
+                score.AddScore(1); // Increment score by 1
+                yield return new WaitForSeconds(scoreIncrementDelay); // Delay to show the increment visually
+            }
         }
+    }
+
+    private void OnDestroy()
+    {
+        // Deregister the OnSceneLoaded method to avoid memory leaks
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
