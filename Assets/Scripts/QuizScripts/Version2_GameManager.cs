@@ -339,6 +339,9 @@ public class Version2_GameManager : MonoBehaviour
         Debug.Log($"Falsche Antworten: {incorrectAnswersCount}");
         scoreCounter.CountScore(incorrectAnswersCount, correctAnswersCount);
         Debug.Log("Das Quiz ist beendet.");
+
+        // currentQuestionCount zurücksetzen
+         ResetQuestionCount();
     
         // Lade die Hauptszene nach Abschluss des Quiz
         SceneManager.LoadScene(mainSceneName); 

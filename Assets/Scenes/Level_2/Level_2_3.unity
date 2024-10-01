@@ -6211,7 +6211,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: "Level\xFCbersicht"
-  timeReductionSpeed: 10
   scoreIncrementDelay: 0.05
 --- !u!114 &965470533
 MonoBehaviour:
@@ -8123,7 +8122,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -254, y: 188}
-  m_SizeDelta: {x: 183.2077, y: 31.5689}
+  m_SizeDelta: {x: 300, y: 31.5689}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1226614123
 MonoBehaviour:
@@ -8188,7 +8187,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -8208,7 +8207,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 167.27773, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

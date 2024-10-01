@@ -202,4 +202,14 @@ public class Timer : MonoBehaviour
 
         rectTransform.sizeDelta = new Vector2(200, 50); // Adjust size if necessary
     }
+
+
+    public void DestroyTimer()
+    {
+    // Entferne das Timer-Objekt aus der Szene
+    Destroy(gameObject);
+    Debug.Log("Timer wurde zerstört.");
+    }
+
+
 }

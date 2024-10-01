@@ -15460,7 +15460,6 @@ GameObject:
   - component: {fileID: 1513462195}
   - component: {fileID: 1513462198}
   - component: {fileID: 1513462197}
-  - component: {fileID: 1513462199}
   m_Layer: 0
   m_Name: teleportlvl52 (1)
   m_TagString: Untagged
@@ -15595,21 +15594,6 @@ MonoBehaviour:
   lection: 8
   position: 4
   mainSceneName: Level_8_2
---- !u!114 &1513462199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513462194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 470663bef2a4403d87d93241430a709d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lection: 8
-  position: 1
-  mainSceneName: Level_8
 --- !u!1 &1541652715
 GameObject:
   m_ObjectHideFlags: 0
