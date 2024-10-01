@@ -86,10 +86,10 @@ public class LevelEnd : MonoBehaviour
             levelEndManager.PostScoreAndReset(); // This should happen after the score increment
         }
 
-        // Reset the timer after handling the level end
+        // Destroy the timer after the score increment
         if (timer != null)
         {
-            timer.ResetTimer();
+            timer.DestroyTimer(); // Call the DestroyTimer() method to destroy the Timer object
         }
 
         // Reset the score before loading the next scene
@@ -105,6 +105,7 @@ public class LevelEnd : MonoBehaviour
             SceneManager.LoadScene(nextSceneName);
         }
     }
+
 
     // Coroutine to gradually increase the score
     private IEnumerator GraduallyIncreaseScore(int remainingSeconds)

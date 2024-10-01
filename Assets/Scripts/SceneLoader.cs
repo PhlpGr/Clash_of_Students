@@ -37,16 +37,17 @@ public class SceneLoader : MonoBehaviour
             Debug.LogWarning("GameManager instance is null!");
         }
 
-        // Load the scene
-        SceneManager.LoadScene(sceneName);
-
-        // Find the Timer instance and set the initialTime for the new level
+        // Find the Timer instance and destroy it before loading the new scene
         Timer timer = FindObjectOfType<Timer>();
         if (timer != null)
         {
-            timer.SetInitialTime(timer.initialTime); // Set initialTime for the new level
+            timer.DestroyTimer(); // Destroy the Timer instance
         }
+
+        // Load the scene
+        SceneManager.LoadScene(sceneName);
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
