@@ -138,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Video3
+      value: Level_5
       objectReference: {fileID: 0}
     - target: {fileID: 3195153516390729450, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
@@ -444,6 +444,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.5943396
+      objectReference: {fileID: 0}
+    - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.5943396
+      objectReference: {fileID: 0}
+    - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.5943396
+      objectReference: {fileID: 0}
+    - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.59607846
       objectReference: {fileID: 0}
     - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
@@ -1652,7 +1682,7 @@ PrefabInstance:
     - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Video2
+      value: Level_3
       objectReference: {fileID: 0}
     - target: {fileID: 3195153516390729450, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
@@ -1807,7 +1837,7 @@ PrefabInstance:
     - target: {fileID: 222736338016305334, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Video1
+      value: Level_1
       objectReference: {fileID: 0}
     - target: {fileID: 3195153516390729450, guid: f69a9a79f60ec6d4ea6d652e6720ef58,
         type: 3}
