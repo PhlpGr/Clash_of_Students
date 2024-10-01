@@ -19,6 +19,7 @@ TagManager:
   - Virus
   - Troll
   - Ground
+  - ScoreText
   layers:
   - Default
   - TransparentFX
