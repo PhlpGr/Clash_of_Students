@@ -43,13 +43,17 @@ public class Score : MonoBehaviour
     {
         // Sucht das Text-Element mit einem bestimmten Tag
         scoreText = GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
-        
+
         if (scoreText == null)
         {
             Debug.LogError("ScoreText-UI-Element in der neuen Szene nicht gefunden!");
         }
         else
         {
+            // Aktualisiere die Einstellungen des Text-Elements, um den Umbruch zu verhindern
+            scoreText.enableWordWrapping = false;
+            scoreText.overflowMode = TextOverflowModes.Overflow;
+
             // Aktualisiere den Score-Text in der neuen Szene
             scoreText.text = globalScore.ToString();
         }
