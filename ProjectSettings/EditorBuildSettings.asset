@@ -153,8 +153,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Testlevel/Level 02.unity
     guid: 7ac129dca46bdb3478af2bb1ac691f34
   - enabled: 1
+    path: Assets/Scenes/Level_2/Level_2_1.unity
+    guid: 438c7cb38ca49c040aa3fdc02f1a974e
+  - enabled: 1
     path: Assets/Scenes/Level_EndScreen/LevelGeschafft_Screen.unity
     guid: c2f8c395f47072142a12150cb724c303
+  - enabled: 1
+    path: Assets/Scenes/Level_2/Level_2_2.unity
+    guid: 6bf25233c1494c348be8be91ba0253f0
+  - enabled: 1
+    path: Assets/Scenes/Level_2/Level_2_3.unity
+    guid: 5b1bb1c612f1d8241b7b041b64b76fdb
   - enabled: 1
     path: Assets/Scenes/StoryEnde.unity
     guid: 52bc0ab3ded0c1d4fb15dfeabbac0317

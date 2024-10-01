@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using QuizScripts;
 using System.Threading.Tasks;
 using Platformer.Gameplay;  // Für das PlayerSpawn-Event
-using Platformer.Core;   
+using Platformer.Core;
 
 public class Version2_GameManager : MonoBehaviour
 {
@@ -17,10 +17,10 @@ public class Version2_GameManager : MonoBehaviour
     public QuizTimer quizTimer;
     public Infos quizInfos;
     private string mainSceneName;
-    private const string quizSceneName = "Quiz"; 
+    private const string quizSceneName = "Quiz";
     private const int maxQuestionsPerEnemy = 2;
 
-    private int attemptCount = 0; 
+    private int attemptCount = 0;
     private int currentQuestionCount = 0;
     private int correctAnswersCount = 0;
     private int incorrectAnswersCount = 0;
@@ -33,12 +33,12 @@ public class Version2_GameManager : MonoBehaviour
     private Button answerButton3;
     private Button answerButton4;
     public static JWTDisplayManager JWTDManager;
-    
+
     public Infos GetQuizInfos()
     {
         return quizInfos;
     }
-    
+
     private void Awake()
     {
         if (Instance == null)
@@ -74,7 +74,7 @@ public class Version2_GameManager : MonoBehaviour
 
             AssignButtonsDynamically();
 
-            StartCoroutine(LoadQuestion(url)); 
+            StartCoroutine(LoadQuestion(url));
         }
     }
 
@@ -123,7 +123,7 @@ public class Version2_GameManager : MonoBehaviour
         feedbackText = GameObject.Find("ScoreCounter").GetComponent<TextMeshProUGUI>();
 
         frageText.text = fact.frage;
-        
+
         SetupButton(answerButton1, fact.answer_a, fact.correct_answer);
         SetupButton(answerButton2, fact.answer_b, fact.correct_answer);
         SetupButton(answerButton3, fact.answer_c, fact.correct_answer);
@@ -141,7 +141,7 @@ public class Version2_GameManager : MonoBehaviour
             return;
         }
 
-        button.onClick.RemoveAllListeners(); 
+        button.onClick.RemoveAllListeners();
 
         if (!string.IsNullOrEmpty(answerText))
         {
@@ -169,23 +169,23 @@ public class Version2_GameManager : MonoBehaviour
     {
         quizTimer.StopTimer(); // Stoppt den Timer
         Debug.Log("Antwort ausgewählt: " + selectedAnswer);
-    
+
         DisableAllButtons();
-    
+
         if (selectedAnswer == correctAnswer)
         {
             feedbackText.text = "Richtig!";
             feedbackText.color = Color.green;
             Debug.Log("Richtige Antwort ausgewählt!");
-            correctAnswersCount++; 
+            correctAnswersCount++;
             StartCoroutine(HideFeedbackText());
-            Invoke(nameof(LoadNextQuestion), 1.5f); 
+            Invoke(nameof(LoadNextQuestion), 1.5f);
         }
         else
         {
             Debug.Log("Falsche Antwort ausgewählt!");
-            incorrectAnswersCount++; 
-            HandleIncorrectAnswer(); 
+            incorrectAnswersCount++;
+            HandleIncorrectAnswer();
         }
     }
 
@@ -227,6 +227,7 @@ public class Version2_GameManager : MonoBehaviour
     {
         if (currentQuestionCount < maxQuestionsPerEnemy)
         {
+            Debug.Log("question count" + currentQuestionCount);
             currentQuestionCount++;
             attemptCount = 0;
             quizInfos.CurrentPosition++; // Erhöhe die CurrentPosition um 1 für die nächste Frage
@@ -236,6 +237,7 @@ public class Version2_GameManager : MonoBehaviour
         }
         else
         {
+            ResetQuestionCount();
             EndQuiz(); // Quiz ist zu Ende, wir rufen jetzt EndQuiz auf
         }
     }
@@ -246,7 +248,7 @@ public class Version2_GameManager : MonoBehaviour
         Debug.Log("currentQuestionCount wurde auf 0 gesetzt.");
     }
 
-    
+
     private IEnumerator LoadQuizQuestion(string url)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
@@ -285,12 +287,12 @@ public class Version2_GameManager : MonoBehaviour
         HandleIncorrectAnswer();
     }
 
-    
-    
+
+
     public void HandleIncorrectAnswer()
     {
         attemptCount++; // Erhöhe den Fehlversuchszähler
-    
+
         if (attemptCount == 1)
         {
             feedbackText.text = "Falsch! Versuch es nochmal.";
@@ -304,7 +306,7 @@ public class Version2_GameManager : MonoBehaviour
             feedbackText.text = "Zweite falsche Antwort! Nächste Frage...";
             feedbackText.color = Color.red;
             StartCoroutine(HideFeedbackText());
-            Invoke(nameof(LoadNextQuestion), 1.5f); 
+            Invoke(nameof(LoadNextQuestion), 1.5f);
             attemptCount = 0; // Setze den Fehlversuchszähler zurück
         }
     }
@@ -331,7 +333,7 @@ public class Version2_GameManager : MonoBehaviour
     private IEnumerator HideFeedbackText()
     {
         yield return new WaitForSeconds(1.5f);
-        feedbackText.text = ""; 
+        feedbackText.text = "";
     }
     public void EndQuiz()
     {
@@ -344,7 +346,7 @@ public class Version2_GameManager : MonoBehaviour
          ResetQuestionCount();
     
         // Lade die Hauptszene nach Abschluss des Quiz
-        SceneManager.LoadScene(mainSceneName); 
+        SceneManager.LoadScene(mainSceneName);
 
         // Füge einen Listener hinzu, um den PlayerSpawn nach dem Laden der Szene zu planen
         SceneManager.sceneLoaded += OnNewSceneLoaded;
@@ -382,7 +384,6 @@ public class Version2_GameManager : MonoBehaviour
         }
     }
 
-    
-}    
-    
-    
+
+}
+

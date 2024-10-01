@@ -1,10 +1,11 @@
 using System;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 //using System.Text.Json;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-namespace QuizScripts    
+namespace QuizScripts
 
 {
     public class ScoreCounter
@@ -31,7 +32,10 @@ namespace QuizScripts
                 final_score = final_score,
                 course_creator = course_creator
             };
-            
+
+            Debug.Write(payload);
+            Debug.Write(url);
+
             string jsonPayload = JsonConvert.SerializeObject(payload);
 
             using (HttpClient client = new HttpClient())
