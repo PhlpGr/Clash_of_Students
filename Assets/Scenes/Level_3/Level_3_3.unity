@@ -7913,8 +7913,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0988035, y: 2.302906, z: -10}
-  m_LocalPosition: {x: -3.4850874, y: 2.3259768, z: -10}
+  m_LocalPosition: {x: -2.3846245, y: 2.3101645, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9019,7 +9018,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950022282}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
@@ -9027,7 +9026,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 790, y: 450}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -9724,7 +9723,7 @@ GameObject:
   - component: {fileID: 1048697135}
   m_Layer: 5
   m_Name: Text Score
-  m_TagString: Untagged
+  m_TagString: ScoreText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10646,7 +10645,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: "Level\xFCbersicht"
-  timeReductionSpeed: 10
   scoreIncrementDelay: 0.05
 --- !u!114 &1119344002
 MonoBehaviour:
@@ -17346,10 +17344,6 @@ SceneRoots:
   - {fileID: 1748116267}
   - {fileID: 1375385250}
   - {fileID: 1703157935}
-  - {fileID: 434522036}
-  - {fileID: 178927355}
-  - {fileID: 1731148214}
-  - {fileID: 1961639451}
   - {fileID: 1681387842}
   - {fileID: 1035609073}
   - {fileID: 1704232463}
