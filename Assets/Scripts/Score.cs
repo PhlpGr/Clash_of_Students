@@ -38,26 +38,31 @@ public class Score : MonoBehaviour
         UpdateReferences();
     }
 
-    // Aktualisiere die Referenzen zum UI-Element in der neuen Szene
     private void UpdateReferences()
     {
-        // Sucht das Text-Element mit einem bestimmten Tag
-        scoreText = GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
-
-        if (scoreText == null)
+        // Suche das GameObject mit dem Tag "ScoreText"
+        GameObject scoreObject = GameObject.FindWithTag("ScoreText");
+        
+        // Überprüfe, ob das Objekt gefunden wurde
+        if (scoreObject != null)
         {
-            Debug.LogError("ScoreText-UI-Element in der neuen Szene nicht gefunden!");
+            scoreText = scoreObject.GetComponent<TextMeshProUGUI>();
+            
+            // Weitere Einstellungen für das Text-Element vornehmen
+            if (scoreText != null)
+            {
+                scoreText.enableWordWrapping = false;
+                scoreText.overflowMode = TextOverflowModes.Overflow;
+                scoreText.text = globalScore.ToString();
+            }
         }
         else
         {
-            // Aktualisiere die Einstellungen des Text-Elements, um den Umbruch zu verhindern
-            scoreText.enableWordWrapping = false;
-            scoreText.overflowMode = TextOverflowModes.Overflow;
-
-            // Aktualisiere den Score-Text in der neuen Szene
-            scoreText.text = globalScore.ToString();
+            Debug.LogWarning("Kein ScoreText-UI-Element mit dem Tag 'ScoreText' in dieser Szene gefunden.");
+            scoreText = null; // Setze die Referenz auf null, da das Element nicht vorhanden ist
         }
     }
+
 
     public void AddScore(int amount)
     {
