@@ -10814,9 +10814,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToCheck: Player
   sceneName: StoryEnde
   score: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!61 &1140161969
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15892,9 +15892,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToCheck: 
   sceneName: "Level\xFCbersicht"
-  score: {fileID: 0}
+  score: {fileID: 1589363881}
+  exitButton: {fileID: 1627173662}
 --- !u!1 &1598635417
 GameObject:
   m_ObjectHideFlags: 0
@@ -16399,7 +16399,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1589363883}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadMyScene
+        m_MethodName: DestroyTimerAndLoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

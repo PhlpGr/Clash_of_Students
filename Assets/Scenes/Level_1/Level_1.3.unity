@@ -1799,7 +1799,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1589363883}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadMyScene
+        m_MethodName: DestroyTimerAndLoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4770,9 +4770,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToCheck: Player
   sceneName: Level 02
   score: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!61 &816277624
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5507,9 +5507,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToCheck: Player
   sceneName: LevelGeschafft_Screen
   score: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!1001 &916041425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8294,9 +8294,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToCheck: 
   sceneName: "Level\xFCbersicht"
-  score: {fileID: 0}
+  score: {fileID: 1589363881}
+  exitButton: {fileID: 340745036}
 --- !u!1 &1589579438
 GameObject:
   m_ObjectHideFlags: 0
@@ -9019,6 +9019,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 732898907}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1864344200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1864344202}
+  - component: {fileID: 1864344201}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1864344201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864344200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: "Level\xFCbersicht"
+  score: {fileID: 1589363881}
+  exitButton: {fileID: 340745036}
+--- !u!4 &1864344202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864344200}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 104.431755, y: -0.42782468, z: 1.7832712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1867889478
 GameObject:
   m_ObjectHideFlags: 0
@@ -10857,3 +10904,4 @@ SceneRoots:
   - {fileID: 796095309}
   - {fileID: 1880244742}
   - {fileID: 354619497}
+  - {fileID: 1864344202}

@@ -428,6 +428,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &52168666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 52168668}
+  - component: {fileID: 52168667}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &52168667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52168666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagToCheck: Player
+  sceneName: "Level\xFCbersicht"
+  score: {fileID: 1589363881}
+  exitButton: {fileID: 1198070092}
+--- !u!4 &52168668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52168666}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 104.431755, y: -0.42782468, z: 1.7832712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &55196236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,7 +1878,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172625912}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a0aef247fe1aa54eafc9aaff4fc2fff, type: 3}
   m_Name: 
@@ -7892,8 +7940,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.95, y: -2.0700002, z: -10}
-  m_LocalPosition: {x: -2.5501068, y: 2.0019207, z: -10}
+  m_LocalPosition: {x: 29.25, y: -1.3700001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8007,11 +8054,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520396350849616, guid: 7d60c822c3f1b408ea7a00ecdb5e047a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.95
+      value: 29.25
       objectReference: {fileID: 0}
     - target: {fileID: 4520396350849616, guid: 7d60c822c3f1b408ea7a00ecdb5e047a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.7
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4520396350849616, guid: 7d60c822c3f1b408ea7a00ecdb5e047a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8162,7 +8209,7 @@ Transform:
   m_GameObject: {fileID: 921429057}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.95, y: -2.0700002, z: -10}
+  m_LocalPosition: {x: 29.25, y: -1.3700001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8350,6 +8397,7 @@ MonoBehaviour:
   tagToCheck: Player
   sceneName: Level 02
   score: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!61 &943161074
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8669,11 +8717,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1735341820128141624, guid: b4bce5b4dff684ae88017b2ce6cdea46,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1233384850}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4bce5b4dff684ae88017b2ce6cdea46, type: 3}
 --- !u!1 &960441365
 GameObject:
@@ -10705,7 +10749,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074862766}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a0aef247fe1aa54eafc9aaff4fc2fff, type: 3}
   m_Name: 
@@ -12811,28 +12855,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1233384849 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1735341820128141624, guid: b4bce5b4dff684ae88017b2ce6cdea46,
-    type: 3}
-  m_PrefabInstance: {fileID: 958076270}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1233384850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233384849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0aef247fe1aa54eafc9aaff4fc2fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePrefab: {fileID: 7259374370334305698, guid: 6874799162c5e43ad8b8d2f5d917f42f,
-    type: 3}
-  timeBetweenShots: 2.5
-  flameSpeed: -5
 --- !u!1 &1243516211
 GameObject:
   m_ObjectHideFlags: 0
@@ -16344,6 +16366,7 @@ MonoBehaviour:
   tagToCheck: 
   sceneName: "Level\xFCbersicht"
   score: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!1 &1617144275
 GameObject:
   m_ObjectHideFlags: 0
@@ -20802,3 +20825,4 @@ SceneRoots:
   - {fileID: 17740942}
   - {fileID: 986227223}
   - {fileID: 870766296}
+  - {fileID: 52168668}
