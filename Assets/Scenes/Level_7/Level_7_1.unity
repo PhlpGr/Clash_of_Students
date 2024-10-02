@@ -16162,10 +16162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToCheck: 
   sceneName: "Level\xFCbersicht"
-  score: {fileID: 0}
-  exitButton: {fileID: 0}
+  score: {fileID: 1589363881}
+  exitButton: {fileID: 1311135216}
 --- !u!1 &1590168472
 GameObject:
   m_ObjectHideFlags: 0
@@ -18673,7 +18672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToCheck: Player
   sceneName: Level 02
   score: {fileID: 0}
   exitButton: {fileID: 0}
@@ -20040,7 +20038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToCheck: Player
   sceneName: Quiz1
   score: {fileID: 0}
   exitButton: {fileID: 0}
@@ -20568,7 +20565,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagToCheck: Player
   sceneName: "Level\xFCbersicht"
   score: {fileID: 1589363881}
   exitButton: {fileID: 1311135216}
