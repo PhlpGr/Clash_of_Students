@@ -65,10 +65,18 @@ public class LevelEndManager : MonoBehaviour
             Debug.LogError("JWT-Daten konnten nicht abgerufen werden.");
             yield break;
         }
+        Debug.Log(jwtData.professor_email +
+            jwtData.program +
+            jwtData.course);
+
+        Debug.Log(quizInfos.Lection);
+        Debug.Log(quizInfos.Mail);
+        Debug.Log(scoreCounter.lection_score);
+        Debug.Log("All variables are set");
 
         // Post the score asynchronously
         yield return scoreCounter.PostScoreAsync(
-            jwtData.professor_email,
+            jwtData.email,
             jwtData.program,
             jwtData.course,
             quizInfos.Lection,
