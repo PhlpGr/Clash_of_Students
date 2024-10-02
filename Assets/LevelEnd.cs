@@ -79,6 +79,12 @@ public class LevelEnd : MonoBehaviour
             Debug.Log("Global score increased by remaining seconds: " + remainingSeconds);
         }
 
+        // **Synchronize the score before posting**
+        if (score != null)
+        {
+            score.SynchronizeScoreWithCounter(Version2_GameManager.Instance.scoreCounter);
+        }
+
         // Notify the LevelEndManager to post the score now
         if (levelEndManager != null)
         {
@@ -105,6 +111,7 @@ public class LevelEnd : MonoBehaviour
             SceneManager.LoadScene(nextSceneName);
         }
     }
+
 
 
     // Coroutine to gradually increase the score

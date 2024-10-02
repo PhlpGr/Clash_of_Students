@@ -1431,6 +1431,7 @@ MonoBehaviour:
   tagToCheck: Player
   sceneName: Quiz1
   score: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!212 &178927354
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10805,6 +10806,7 @@ MonoBehaviour:
   tagToCheck: Player
   sceneName: StoryEnde
   score: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!61 &1140161969
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15807,6 +15809,7 @@ MonoBehaviour:
   tagToCheck: 
   sceneName: "Level\xFCbersicht"
   score: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!1 &1598635417
 GameObject:
   m_ObjectHideFlags: 0
@@ -15932,6 +15935,54 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.579216, y: -0.9183, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1608726085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608726087}
+  - component: {fileID: 1608726086}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1608726086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608726085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc6fa01283302f49b4094debfbc2cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagToCheck: Player
+  sceneName: "Level\xFCbersicht"
+  score: {fileID: 1589363881}
+  exitButton: {fileID: 1627173662}
+--- !u!4 &1608726087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608726085}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 104.431755, y: -0.42782468, z: 1.7832712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22536,3 +22587,4 @@ SceneRoots:
   - {fileID: 84527408}
   - {fileID: 270813653}
   - {fileID: 1785206626}
+  - {fileID: 1608726087}

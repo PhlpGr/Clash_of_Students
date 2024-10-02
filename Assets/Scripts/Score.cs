@@ -1,8 +1,10 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using QuizScripts; // Namensraum für ScoreCounter
 
 public class Score : MonoBehaviour
 {
@@ -35,19 +37,18 @@ public class Score : MonoBehaviour
     // Diese Methode wird aufgerufen, wenn eine neue Szene geladen wird
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        UpdateReferences();
+        UpdateReferences(); // Versuche, die Referenzen jedes Mal neu zu setzen
     }
 
     private void UpdateReferences()
     {
-        // Suche das GameObject mit dem Tag "ScoreText"
+        // Suche das GameObject mit dem Tag "ScoreText" in der aktuellen Szene
         GameObject scoreObject = GameObject.FindWithTag("ScoreText");
-        
-        // Überprüfe, ob das Objekt gefunden wurde
+
         if (scoreObject != null)
         {
             scoreText = scoreObject.GetComponent<TextMeshProUGUI>();
-            
+
             // Weitere Einstellungen für das Text-Element vornehmen
             if (scoreText != null)
             {
@@ -59,10 +60,9 @@ public class Score : MonoBehaviour
         else
         {
             Debug.LogWarning("Kein ScoreText-UI-Element mit dem Tag 'ScoreText' in dieser Szene gefunden.");
-            scoreText = null; // Setze die Referenz auf null, da das Element nicht vorhanden ist
+            scoreText = null; // Setze die Referenz auf null, falls das Element nicht vorhanden ist
         }
     }
-
 
     public void AddScore(int amount)
     {
@@ -79,6 +79,14 @@ public class Score : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = globalScore.ToString(); // Aktualisiert die Anzeige
+        }
+    }
+
+    public void SynchronizeScoreWithCounter(ScoreCounter scoreCounter)
+    {
+        if (scoreCounter != null)
+        {
+            scoreCounter.lection_score = globalScore;
         }
     }
 
