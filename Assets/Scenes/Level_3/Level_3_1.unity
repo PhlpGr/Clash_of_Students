@@ -14976,8 +14976,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: "Level\xFCbersicht"
-  score: {fileID: 0}
-  exitButton: {fileID: 0}
+  score: {fileID: 1589363881}
+  exitButton: {fileID: 1888326392}
 --- !u!1 &1621590278
 GameObject:
   m_ObjectHideFlags: 0
@@ -17061,18 +17061,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1589363883}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadMyScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: "Level\xFCbersicht"
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1589363881}
         m_TargetAssemblyTypeName: Score, Assembly-CSharp
         m_MethodName: ResetScore
@@ -17095,6 +17083,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1589363883}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: DestroyTimerAndLoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "Level\xFCbersicht"
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1888326393
@@ -17926,4 +17926,3 @@ SceneRoots:
   - {fileID: 1392602769}
   - {fileID: 277958054}
   - {fileID: 1238879149}
-  - {fileID: 2111873993}
