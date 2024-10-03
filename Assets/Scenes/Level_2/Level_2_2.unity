@@ -12883,6 +12883,7 @@ MonoBehaviour:
   - {fileID: 7525153816809366057, guid: a9d447e1ad2dd05458ebfcc3e3099938, type: 3}
   - {fileID: 6592134892635546268, guid: 153a4f470132ee14cb1d2aec027648cb, type: 3}
   virtualCamera: {fileID: 921429058}
+  startPositionObject: {fileID: 482711331}
 --- !u!4 &1848143631
 Transform:
   m_ObjectHideFlags: 0
@@ -15352,3 +15353,4 @@ SceneRoots:
   - {fileID: 965470531}
   - {fileID: 1993950875}
   - {fileID: 1614431637}
+  - {fileID: 1887544167}

@@ -1,12 +1,15 @@
 using UnityEngine;
 using Cinemachine;  // Importiere Cinemachine für die Kameraführung
 using Platformer.Mechanics;
+
 public class CharacterManager : MonoBehaviour
 {
     public GameObject[] characterPrefabs;  // Array der Charakter-Prefabs
     private GameObject activeCharacter;    // Das aktuell aktive Charakter-GameObject
 
     public CinemachineVirtualCamera virtualCamera;  // Referenz zur Cinemachine Virtual Camera
+
+    public Transform startPositionObject;  // GameObject für die Startposition, im Inspektor zuweisen
 
     void Start()
     {
@@ -18,7 +21,7 @@ public class CharacterManager : MonoBehaviour
 
         if (selectedCharacterIndex >= 0 && selectedCharacterIndex < characterPrefabs.Length)
         {
-            Vector3 startPosition = new Vector3(-5.77f, 0.95f, 0f);  // Startposition des Charakters
+            Vector3 startPosition = startPositionObject != null ? startPositionObject.position : Vector3.zero;  // Setze die Startposition basierend auf dem zugewiesenen GameObject
             activeCharacter = Instantiate(characterPrefabs[selectedCharacterIndex], startPosition, Quaternion.identity);
             activeCharacter.name = "Player";
             Debug.Log("Character instantiated: " + activeCharacter.name);
