@@ -9,7 +9,7 @@ namespace Platformer.Mechanics
 public class GameController2 : MonoBehaviour
 {
     public static GameController2 Instance { get; private set; }
-
+    public PlatformerModel model = Simulation.GetModel<PlatformerModel>();
     // Hier halten wir eine Referenz auf den PlayerController.
     public PlayerController player;
 

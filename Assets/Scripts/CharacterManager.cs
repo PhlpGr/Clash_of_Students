@@ -1,90 +1,61 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Cinemachine;
-
+using Cinemachine;  // Importiere Cinemachine für die Kameraführung
 using Platformer.Mechanics;
-
 
 public class CharacterManager : MonoBehaviour
 {
-/*
-    public GameObject[] characterPrefabs;
-    private GameObject activeCharacter;
+    public GameObject[] characterPrefabs;  // Array der Charakter-Prefabs
+    private GameObject activeCharacter;    // Das aktuell aktive Charakter-GameObject
+
+    public CinemachineVirtualCamera virtualCamera;  // Referenz zur Cinemachine Virtual Camera
+
+    public Transform startPositionObject;  // GameObject für die Startposition, im Inspektor zuweisen
 
     void Start()
     {
-        Debug.Log("CharakterManager Start");
+        Debug.Log("CharacterManager Start");
+
+        // Hole den ausgewählten Charakterindex, stelle sicher, dass PlayerSelection korrekt implementiert ist
         int selectedCharacterIndex = PlayerSelection.SelectedCharacterIndex;
         Debug.Log("Selected Character Index: " + selectedCharacterIndex);
 
         if (selectedCharacterIndex >= 0 && selectedCharacterIndex < characterPrefabs.Length)
         {
-            // Setze den Charakter an die gewünschte Position
-            Vector3 startPosition = new Vector3(-5.77f, 0.95f, 0f);
+            Vector3 startPosition = startPositionObject != null ? startPositionObject.position : Vector3.zero;  // Setze die Startposition basierend auf dem zugewiesenen GameObject
             activeCharacter = Instantiate(characterPrefabs[selectedCharacterIndex], startPosition, Quaternion.identity);
             activeCharacter.name = "Player";
             Debug.Log("Character instantiated: " + activeCharacter.name);
-
-            if (activeCharacter != null)
-            {
-                Debug.Log("Character position: " + activeCharacter.transform.position);
-
-                Renderer renderer = activeCharacter.GetComponent<Renderer>();
-                if (renderer != null)
-                {
-                    Debug.Log("Renderer is enabled: " + renderer.enabled);
-                }
-                else
-                {
-                    Debug.LogWarning("No Renderer found on the character.");
-                }
-
-                // Setze den Player im GameController
-                PlayerController playerController = activeCharacter.GetComponent<PlayerController>();
-                if (playerController != null)
-                {
-                    GameController.Instance.SetPlayer(playerController);
-                }
-                else
-                {
-                    Debug.LogError("No PlayerController found on the character.");
-                }
-            }
+            // Setze den Layer des Characters
+            activeCharacter.layer = LayerMask.NameToLayer("Player");
+            // Setze den Player im GameController und update die Kamera, wenn diese Komponenten vorhanden sind
+            Debug.Log("Layer assigned to Player: " + LayerMask.LayerToName(activeCharacter.layer));
+            SetUpPlayerAndCamera(activeCharacter);
         }
         else
         {
             Debug.LogError("Invalid character index selected");
         }
     }
-}
-*/
-    public GameObject[] playerPrefabs; // Array der Spieler-Prefabs
 
-    void Start()
+    private void SetUpPlayerAndCamera(GameObject player)
     {
-        // Beispiel: Auswahl des ersten verfügbaren Charakters
-        CreateAndSetPlayer(0);
-    }
-
-    public void CreateAndSetPlayer(int selectedCharacterIndex)
-    {
-        if (selectedCharacterIndex < 0 || selectedCharacterIndex >= playerPrefabs.Length)
-        {
-            Debug.LogError("Index außerhalb des Bereichs der Charakter-Array.");
-            return;
-        }
-
-        GameObject playerInstance = Instantiate(playerPrefabs[selectedCharacterIndex]);
-        PlayerController playerController = playerInstance.GetComponent<PlayerController>();
-
+        // Prüfe auf und verarbeite das PlayerController-Komponent
+        PlayerController playerController = player.GetComponent<PlayerController>();
         if (playerController != null)
         {
-         //   GameController.Instance.SetPlayer(playerController);
+            Debug.Log("PlayerController found and setting up player in GameController and camera.");
+
+            // Setze den Spieler in GameController, wenn verwendet
+            if (GameController.Instance != null)
+                GameController.Instance.SetPlayer(playerController);
+
+            // Verbinde die Cinemachine-Kamera mit dem Spieler
+            if (virtualCamera != null)
+                virtualCamera.Follow = player.transform;
         }
         else
         {
-            Debug.LogError("PlayerController-Komponente fehlt im instanziierten Spieler-Prefab.");
+            Debug.LogError("No PlayerController found on the character.");
         }
     }
 }
-

@@ -44,13 +44,13 @@ namespace Platformer.Mechanics
 
         void Awake()
         {
+
             health = GetComponent<Health>();
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
         }
-
         protected override void Update()
         {
             if (controlEnabled)
@@ -136,6 +136,63 @@ namespace Platformer.Mechanics
             Jumping,
             InFlight,
             Landed
+        }
+        void OnTriggerEnter2D(Collider2D other)
+        {
+        if (other.CompareTag("Flame"))
+        {
+        Debug.Log("Spieler hat Flamme berührt - Auslösen des Flame Collision Events.");
+        var flameEvent = Schedule<PlayerFlameCollision>();
+        flameEvent.player = this;
+        }
+        else if (other.CompareTag("Enemy"))
+        {
+        Debug.Log("Kollision mit Enemy erkannt.");
+        var enemyCollision = Schedule<PlayerEnemyCollision>();
+        enemyCollision.player = this;
+        enemyCollision.enemy = other.GetComponent<EnemyController>();
+        }
+         else if (other.CompareTag("Blitz"))
+        {
+        Debug.Log("Kollision mit Blitz erkannt.");
+        var forceFieldCollision = Schedule<PlayerForceFieldCollision>();
+        forceFieldCollision.player = this;
+        forceFieldCollision.forceField = other.GetComponent<ForceFieldController>();
+        }
+        else if (other.CompareTag("Virus"))  // Make sure the virus tag is assigned
+        {
+         Debug.Log("Kollision mit Virus erkannt.");
+        var virusCollision = Schedule<PlayerVirusCollision>();  // Custom event for virus collision
+        virusCollision.player = this;
+        virusCollision.virus = other.GetComponent<VirusController>();  // VirusController reference
+        }
+        else if (other.CompareTag("Troll"))  // Make sure the troll tag is assigned
+        {
+        Debug.Log("Kollision mit Troll erkannt.");
+        var trollCollision = Schedule<PlayerTrollCollision>();  // Custom event for troll collision
+        trollCollision.player = this;
+        trollCollision.troll = other.GetComponent<TrollController>();  // TrollController reference
+        }
+
+
+        }
+
+        public void DisableControl()
+        {
+            controlEnabled = false;
+            velocity = Vector2.zero;  // Stoppe jegliche Bewegung
+        }
+
+            public void EnableControl()
+        {
+            controlEnabled = true;
+        }
+
+        public void RespawnAtStart(Vector2 startPosition)
+        {
+            transform.position = startPosition; // Setzt den Spieler an die Startposition
+            velocity = Vector2.zero; // Setzt die Bewegung zurück
+            EnableControl(); // Aktiviert die Kontrolle wieder, falls sie deaktiviert wurde
         }
     }
 }

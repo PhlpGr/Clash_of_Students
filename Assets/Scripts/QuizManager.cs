@@ -49,7 +49,7 @@ public class QuizManager : MonoBehaviour
         answeredQuestionsCount++;
             if (answeredQuestionsCount == 3) // Wenn der Spieler die dritte Frage richtig beantwortet hat
                 {
-                SceneManager.LoadScene(sceneName);
+                SceneManager.LoadScene("Level_1.2");
                 }
             else
                 {
@@ -60,7 +60,7 @@ public class QuizManager : MonoBehaviour
     public void False()
     {
         QnA.RemoveAt(currentQuestion);
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Level_1.1");
     }
 
     void SetAnswer() 
@@ -82,7 +82,7 @@ public class QuizManager : MonoBehaviour
         if (options[i] != null && options[i].transform.childCount > 0)
         {
             TextMeshProUGUI textComponent = options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
+            
             if (textComponent != null)
             {
                 textComponent.text = QnA[currentQuestion].Answers[i];

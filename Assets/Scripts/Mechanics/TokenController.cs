@@ -38,6 +38,11 @@ namespace Platformer.Mechanics
             }
         }
 
+        void Start()
+        {
+            ResetTokens(); // Setzt alle Tokens beim Start zurück
+        }
+
         void Update()
         {
             //if it's time for the next frame...
@@ -66,6 +71,21 @@ namespace Platformer.Mechanics
                 nextFrameTime += 1f / frameRate;
             }
         }
+
+       public void ResetTokens()
+        {
+            // Gehe durch alle Tokens und setze sie zurück
+            for (int i = 0; i < tokens.Length; i++)
+            {
+                if (tokens[i] != null)
+                {
+                    tokens[i].ResetToken(); // Ruft die Reset-Methode für jeden Token auf
+                    Debug.Log("Resetting Token: " + tokens[i].name);
+                }
+            }
+        }
+
+
 
     }
 }

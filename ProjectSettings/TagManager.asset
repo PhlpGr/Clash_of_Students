@@ -6,6 +6,21 @@ TagManager:
   tags:
   - TutorialRequirement
   - Enemy
+  - Flame
+  - Ladder
+  - LadderBottom
+  - LadderTop
+  - Blitz
+  - QuizButton
+  - LoadingPanel
+  - QuestionText
+  - FeedbackText
+  - Timer
+  - Virus
+  - Troll
+  - Ground
+  - ScoreText
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
@@ -13,9 +28,9 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - OneWayPlatform
+  - Ladder
   - 
   - 
   - 

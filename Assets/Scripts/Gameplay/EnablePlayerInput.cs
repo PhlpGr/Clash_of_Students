@@ -1,5 +1,6 @@
 using Platformer.Core;
 using Platformer.Model;
+using UnityEngine;
 
 namespace Platformer.Gameplay
 {
@@ -13,7 +14,13 @@ namespace Platformer.Gameplay
         public override void Execute()
         {
             var player = model.player;
+            if (player != null){
             player.controlEnabled = true;
+            Debug.Log("Spielersteuerung aktiviert.");
+            }
+            else{
+                Debug.Log("Spielermodell wurde nicht korrekt initialisiert.");
+            }
         }
     }
 }

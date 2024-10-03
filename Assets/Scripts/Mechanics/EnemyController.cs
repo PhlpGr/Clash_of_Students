@@ -33,12 +33,17 @@ namespace Platformer.Mechanics
 
         void OnCollisionEnter2D(Collision2D collision)
         {
+            //Debug.Log("Kollision erkannt mit: " + collision.gameObject.name);
             var player = collision.gameObject.GetComponent<PlayerController>();
             if (player != null)
             {
+                Debug.Log("Kollision mit Spieler erkannt!");
                 var ev = Schedule<PlayerEnemyCollision>();
                 ev.player = player;
                 ev.enemy = this;
+            }
+            else{
+                Debug.Log("Kollidiert mit Nicht-Spieler-Objekt.");
             }
         }
 
