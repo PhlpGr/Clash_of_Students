@@ -13397,6 +13397,7 @@ MonoBehaviour:
   - {fileID: 7525153816809366057, guid: a9d447e1ad2dd05458ebfcc3e3099938, type: 3}
   - {fileID: 6592134892635546268, guid: 153a4f470132ee14cb1d2aec027648cb, type: 3}
   virtualCamera: {fileID: 921429058}
+  startPositionObject: {fileID: 482711331}
 --- !u!4 &1416790328
 Transform:
   m_ObjectHideFlags: 0
@@ -15739,8 +15740,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  score: {fileID: 1589363881}
-  exitButton: {fileID: 1198070092}
 --- !u!1 &1617144275
 GameObject:
   m_ObjectHideFlags: 0

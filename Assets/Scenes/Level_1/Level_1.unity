@@ -3209,7 +3209,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.48, y: 2.9699998, z: -10}
+  m_LocalPosition: {x: -1.0799804, y: 3.1062663, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5028,6 +5028,7 @@ MonoBehaviour:
   - {fileID: 7525153816809366057, guid: a9d447e1ad2dd05458ebfcc3e3099938, type: 3}
   - {fileID: 6592134892635546268, guid: 153a4f470132ee14cb1d2aec027648cb, type: 3}
   virtualCamera: {fileID: 921429058}
+  startPositionObject: {fileID: 482711331}
 --- !u!4 &1438744526
 Transform:
   m_ObjectHideFlags: 0
