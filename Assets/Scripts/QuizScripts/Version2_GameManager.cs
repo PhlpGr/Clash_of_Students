@@ -59,6 +59,8 @@ public class Version2_GameManager : MonoBehaviour
         this.quizInfos = quizInfos;
         this.mainSceneName = mainSceneName;
 
+        Debug.LogError($"gespeicherte Szene: {mainSceneName}");
+
         url = GenerateURL(quizInfos.Mail, quizInfos.Program, quizInfos.Course, quizInfos.Lection, quizInfos.CurrentPosition);
         Debug.Log("Generierte URL: " + url);
 
@@ -378,9 +380,8 @@ public class Version2_GameManager : MonoBehaviour
         {
             // Entferne den Event-Listener, um Doppel-Aufrufe zu vermeiden
             SceneManager.sceneLoaded -= OnNewSceneLoaded;
-
-            // Plane den PlayerSpawn, um den Spieler an den definierten Spawnpunkt zu teleportieren
             Simulation.Schedule<PlayerSpawn>();
+
         }
     }
 

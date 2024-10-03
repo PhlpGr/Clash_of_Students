@@ -37,7 +37,7 @@ namespace Platformer.Mechanics
 
         void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log("Kollision erkannt mit: " + collision.gameObject.name);
+            //Debug.Log("Kollision erkannt mit: " + collision.gameObject.name);
             var player = collision.gameObject.GetComponent<PlayerController>();
 
             // Überprüfe, ob der Player vorhanden ist und das Sprite nicht None ist
