@@ -7117,7 +7117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ade0399868d1c468d3eb91d5be558c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 1555132415}
+  path: {fileID: 0}
 --- !u!212 &738958810
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9160,7 +9160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ade0399868d1c468d3eb91d5be558c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 1704840469}
+  path: {fileID: 0}
 --- !u!212 &960441369
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14365,6 +14365,7 @@ MonoBehaviour:
   - {fileID: 7525153816809366057, guid: a9d447e1ad2dd05458ebfcc3e3099938, type: 3}
   - {fileID: 6592134892635546268, guid: 153a4f470132ee14cb1d2aec027648cb, type: 3}
   virtualCamera: {fileID: 921429058}
+  startPositionObject: {fileID: 482711331}
 --- !u!4 &1416790328
 Transform:
   m_ObjectHideFlags: 0
@@ -14773,7 +14774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ade0399868d1c468d3eb91d5be558c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 1184287646}
+  path: {fileID: 0}
 --- !u!212 &1448946767
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17494,7 +17495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ade0399868d1c468d3eb91d5be558c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 1758445000}
+  path: {fileID: 0}
 --- !u!212 &1664166059
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19686,7 +19687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ade0399868d1c468d3eb91d5be558c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 1403084678}
+  path: {fileID: 0}
 --- !u!212 &1949158640
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21249,3 +21250,10 @@ SceneRoots:
   - {fileID: 322394065}
   - {fileID: 654907435}
   - {fileID: 1470287989}
+  - {fileID: 70780053}
+  - {fileID: 738958811}
+  - {fileID: 960441370}
+  - {fileID: 1448946768}
+  - {fileID: 1451168019}
+  - {fileID: 1664166060}
+  - {fileID: 1949158641}
