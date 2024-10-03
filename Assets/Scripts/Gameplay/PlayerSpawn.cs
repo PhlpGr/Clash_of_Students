@@ -11,7 +11,7 @@ namespace Platformer.Gameplay
     public class PlayerSpawn : Simulation.Event<PlayerSpawn>
     {
         PlatformerModel model = Simulation.GetModel<PlatformerModel>();
-        public Vector3 spawnPosition;
+        //public Vector3 spawnPosition;
 
         public override void Execute()
         {
@@ -36,8 +36,14 @@ namespace Platformer.Gameplay
                 return;
             }
 
+             if (model.spawnPoint == null)
+            {
+                Debug.LogError("Spawn point is missing in the model.");
+                return;
+            }
+
             // Setze die Position auf die Spawn-Position
-            player.transform.position = spawnPosition;
+            //player.transform.position = spawnPosition;
 
             player.collider2d.enabled = true;
             player.controlEnabled = true; // Steuerung aktivieren
@@ -61,13 +67,13 @@ namespace Platformer.Gameplay
             {
                 Debug.LogError("Virtual camera is not assigned.");
             }
-
+/*
             if (model.spawnPoint == null)
             {
                 Debug.LogError("Spawn point is missing in the model.");
                 return;
             }
-
+*/
             // Optional: Eingabeplaner, um die Eingabe nach einer Verzögerung zu aktivieren
             // Simulation.Schedule<EnablePlayerInput>(2f); 
         }

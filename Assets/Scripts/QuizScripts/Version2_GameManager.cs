@@ -374,30 +374,16 @@ public class Version2_GameManager : MonoBehaviour
     }
 */
     private void OnNewSceneLoaded(Scene scene, LoadSceneMode mode)
-{
-    // Überprüfe, ob die geladene Szene die Hauptszene ist
-    if (scene.name == mainSceneName)
     {
-        // Entferne den Event-Listener, um Doppel-Aufrufe zu vermeiden
-        SceneManager.sceneLoaded -= OnNewSceneLoaded;
-
-        // Finde den Spawnpunkt in der aktuellen Szene
-        GameObject spawnPointObject = GameObject.FindGameObjectWithTag("SpawnPoint"); // Stelle sicher, dass dein Spawnpunkt das Tag "SpawnPoint" hat
-        if (spawnPointObject != null)
+        // Überprüfe, ob die geladene Szene die Hauptszene ist
+        if (scene.name == mainSceneName)
         {
-            Vector3 spawnPosition = spawnPointObject.transform.position;
-            Debug.Log($"Spawnpunkt wurde gesetzt: {spawnPosition}");
+            // Entferne den Event-Listener, um Doppel-Aufrufe zu vermeiden
+            SceneManager.sceneLoaded -= OnNewSceneLoaded;
+            Simulation.Schedule<PlayerSpawn>();
 
-            // Plane den PlayerSpawn, um den Spieler an den definierten Spawnpunkt zu teleportieren
-            PlayerSpawn playerSpawnEvent = Simulation.Schedule<PlayerSpawn>();
-            playerSpawnEvent.spawnPosition = spawnPosition; // Setze die Spawn-Position
-        }
-        else
-        {
-            Debug.LogError("Spawnpunkt konnte in der Szene nicht gefunden werden.");
         }
     }
-}
 
 
 }
