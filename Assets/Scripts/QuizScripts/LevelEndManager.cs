@@ -8,6 +8,7 @@ public class LevelEndManager : MonoBehaviour
     private Infos quizInfos; // Informationen zum aktuellen Quiz
     private Score score; // Reference to the Score component
     public static JWTDisplayManager JWTDManager;
+    private JWTData jwtData; // Hier speichern wir die JWT-Daten
 
     private void Start()
     {
@@ -48,33 +49,24 @@ public class LevelEndManager : MonoBehaviour
     private IEnumerator PostFinalScore()
     {
         Debug.Log("Starting PostFinalScore Coroutine...");
+
         // Abrufen der JWT-Daten über den JWTDisplayManager
-        //JWTData jwtData = JWTDisplayManager.Instance.GetJWTData();
-        JWTData jwtData = new JWTData
-        {
-            email = "1",
-            firstname = "John",
-            lastname = "Doe",
-            professor_email = "professor@example.com",
-            program = "DBE",
-            course = "1"
-        };
-
-        if (jwtData == null)
-        {
-            Debug.LogError("JWT-Daten konnten nicht abgerufen werden.");
-            yield break;
+        if (JWTDisplayManager.Instance != null){
+            JWTData data = JWTDisplayManager.Instance.GetJWTData();
+            if (data != null)
+            {
+                Debug.Log("User's email: " + data.email);
+            }
         }
-        Debug.Log(jwtData.professor_email +
-            jwtData.program +
-            jwtData.course);
+        else {
+            Debug.Log("JWTDisplayManager Instance is null");
+        }
 
+        Debug.Log(jwtData.professor_email + jwtData.program + jwtData.course);
         Debug.Log(quizInfos.Lection);
         Debug.Log(quizInfos.Mail);
         Debug.Log(scoreCounter.lection_score);
-        Debug.Log("All variables are set");
 
-        // Post the score asynchronously
         yield return scoreCounter.PostScoreAsync(
             jwtData.email,
             jwtData.program,
@@ -83,15 +75,7 @@ public class LevelEndManager : MonoBehaviour
             scoreCounter.lection_score,
             quizInfos.Mail
         );
-        Debug.Log(jwtData.professor_email +
-            jwtData.program +
-            jwtData.course +
-            quizInfos.Lection +
-            scoreCounter.lection_score +
-            quizInfos.Mail);
-        Debug.Log("Score successfully posted.");
 
-        // Reset the score after posting
         if (score != null)
         {
             score.ResetScore();

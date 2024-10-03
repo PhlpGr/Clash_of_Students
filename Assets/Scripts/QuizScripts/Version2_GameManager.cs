@@ -59,6 +59,8 @@ public class Version2_GameManager : MonoBehaviour
         this.quizInfos = quizInfos;
         this.mainSceneName = mainSceneName;
 
+        Debug.LogError($"gespeicherte Szene: {mainSceneName}");
+
         url = GenerateURL(quizInfos.Mail, quizInfos.Program, quizInfos.Course, quizInfos.Lection, quizInfos.CurrentPosition);
         Debug.Log("Generierte URL: " + url);
 
@@ -372,17 +374,30 @@ public class Version2_GameManager : MonoBehaviour
     }
 */
     private void OnNewSceneLoaded(Scene scene, LoadSceneMode mode)
+{
+    // Überprüfe, ob die geladene Szene die Hauptszene ist
+    if (scene.name == mainSceneName)
     {
-        // Überprüfe, ob die geladene Szene die Hauptszene ist
-        if (scene.name == mainSceneName)
+        // Entferne den Event-Listener, um Doppel-Aufrufe zu vermeiden
+        SceneManager.sceneLoaded -= OnNewSceneLoaded;
+
+        // Finde den Spawnpunkt in der aktuellen Szene
+        GameObject spawnPointObject = GameObject.FindGameObjectWithTag("SpawnPoint"); // Stelle sicher, dass dein Spawnpunkt das Tag "SpawnPoint" hat
+        if (spawnPointObject != null)
         {
-            // Entferne den Event-Listener, um Doppel-Aufrufe zu vermeiden
-            SceneManager.sceneLoaded -= OnNewSceneLoaded;
+            Vector3 spawnPosition = spawnPointObject.transform.position;
+            Debug.Log($"Spawnpunkt wurde gesetzt: {spawnPosition}");
 
             // Plane den PlayerSpawn, um den Spieler an den definierten Spawnpunkt zu teleportieren
-            Simulation.Schedule<PlayerSpawn>();
+            PlayerSpawn playerSpawnEvent = Simulation.Schedule<PlayerSpawn>();
+            playerSpawnEvent.spawnPosition = spawnPosition; // Setze die Spawn-Position
+        }
+        else
+        {
+            Debug.LogError("Spawnpunkt konnte in der Szene nicht gefunden werden.");
         }
     }
+}
 
 
 }

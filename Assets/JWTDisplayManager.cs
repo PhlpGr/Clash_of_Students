@@ -11,27 +11,28 @@ public class JWTDisplayManager : MonoBehaviour
     public TMP_Text userInfoText; // Reference to the TextMeshPro UI element
     private string jwtToken; // Store the full JWT token
     private JWTData jwtData; // Store the parsed JWT data
-    
+
     public static JWTDisplayManager Instance;
 
     private void Awake()
     {
+        // Singleton Pattern to ensure there's only one instance of JWTDisplayManager
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject); // Ensure this GameObject persists across scenes
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // Destroy duplicate instances
         }
     }
-    
+
     void Start()
     {
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            // Get the JWT payload from the JavaScript function
+            // Get the JWT payload from the JavaScript function (this will call the JavaScript method)
             string jsonPayload = Marshal.PtrToStringUTF8(GetJWTPayload());
             if (!string.IsNullOrEmpty(jsonPayload))
             {
@@ -41,8 +42,16 @@ public class JWTDisplayManager : MonoBehaviour
                 // Parse the JSON string into a C# object
                 jwtData = JsonUtility.FromJson<JWTData>(jwtToken);
 
-                // Display the user's name in the TextMeshPro UI element
-                userInfoText.text = $"Welcome {jwtData.professor_email}!";
+                // Check if parsing was successful
+                if (jwtData != null && !string.IsNullOrEmpty(jwtData.professor_email))
+                {
+                    // Display the user's information in the TextMeshPro UI element
+                    userInfoText.text = $"Angemeldet als: {jwtData.firstname} {jwtData.lastname}";
+                }
+                else
+                {
+                    userInfoText.text = "Failed to parse JWT payload.";
+                }
             }
             else
             {

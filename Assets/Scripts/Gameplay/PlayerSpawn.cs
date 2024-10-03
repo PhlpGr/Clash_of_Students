@@ -11,9 +11,11 @@ namespace Platformer.Gameplay
     public class PlayerSpawn : Simulation.Event<PlayerSpawn>
     {
         PlatformerModel model = Simulation.GetModel<PlatformerModel>();
+        public Vector3 spawnPosition;
 
         public override void Execute()
         {
+            // Überprüfe, ob der Spieler im Modell vorhanden ist
             var player = model.player;
 
             if (player == null)
@@ -34,19 +36,18 @@ namespace Platformer.Gameplay
                 return;
             }
 
-            if (model.spawnPoint == null)
-            {
-                Debug.LogError("Spawn point is missing in the model.");
-                return;
-            }
+            // Setze die Position auf die Spawn-Position
+            player.transform.position = spawnPosition;
 
             player.collider2d.enabled = true;
             player.controlEnabled = true; // Steuerung aktivieren
 
+            // Falls vorhanden, spiele den Respawn-Sound ab
             if (player.audioSource && player.respawnAudio)
                 player.audioSource.PlayOneShot(player.respawnAudio);
 
             player.health.Increment();
+            // Teleportiere den Spieler zum Spawnpunkt (optional, wenn benötigt)
             player.Teleport(model.spawnPoint.transform.position);
             player.jumpState = PlayerController.JumpState.Grounded;
             player.animator.SetBool("dead", false);
@@ -58,11 +59,17 @@ namespace Platformer.Gameplay
             }
             else
             {
-               /* Debug.LogError("Virtual camera is not assigned."); 
-               */
+                Debug.LogError("Virtual camera is not assigned.");
             }
 
-            // Simulation.Schedule<EnablePlayerInput>(2f); // Eingabeplaner, optional nach Verzögerung aktivieren
+            if (model.spawnPoint == null)
+            {
+                Debug.LogError("Spawn point is missing in the model.");
+                return;
+            }
+
+            // Optional: Eingabeplaner, um die Eingabe nach einer Verzögerung zu aktivieren
+            // Simulation.Schedule<EnablePlayerInput>(2f); 
         }
     }
 }
