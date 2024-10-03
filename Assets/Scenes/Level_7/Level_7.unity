@@ -4656,7 +4656,7 @@ GameObject:
   - component: {fileID: 482711331}
   m_Layer: 0
   m_Name: Spawn Point
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7511,7 +7511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1262610792}
-  initialTime: 120
+  initialTime: 150
   startSceneName: Level_7
   respawnDelay: 2
   remainingTime: 0
@@ -9246,7 +9246,7 @@ Transform:
   m_GameObject: {fileID: 865784911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.67063594, y: 2.2707229, z: -10}
+  m_LocalPosition: {x: -0.65723586, y: 2.2707276, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

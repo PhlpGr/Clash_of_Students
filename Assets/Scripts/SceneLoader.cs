@@ -45,6 +45,10 @@ public class SceneLoader : MonoBehaviour
             Debug.LogWarning("Score object not found in the new scene!");
         }
 
+        // Find and set the spawn point and virtual camera in the new scene
+        GameController.Instance.FindAndSetSpawnPoint();
+        GameController.Instance.FindAndSetVirtualCamera();
+
         // Reset the score only if it was set to reset by the exit button
         if (shouldResetScore && score != null)
         {
@@ -53,7 +57,6 @@ public class SceneLoader : MonoBehaviour
             shouldResetScore = false; // Reset the flag after resetting the score
         }
     }
-
 
     // Update the button reference in the new scene
     private void UpdateButtonReference()

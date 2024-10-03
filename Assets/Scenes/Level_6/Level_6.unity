@@ -6298,7 +6298,7 @@ GameObject:
   - component: {fileID: 482711331}
   m_Layer: 0
   m_Name: Spawn Point
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22467,7 +22467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1944574352}
-  initialTime: 120
+  initialTime: 150
   startSceneName: Level_6
   respawnDelay: 2
   remainingTime: 0

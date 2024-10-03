@@ -20,6 +20,7 @@ TagManager:
   - Troll
   - Ground
   - ScoreText
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

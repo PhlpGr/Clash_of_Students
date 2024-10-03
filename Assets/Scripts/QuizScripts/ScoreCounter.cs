@@ -1,14 +1,11 @@
-using System;
-using System.Diagnostics;
-using System.Net.Http;
+using System.Collections;
 using System.Text;
-//using System.Text.Json;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Networking;
+using Newtonsoft.Json;
+
 namespace QuizScripts
-
-
 {
     public class ScoreCounter
     {
@@ -24,7 +21,6 @@ namespace QuizScripts
         {
             string url = "http://localhost:1999/score-submission";
 
-
             var payload = new
             {
                 user = user,
@@ -36,37 +32,29 @@ namespace QuizScripts
             };
 
             string jsonPayload = JsonConvert.SerializeObject(payload);
+            UnityWebRequest request = new UnityWebRequest(url, "POST");
+            byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonPayload);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
 
-            UnityEngine.Debug.Log("Payload: " + jsonPayload);
-            UnityEngine.Debug.Log("URL: " + url);
+            Debug.Log("Sending request...");
 
+            // Asynchronous request using UnityWebRequest
+            var operation = request.SendWebRequest();
 
-          
-
-            using (HttpClient client = new HttpClient())
+            while (!operation.isDone)
             {
-                try
-                {
-                    var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
-                    UnityEngine.Debug.Log("Sende Anfrage...");
-                    HttpResponseMessage response = await client.PostAsync(url, content);
-                    UnityEngine.Debug.Log("Response:" + response);
+                await Task.Yield(); // Let Unity continue to render frames
+            }
 
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string result = await response.Content.ReadAsStringAsync();
-                        UnityEngine.Debug.Log("Antwort erfolgreich erhalten: " + result);
-                    }
-
-                    else
-                    {
-                        Console.WriteLine($"Fehler bei der Anfrage: {response.StatusCode}");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    UnityEngine.Debug.LogError($"ExceptionT: {ex.Message}");
-                }
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Response received: " + request.downloadHandler.text);
+            }
+            else
+            {
+                Debug.LogError("Request error: " + request.error);
             }
         }
     }

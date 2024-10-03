@@ -5,50 +5,33 @@ using UnityEngine;
 namespace Platformer.Mechanics
 {
     /// <summary>
-    /// This class exposes the the game model in the inspector, and ticks the
-    /// simulation.
+    /// This class exposes the game model in the inspector and ticks the simulation.
     /// </summary> 
     public class GameController : MonoBehaviour
     {
         public static GameController Instance { get; private set; }
 
-        //This model field is public and can be therefore be modified in the 
-        //inspector.
-        //The reference actually comes from the InstanceRegister, and is shared
-        //through the simulation and events. Unity will deserialize over this
-        //shared reference when the scene loads, allowing the model to be
-        //conveniently configured inside the inspector.
+        // This model field is public and can be therefore modified in the inspector.
         public PlatformerModel model = Simulation.GetModel<PlatformerModel>();
-        public PlayerController player; //neu plus awake und setplayer auch           
+
         private void Awake()
         {
-            // Singleton-Muster um sicherzustellen, dass nur eine Instanz von GameController existiert.
+            // Singleton pattern to ensure only one instance of GameController exists.
             if (Instance != null && Instance != this)
             {
-                Destroy(gameObject);  // Zerstöre das zusätzliche GameObject, das diesen Script enthält.
+                Destroy(gameObject);
             }
             else
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);  // Optional: Verhindere, dass das Objekt bei Szenenwechsel zerstört wird.
-                if (model == null) {
-                model = new PlatformerModel();
+                DontDestroyOnLoad(gameObject);  // Optional: Prevents the object from being destroyed when changing scenes.
+                if (model == null)
+                {
+                    model = new PlatformerModel();
                 }
             }
         }
 
-        // Methode zum Setzen des Players, aufrufbar von anderen Skripten.
-        public void SetPlayer(PlayerController newPlayer)
-        {
-            player = newPlayer;
-            model.player = newPlayer;
-            // Hier können weitere Initialisierungen durchgeführt werden, z.B. das Einstellen der Kamera:
-            // if (virtualCamera != null) virtualCamera.Follow = player.transform;
-
-            Debug.Log("Player gesetzt: " + newPlayer.gameObject.name);
-            
-            // Weitere Konfigurationen können hier eingefügt werden, wie z.B. Event-Listener.
-        }
         void OnEnable()
         {
             Instance = this;
@@ -63,14 +46,38 @@ namespace Platformer.Mechanics
         {
             if (Instance == this) Simulation.Tick();
         }
-        
-        // Neue Methode zum Starten eines neuen Levels
+
+        public void FindAndSetSpawnPoint()
+        {
+            model.spawnPoint = GameObject.FindWithTag("SpawnPoint");
+            if (model.spawnPoint == null)
+            {
+                Debug.LogWarning("Spawn point not found in the current scene!");
+            }
+            else
+            {
+                Debug.Log("Spawn point set to: " + model.spawnPoint.name);
+            }
+        }
+
+
+        // Find and set the virtual camera in the current scene
+        public void FindAndSetVirtualCamera()
+        {
+            model.virtualCamera = FindObjectOfType<Cinemachine.CinemachineVirtualCamera>();
+            if (model.virtualCamera == null)
+            {
+                Debug.LogError("Virtual camera not found in the current scene!");
+            }
+        }
+
+        // Method to start a new level
         public void StartNewLevel()
         {
-            Timer timer = FindObjectOfType<Timer>(); // Suche nach der Timer-Instanz in der Szene
+            Timer timer = FindObjectOfType<Timer>();
             if (timer != null)
             {
-                timer.SetInitialTime(timer.initialTime); // Setze die initialTime des neuen Levels
+                timer.SetInitialTime(timer.initialTime); // Set the initial time for the new level
                 Debug.Log("Neues Level gestartet. Timer wurde zurückgesetzt und gestartet.");
             }
             else
